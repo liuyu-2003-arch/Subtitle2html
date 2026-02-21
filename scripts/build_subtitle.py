@@ -486,17 +486,16 @@ body::before{{content:'';position:fixed;inset:0;background-image:url("data:image
   color:var(--text-mute);font-style:italic;
 }}
 
-/* Footer - 底部展示统计与说明 */
+/* Footer - 底部一行展示，中间分隔符 */
 footer{{
   position:relative;z-index:1;
   text-align:center;padding:40px 32px;
   font-family:'Crimson Pro',serif;font-size:11px;
   color:var(--text-mute);letter-spacing:.1em;
   border-top:1px solid var(--border);
-  display:flex;flex-direction:column;gap:8px;align-items:center;
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 16px;
 }}
-footer .footer-desc{{color:var(--text-dim);}}
-footer .footer-meta{{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;}}
+footer .footer-sep{{opacity:.5;user-select:none;}}
 
 /* Curtain */
 .curtain{{position:fixed;inset:0;background:var(--bg);z-index:9998;animation:cr 1s ease forwards .05s}}
@@ -534,12 +533,13 @@ footer .footer-meta{{display:flex;gap:24px;flex-wrap:wrap;justify-content:center
 {"<div class='grid' id='grid'>" + cards_html + "</div>" if pages else "<div class='empty'>暂无字幕页面，上传字幕文件后自动生成</div>"}
 
 <footer>
-  <div class="footer-desc">所有字幕页面，由 GitHub Actions 自动生成</div>
-  <div class="footer-meta">
-    <span id="totalPages">{total_pages} 篇内容</span>
-    <span>{now} 最后更新</span>
-  </div>
-  <div>Subtitle2html</div>
+  <span>所有字幕页面，由 GitHub Actions 自动生成</span>
+  <span class="footer-sep">·</span>
+  <span id="totalPages">{total_pages} 篇内容</span>
+  <span class="footer-sep">·</span>
+  <span>{now} 最后更新</span>
+  <span class="footer-sep">·</span>
+  <span>Subtitle2html</span>
 </footer>
 
 <script>
