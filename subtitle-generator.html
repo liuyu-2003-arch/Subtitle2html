@@ -405,7 +405,7 @@ function log(text, type = 'dim') {
   const t = String(Math.floor((Date.now() - startTime) / 1000)).padStart(3, ' ') + 's';
   const line = document.createElement('div');
   line.className = 'log-line';
-  line.innerHTML = `<span class="log-time">${t}</span><span class="log-${type}">${text}</span>`;
+  line.innerHTML = `<span class="log-time">\${t}</span><span class="log-\${type}">\${text}</span>`;
   body.appendChild(line);
   body.scrollTop = body.scrollHeight;
 }
@@ -428,7 +428,7 @@ document.getElementById('fileInput').addEventListener('change', e => {
 
 function handleFile(file) {
   clearLog();
-  log(`读取: ${file.name}`, 'info');
+  log(`读取: \${file.name}`, 'info');
   const reader = new FileReader();
   reader.onload = e => {
     const content = e.target.result;
@@ -448,20 +448,20 @@ function handleFile(file) {
       document.getElementById('dropDefault').style.display = 'none';
       document.getElementById('fileInfo').style.display = 'flex';
       document.getElementById('fileName').textContent = file.name;
-      document.getElementById('fileStats').textContent = `${parsedSubs.length} 句 · ${mins}分${secs}秒`;
+      document.getElementById('fileStats').textContent = `\${parsedSubs.length} 句 · \${mins}分\${secs}秒`;
 
       outputFilename = deriveFilename(file.name);
       pageTitle = file.name.replace(/\.[^.]+$/, '').replace(/_/g, ' ').trim();
-      log(`✓ 解析成功: ${parsedSubs.length} 句字幕`, 'ok');
-      log(`  时长: ${mins}分${secs}秒`, 'dim');
-      log(`  输出文件名: ${outputFilename}`, 'dim');
+      log(`✓ 解析成功: \${parsedSubs.length} 句字幕`, 'ok');
+      log(`  时长: \${mins}分\${secs}秒`, 'dim');
+      log(`  输出文件名: \${outputFilename}`, 'dim');
 
       document.getElementById('genBtn').disabled = false;
       document.getElementById('editArea').classList.add('visible');
       document.getElementById('inputTitle').value = pageTitle;
       document.getElementById('inputFilename').value = outputFilename;
     } catch (err) {
-      log(`✗ 解析失败: ${err.message}`, 'err');
+      log(`✗ 解析失败: \${err.message}`, 'err');
     }
   };
   reader.readAsText(file, 'utf-8');
@@ -575,13 +575,13 @@ function generate() {
       generatedHTML = buildTimelineHTML(parsedSubs, dispTitle, series, outputFilename);
       setProgress(100, '完成');
       log('✓ 生成完成', 'ok');
-      log(`  标题: ${dispTitle}`, 'dim');
-      log(`  文件: ${outputFilename}`, 'dim');
-      log(`  大小: ${(generatedHTML.length / 1024).toFixed(1)} KB`, 'dim');
+      log(`  标题: \${dispTitle}`, 'dim');
+      log(`  文件: \${outputFilename}`, 'dim');
+      log(`  大小: \${(generatedHTML.length / 1024).toFixed(1)} KB`, 'dim');
       document.getElementById('previewBtn').classList.add('visible');
       document.getElementById('dlBtn').classList.add('visible');
     } catch (err) {
-      log(`✗ 生成失败: ${err.message}`, 'err');
+      log(`✗ 生成失败: \${err.message}`, 'err');
     }
     btn.disabled = false;
   }, 60);
@@ -607,14 +607,14 @@ function buildTimelineHTML(subs, title, seriesLabel, filename) {
     t: s.text
   })));
 
-  const seriesHTML = seriesLabel ? `<div class="series-label">${esc(seriesLabel)}</div>` : '';
+  const seriesHTML = seriesLabel ? `<div class="series-label">\${esc(seriesLabel)}</div>` : '';
 
   return `<!DOCTYPE html>
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${esc(title)}</title>
+<title>\${esc(title)}</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -626,7 +626,9 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .series-label{font-family:'Crimson Pro',serif;font-size:11px;font-style:italic;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);opacity:.75;margin-bottom:5px}
 h1{font-size:clamp(15px,2.2vw,21px);font-weight:300;letter-spacing:.08em;color:#f0ece4;line-height:1.4}
 .meta{margin-top:5px;font-family:'Crimson Pro',serif;font-size:12px;color:var(--text-mute);letter-spacing:.04em}
-.ctrls{position:fixed;top:22px;right:40px;z-index:101;display:flex;gap:8px}
+.back{position:fixed;top:22px;right:40px;z-index:102;font-family:'Crimson Pro',serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-mute);text-decoration:none;transition:color .2s}
+.back:hover{color:var(--gold)}
+.ctrls{position:fixed;top:22px;right:140px;z-index:101;display:flex;gap:8px}
 .btn{background:none;border:1px solid var(--border);color:var(--text-mute);padding:5px 13px;font-family:'Noto Serif SC',serif;font-size:11px;letter-spacing:.08em;cursor:pointer;transition:all .2s;border-radius:2px}
 .btn:hover{border-color:var(--gold);color:var(--gold)}
 .btn.on{border-color:var(--gold);color:var(--gold);background:var(--abg)}
@@ -673,9 +675,10 @@ h1{font-size:clamp(15px,2.2vw,21px);font-weight:300;letter-spacing:.08em;color:#
 <body>
 <div class="curtain"></div>
 <header class="hd">
-  ${seriesHTML}
-  <h1>${esc(title)}</h1>
-  <div class="meta">${subs.length.toLocaleString()} 句字幕 · ${mins}分${secs}秒</div>
+  <a class="back" href="../index.html">← 返回首页</a>
+  \${seriesHTML}
+  <h1>\${esc(title)}</h1>
+  <div class="meta">\${subs.length.toLocaleString()} 句字幕 · \${mins}分\${secs}秒</div>
 </header>
 <div class="ctrls">
   <button class="btn on" id="btnA" onclick="tA()">自动跟随</button>
@@ -689,11 +692,11 @@ h1{font-size:clamp(15px,2.2vw,21px);font-weight:300;letter-spacing:.08em;color:#
       <div class="np-lb">Now Playing</div>
       <div class="np-dc"><div class="np-dl"></div><div class="np-dd"></div><div class="np-dl"></div></div>
       <div class="np-tx" id="npTx">——</div>
-      <div class="np-ix" id="npIx">— / ${subs.length}</div>
+      <div class="np-ix" id="npIx">— / \${subs.length}</div>
     </div>
     <div class="stats">
-      <div class="sr"><span class="sr-l">总时长</span><span class="sr-v">${mins}分${secs}秒</span></div>
-      <div class="sr"><span class="sr-l">字幕总数</span><span class="sr-v">${subs.length.toLocaleString()}</span></div>
+      <div class="sr"><span class="sr-l">总时长</span><span class="sr-v">\${mins}分\${secs}秒</span></div>
+      <div class="sr"><span class="sr-l">字幕总数</span><span class="sr-v">\${subs.length.toLocaleString()}</span></div>
       <div class="sr"><span class="sr-l">当前进度</span><span class="sr-v" id="sPct">0%</span></div>
       <div class="sr"><span class="sr-l">当前时间</span><span class="sr-v" id="sTm">00:00:00</span></div>
       <div class="sr" id="sqR" style="display:none"><span class="sr-l">搜索结果</span><span class="sr-v" id="sqC">0</span></div>
@@ -703,12 +706,12 @@ h1{font-size:clamp(15px,2.2vw,21px);font-weight:300;letter-spacing:.08em;color:#
 <div class="pw">
   <button class="pp-btn" id="playBtn" onclick="togglePlay()">▶</button>
   <div style="flex:1">
-    <div class="td"><span id="tL">00:00:00</span><span id="tR">${fmtFull(totalDuration)}</span></div>
+    <div class="td"><span id="tL">00:00:00</span><span id="tR">\${fmtFull(totalDuration)}</span></div>
     <div class="pb" id="pb" onclick="seek(event)"><div class="pf" id="pf"></div></div>
   </div>
 </div>
 <script>
-const S=${subsJson},DUR=${totalDuration};
+const S=\${subsJson},DUR=\${totalDuration};
 let cur=-1,aF=true,cpt=false,play=false,ct=0,lT=null;
 const sl=document.getElementById('sl');
 const fr=document.createDocumentFragment();
@@ -763,7 +766,7 @@ function downloadFile() {
   const a = document.createElement('a');
   a.href = url; a.download = outputFilename; a.click();
   URL.revokeObjectURL(url);
-  log(`✓ 下载: ${outputFilename}`, 'ok');
+  log(`✓ 下载: \${outputFilename}`, 'ok');
   log('  放入 subtitle/ 文件夹推送 GitHub 即可在线访问', 'dim');
 }
 
@@ -775,12 +778,12 @@ function openEditor() {
     const div = document.createElement('div');
     div.className = 'sub-item';
     div.innerHTML = `
-      <div class="sub-idx">${i+1}</div>
+      <div class="sub-idx">\${i+1}</div>
       <div class="sub-times">
-        <input class="time-inp" value="${sec2ts(s.start)}" onchange="updateTime(${i}, 'start', this.value)">
-        <input class="time-inp" value="${sec2ts(s.end)}" onchange="updateTime(${i}, 'end', this.value)">
+        <input class="time-inp" value="\${sec2ts(s.start)}" onchange="updateTime(\${i}, 'start', this.value)">
+        <input class="time-inp" value="\${sec2ts(s.end)}" onchange="updateTime(\${i}, 'end', this.value)">
       </div>
-      <textarea class="sub-text-area" onchange="updateText(${i}, this.value)">${esc(s.text)}</textarea>
+      <textarea class="sub-text-area" onchange="updateText(\${i}, this.value)">\${esc(s.text)}</textarea>
     `;
     list.appendChild(div);
   });
@@ -800,7 +803,7 @@ function saveEditor() {
   // Re-calculate stats
   const dur = parsedSubs[parsedSubs.length - 1].end;
   const mins = Math.floor(dur / 60), secs = Math.floor(dur % 60);
-  document.getElementById('fileStats').textContent = `${parsedSubs.length} 句 · ${mins}分${secs}秒`;
+  document.getElementById('fileStats').textContent = `\${parsedSubs.length} 句 · \${mins}分\${secs}秒`;
   log('✓ 字幕内容已更新', 'ok');
   closeEditor();
 }
@@ -819,7 +822,7 @@ function sec2ts(sec) {
   const m = Math.floor((sec % 3600) / 60);
   const s = Math.floor(sec % 60);
   const ms = Math.round((sec % 1) * 1000);
-  return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}.${String(ms).padStart(3,'0')}`;
+  return `\${String(h).padStart(2,'0')}:\${String(m).padStart(2,'0')}:\${String(s).padStart(2,'0')}.\${String(ms).padStart(3,'0')}`;
 }
 </script>
 </body>

@@ -341,15 +341,18 @@ function doQ(){{const q=document.getElementById('q').value.trim();let cnt=0;docu
 # ── 首页 HTML ─────────────────────────────────────────────
 def build_index(pages: list) -> str:
     """
-    pages: [{"title", "filename", "count", "duration", "album?", "tags?"}, ...]
+    pages: [{"title", "filename", "count", "duration", "album?", "tags?", "mtime?"}, ...]
     """
     now = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
     total_pages = len(pages)
     all_albums = sorted({p.get("album", "") for p in pages if p.get("album")})
     all_tags   = sorted({t for p in pages for t in (p.get("tags") or [])})
 
+    # Sort by mtime descending (newest first)
+    sorted_pages = sorted(pages, key=lambda x: x.get("mtime", 0), reverse=True)
+
     cards_html = ""
-    for p in sorted(pages, key=lambda x: x["title"]):
+    for p in sorted_pages:
         dur_str   = fmt_duration(p["duration"])
         count     = f'{p["count"]:,}'
         deco      = p["title"][:1] if p["title"] else "·"
@@ -526,6 +529,7 @@ body::before{{content:'';position:fixed;inset:0;background-image:url("data:image
   box-shadow:0 8px 32px rgba(0,0,0,.4);
 }}
 .card.hidden{{display:none;}}
+.card.page-hidden{{display:none !important;}}
 
 .card-deco{{
   width:40px;height:40px;flex-shrink:0;
@@ -564,6 +568,20 @@ body::before{{content:'';position:fixed;inset:0;background-image:url("data:image
   font-family:'Crimson Pro',serif;font-size:14px;
   color:var(--text-mute);font-style:italic;
 }}
+
+/* Pager */
+.pager{{
+  display:flex;justify-content:center;align-items:center;gap:16px;
+  margin-top:-40px;padding-bottom:40px;position:relative;z-index:2;
+}}
+.pager-btn{{
+  background:var(--bg2);border:1px solid var(--border2);color:var(--text);
+  padding:8px 16px;border-radius:6px;cursor:pointer;font-family:'Noto Serif SC',serif;
+  transition:all .2s;font-size:12px;
+}}
+.pager-btn:hover:not(:disabled){{border-color:var(--gold);color:var(--gold);}}
+.pager-btn:disabled{{opacity:.5;cursor:not-allowed;}}
+.pager-info{{font-family:'Crimson Pro',serif;font-size:13px;color:var(--text-mute);}}
 
 /* Footer - 底部一行展示，中间分隔符 */
 footer{{
@@ -613,6 +631,12 @@ footer .footer-sep{{opacity:.5;user-select:none;}}
 {filter_row_html}
 {grid_html}
 
+<div class="pager" id="pager" style="display:none">
+  <button class="pager-btn" id="prevBtn" onclick="changePage(-1)">Previous</button>
+  <span class="pager-info" id="pageInfo">1 / 1</span>
+  <button class="pager-btn" id="nextBtn" onclick="changePage(1)">Next</button>
+</div>
+
 <footer>
   <span>所有字幕页面，由 GitHub Actions 自动生成</span>
   <span class="footer-sep">·</span>
@@ -624,33 +648,91 @@ footer .footer-sep{{opacity:.5;user-select:none;}}
 </footer>
 
 <script>
+let currentPage = 1;
+const pageSize = 10;
+
 function filterCards() {{
   const q = document.getElementById('searchBox').value.trim().toLowerCase();
   const albumVal = document.getElementById('albumSelect') ? document.getElementById('albumSelect').value : '';
   const selectedTags = [];
   document.querySelectorAll('.tag-pill.on').forEach(function(p) {{ selectedTags.push(p.getAttribute('data-tag')); }});
-  document.querySelectorAll('.card').forEach(function(card) {{
+  
+  const allCards = document.querySelectorAll('.card');
+  let visibleCount = 0;
+  
+  allCards.forEach(function(card) {{
     const title = card.querySelector('.card-title').textContent.toLowerCase();
     const album = card.getAttribute('data-album') || '';
     let tags = [];
     try {{ tags = JSON.parse(card.getAttribute('data-tags') || '[]'); }} catch(e) {{}}
+    
     const matchSearch = q === '' || title.includes(q);
     const matchAlbum = albumVal === '' || album === albumVal;
     const matchTags = selectedTags.length === 0 || selectedTags.some(function(t) {{ return tags.indexOf(t) !== -1; }});
-    card.classList.toggle('hidden', !(matchSearch && matchAlbum && matchTags));
+    
+    if (matchSearch && matchAlbum && matchTags) {{
+        card.classList.remove('hidden');
+        visibleCount++;
+    }} else {{
+        card.classList.add('hidden');
+    }}
   }});
-  const visible = document.querySelectorAll('.card:not(.hidden)').length;
-  document.getElementById('totalPages').textContent = visible + ' 篇内容';
+  
+  // Reset to page 1 on filter change
+  currentPage = 1;
+  renderPagination();
 }}
+
+function renderPagination() {{
+  const visibleCards = Array.from(document.querySelectorAll('.card:not(.hidden)'));
+  const totalItems = visibleCards.length;
+  const totalPages = Math.ceil(totalItems / pageSize) || 1;
+  
+  if (currentPage > totalPages) currentPage = 1;
+  if (currentPage < 1) currentPage = 1;
+  
+  // Apply pagination visibility
+  visibleCards.forEach((card, index) => {{
+    if (index >= (currentPage - 1) * pageSize && index < currentPage * pageSize) {{
+      card.classList.remove('page-hidden');
+    }} else {{
+      card.classList.add('page-hidden');
+    }}
+  }});
+  
+  // Update UI
+  document.getElementById('totalPages').textContent = totalItems + ' 篇内容';
+  
+  const pager = document.getElementById('pager');
+  if (totalItems <= pageSize) {{
+    pager.style.display = 'none';
+  }} else {{
+    pager.style.display = 'flex';
+    document.getElementById('pageInfo').textContent = currentPage + ' / ' + totalPages;
+    document.getElementById('prevBtn').disabled = currentPage === 1;
+    document.getElementById('nextBtn').disabled = currentPage === totalPages;
+  }}
+}}
+
+function changePage(delta) {{
+  currentPage += delta;
+  renderPagination();
+  window.scrollTo({{ top: 0, behavior: 'smooth' }});
+}}
+
 function toggleTag(el) {{
   el.classList.toggle('on');
   filterCards();
 }}
+
 document.getElementById('searchBtn').onclick = function() {{
   var wrap = document.getElementById('searchWrap');
   wrap.classList.toggle('open');
   if (wrap.classList.contains('open')) document.getElementById('searchBox').focus();
 }};
+
+// Init
+renderPagination();
 </script>
 </body>
 </html>"""
@@ -674,6 +756,10 @@ def rebuild_index_from_subtitle_dir() -> None:
             tags   = meta.get("tags", [])
             if not isinstance(tags, list):
                 tags = []
+            
+            # Get modification time
+            mtime = html_file.stat().st_mtime
+            
             pages.append({
                 "title":    title,
                 "filename": html_file.name,
@@ -681,6 +767,7 @@ def rebuild_index_from_subtitle_dir() -> None:
                 "duration": float(dur),
                 "album":    album,
                 "tags":     tags,
+                "mtime":    mtime
             })
         except Exception:
             meta = metadata.get(html_file.name, {})
@@ -691,6 +778,7 @@ def rebuild_index_from_subtitle_dir() -> None:
                 "duration": 0.0,
                 "album":    meta.get("album", ""),
                 "tags":     meta.get("tags", []) or [],
+                "mtime":    0
             })
     INDEX_PATH.write_text(build_index(pages), encoding="utf-8")
 
@@ -723,6 +811,21 @@ def main():
                     print(f"  ⚠ 未解析到字幕，跳过")
                     continue
                 html = build_html(subs, title)
+                
+                # Check if file exists and content is same to preserve mtime
+                if out_path.exists():
+                    existing = out_path.read_text(encoding="utf-8")
+                    if existing == html:
+                        print(f"  - {out_path.name} 无变化，跳过写入")
+                        pages.append({
+                            "title":    title,
+                            "filename": out_name,
+                            "count":    len(subs),
+                            "duration": subs[-1]["e"],
+                        })
+                        ok += 1
+                        continue
+
                 out_path.write_text(html, encoding="utf-8")
                 pages.append({
                     "title":    title,
