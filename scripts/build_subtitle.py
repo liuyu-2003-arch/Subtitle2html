@@ -2,21 +2,21 @@
 """
 scripts/build_subtitle.py
 
-扫描 subtitles/ 文件夹下所有字幕文件，
-为每个文件在 subtitle/ 文件夹下生成对应的 HTML 页面。
+1. 扫描 subtitles/ 文件夹，为每个字幕文件在 subtitle/ 生成 HTML 页面
+2. 扫描 subtitle/ 文件夹，生成根目录 index.html 首页
 
 支持格式：.srt  .vtt  .ass  .ssa  .txt
-输出路径：subtitle/<英文文件名>.html
 """
 
 import re
 import json
-import os
 from pathlib import Path
+from datetime import datetime
 
 # ── 路径配置 ──────────────────────────────────────────────
 SUBTITLES_DIR = Path("subtitles")
 OUTPUT_DIR    = Path("subtitle")
+INDEX_PATH    = Path("index.html")
 SUPPORTED_EXT = {".srt", ".vtt", ".ass", ".ssa", ".txt"}
 
 # ── 时间转换 ──────────────────────────────────────────────
@@ -36,6 +36,14 @@ def fmt_time_full(sec: float) -> str:
     m = int((sec % 3600) // 60)
     s = int(sec % 60)
     return f"{h:02d}:{m:02d}:{s:02d}"
+
+def fmt_duration(sec: float) -> str:
+    h = int(sec // 3600)
+    m = int((sec % 3600) // 60)
+    s = int(sec % 60)
+    if h > 0:
+        return f"{h}小时{m}分{s}秒"
+    return f"{m}分{s}秒"
 
 # ── 解析器 ────────────────────────────────────────────────
 def parse_srt(text: str) -> list:
@@ -123,24 +131,22 @@ def parse_txt(text: str) -> list:
 def parse_file(path: Path) -> list:
     text = path.read_text(encoding="utf-8", errors="replace")
     ext  = path.suffix.lower()
-    if ext == ".srt":          return parse_srt(text)
-    if ext == ".vtt":          return parse_vtt(text)
-    if ext in (".ass", ".ssa"): return parse_ass(text)
+    if ext == ".srt":               return parse_srt(text)
+    if ext == ".vtt":               return parse_vtt(text)
+    if ext in (".ass", ".ssa"):     return parse_ass(text)
     return parse_txt(text)
 
 # ── 文件名处理 ────────────────────────────────────────────
 def derive_output_name(stem: str) -> str:
-    """把原文件名（stem）转成纯 ASCII 小写连字符风格，用于输出文件名。"""
     ascii_part = re.sub(r"[^\x00-\x7F]", "-", stem)
     ascii_part = re.sub(r"[^a-zA-Z0-9]+", "-", ascii_part)
     ascii_part = ascii_part.strip("-").lower()
     return (ascii_part or "subtitle") + ".html"
 
 def derive_title(stem: str) -> str:
-    """用原始文件名（含中文）作为页面标题，下划线替换为空格。"""
     return stem.replace("_", " ").strip()
 
-# ── HTML 模板 ─────────────────────────────────────────────
+# ── 转义 ──────────────────────────────────────────────────
 def esc(s: str) -> str:
     return (str(s)
             .replace("&", "&amp;")
@@ -148,10 +154,10 @@ def esc(s: str) -> str:
             .replace(">", "&gt;")
             .replace('"', "&quot;"))
 
+# ── 字幕页 HTML ───────────────────────────────────────────
 def build_html(subs: list, title: str) -> str:
     if not subs:
         raise ValueError("字幕列表为空")
-
     total   = subs[-1]["e"]
     mins    = int(total // 60)
     secs    = int(total % 60)
@@ -172,18 +178,20 @@ html{{scroll-behavior:smooth}}
 body{{background:var(--bg);color:var(--text);font-family:'Noto Serif SC','Songti SC',serif;min-height:100vh;overflow-x:hidden}}
 body::before{{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.35}}
 .hd{{position:fixed;top:0;left:0;right:0;z-index:100;background:linear-gradient(to bottom,rgba(10,10,12,.97) 55%,transparent);padding:22px 40px 44px}}
+.back{{display:inline-flex;align-items:center;gap:6px;font-family:'Crimson Pro',serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-mute);text-decoration:none;margin-bottom:10px;transition:color .2s}}
+.back:hover{{color:var(--gold)}}
 h1{{font-size:clamp(15px,2.2vw,21px);font-weight:300;letter-spacing:.08em;color:#f0ece4;line-height:1.4}}
 .meta{{margin-top:5px;font-family:'Crimson Pro',serif;font-size:12px;color:var(--text-mute);letter-spacing:.04em}}
 .ctrls{{position:fixed;top:22px;right:40px;z-index:101;display:flex;gap:8px}}
 .btn{{background:none;border:1px solid var(--border);color:var(--text-mute);padding:5px 13px;font-family:'Noto Serif SC',serif;font-size:11px;letter-spacing:.08em;cursor:pointer;transition:all .2s;border-radius:2px}}
 .btn:hover{{border-color:var(--gold);color:var(--gold)}}
 .btn.on{{border-color:var(--gold);color:var(--gold);background:var(--abg)}}
-.srch{{position:fixed;top:70px;right:40px;z-index:100}}
-.srch input{{background:rgba(20,20,26,.92);border:1px solid var(--border);color:var(--text);padding:7px 14px;font-family:'Noto Serif SC',serif;font-size:12px;width:190px;outline:none;border-radius:2px;transition:border-color .2s;backdrop-filter:blur(10px)}}
+.srch{{position:fixed;top:22px;right:200px;z-index:100}}
+.srch input{{background:rgba(20,20,26,.92);border:1px solid var(--border);color:var(--text);padding:6px 14px;font-family:'Noto Serif SC',serif;font-size:12px;width:180px;outline:none;border-radius:2px;transition:border-color .2s;backdrop-filter:blur(10px)}}
 .srch input::placeholder{{color:var(--text-mute)}}
 .srch input:focus{{border-color:rgba(201,168,76,.4)}}
-.main{{display:grid;grid-template-columns:1fr 290px;padding-top:90px;padding-bottom:68px;min-height:100vh}}
-.sl{{padding:28px 44px 28px 38px;overflow-y:auto;height:calc(100vh - 158px);position:sticky;top:90px;scrollbar-width:thin;scrollbar-color:#222228 transparent}}
+.main{{display:grid;grid-template-columns:1fr 290px;padding-top:100px;padding-bottom:68px;min-height:100vh}}
+.sl{{padding:28px 44px 28px 38px;overflow-y:auto;height:calc(100vh - 168px);position:sticky;top:100px;scrollbar-width:thin;scrollbar-color:#222228 transparent}}
 .sl::-webkit-scrollbar{{width:3px}}
 .sl::-webkit-scrollbar-thumb{{background:#222228;border-radius:2px}}
 .si{{display:flex;align-items:baseline;gap:16px;padding:8px 14px;border-left:2px solid transparent;cursor:pointer;transition:all .2s;border-radius:0 3px 3px 0;margin-bottom:1px}}
@@ -195,7 +203,7 @@ h1{{font-size:clamp(15px,2.2vw,21px);font-weight:300;letter-spacing:.08em;color:
 .sx{{font-size:14.5px;font-weight:300;line-height:1.75;letter-spacing:.05em;color:var(--text-dim);transition:color .2s;flex:1}}
 .si.act .sx{{color:#f0ece4;font-weight:400}}
 .sx mark{{background:rgba(201,168,76,.14);color:var(--gold2);padding:0 2px;border-radius:2px}}
-.sp{{border-left:1px solid var(--border);background:var(--bg2);position:sticky;top:90px;height:calc(100vh - 158px);overflow-y:auto;display:flex;flex-direction:column}}
+.sp{{border-left:1px solid var(--border);background:var(--bg2);position:sticky;top:100px;height:calc(100vh - 168px);overflow-y:auto;display:flex;flex-direction:column}}
 .np{{padding:32px 22px;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border-bottom:1px solid var(--border)}}
 .np-lb{{font-family:'Crimson Pro',serif;font-size:10px;font-style:italic;letter-spacing:.28em;text-transform:uppercase;color:var(--text-mute);margin-bottom:20px}}
 .np-dc{{display:flex;align-items:center;gap:10px;margin-bottom:14px}}
@@ -214,12 +222,13 @@ h1{{font-size:clamp(15px,2.2vw,21px);font-weight:300;letter-spacing:.08em;color:
 .pf{{height:100%;background:linear-gradient(to right,var(--gold),var(--gold2));border-radius:1px;width:0%;pointer-events:none}}
 .curtain{{position:fixed;inset:0;background:#000;z-index:9998;animation:cr 1.2s ease forwards .1s}}
 @keyframes cr{{to{{opacity:0;pointer-events:none}}}}
-@media(max-width:700px){{.main{{grid-template-columns:1fr}}.sp{{display:none}}.hd{{padding:14px 18px 36px}}.sl{{padding:16px}}.pw{{padding:10px 18px 14px}}.ctrls,.srch{{display:none}}}}
+@media(max-width:700px){{.main{{grid-template-columns:1fr}}.sp{{display:none}}.hd{{padding:14px 18px 44px}}.sl{{padding:16px}}.pw{{padding:10px 18px 14px}}.ctrls{{top:14px;right:18px}}.srch{{display:none}}}}
 </style>
 </head>
 <body>
 <div class="curtain"></div>
 <header class="hd">
+  <a class="back" href="../index.html">← 返回首页</a>
   <h1>{esc(title)}</h1>
   <div class="meta">{count:,} 句字幕 · {mins}分{secs}秒</div>
 </header>
@@ -285,39 +294,321 @@ function doQ(){{const q=document.getElementById('q').value.trim();let cnt=0;docu
 </body>
 </html>"""
 
+# ── 首页 HTML ─────────────────────────────────────────────
+def build_index(pages: list) -> str:
+    """
+    pages: [{"title": str, "filename": str, "count": int, "duration": float}, ...]
+    """
+    now = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+    total_pages = len(pages)
+
+    cards_html = ""
+    for p in sorted(pages, key=lambda x: x["title"]):
+        dur_str  = fmt_duration(p["duration"])
+        count    = f'{p["count"]:,}'
+        # 取标题前两个字作装饰字符（fallback 到序号）
+        deco = p["title"][:1] if p["title"] else "·"
+        cards_html += f"""
+    <a class="card" href="subtitle/{esc(p['filename'])}">
+      <div class="card-deco">{esc(deco)}</div>
+      <div class="card-body">
+        <div class="card-title">{esc(p['title'])}</div>
+        <div class="card-meta">
+          <span>🕐 {esc(dur_str)}</span>
+          <span>{esc(count)} 句</span>
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>"""
+
+    return f"""<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>字幕收藏</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap');
+*,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
+:root{{
+  --bg:#0a0a0c;--bg2:#111116;--bg3:#16161e;
+  --border:rgba(255,255,255,.06);--border2:rgba(255,255,255,.1);
+  --gold:#c9a84c;--gold2:#e8c97a;
+  --text:#d4cfc8;--text-dim:#6b6760;--text-mute:#38383a;
+  --hover:rgba(201,168,76,.06);
+}}
+html{{scroll-behavior:smooth}}
+body{{background:var(--bg);color:var(--text);font-family:'Noto Serif SC','Songti SC',serif;min-height:100vh}}
+body::before{{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.35}}
+
+/* Hero */
+.hero{{
+  position:relative;z-index:1;
+  padding:80px 60px 60px;
+  border-bottom:1px solid var(--border);
+  max-width:1100px;margin:0 auto;
+}}
+.hero-label{{
+  font-family:'Crimson Pro',serif;font-size:11px;font-style:italic;
+  letter-spacing:.3em;text-transform:uppercase;
+  color:var(--gold);opacity:.7;margin-bottom:16px;
+}}
+.hero-title{{
+  font-size:clamp(28px,5vw,52px);font-weight:300;
+  letter-spacing:.06em;line-height:1.2;color:#f0ece4;
+  margin-bottom:16px;
+}}
+.hero-sub{{
+  font-family:'Crimson Pro',serif;font-size:14px;
+  color:var(--text-dim);letter-spacing:.04em;
+}}
+.hero-deco{{
+  display:flex;align-items:center;gap:12px;margin-top:32px;
+}}
+.deco-line{{width:48px;height:1px;background:linear-gradient(to right,var(--gold),transparent);opacity:.4;}}
+.deco-dot{{width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.5;}}
+
+/* Stats bar */
+.statsbar{{
+  position:relative;z-index:1;
+  max-width:1100px;margin:0 auto;
+  padding:20px 60px;
+  display:flex;gap:40px;align-items:center;
+  border-bottom:1px solid var(--border);
+}}
+.stat{{display:flex;flex-direction:column;gap:3px;}}
+.stat-val{{font-family:'Crimson Pro',serif;font-size:22px;font-weight:300;color:#f0ece4;letter-spacing:.04em;}}
+.stat-label{{font-family:'Crimson Pro',serif;font-size:11px;color:var(--text-mute);letter-spacing:.1em;}}
+.stat-sep{{width:1px;height:32px;background:var(--border);}}
+
+/* Search */
+.search-wrap{{
+  position:relative;z-index:1;
+  max-width:1100px;margin:0 auto;
+  padding:24px 60px;
+}}
+.search-input{{
+  width:100%;max-width:380px;
+  background:var(--bg2);border:1px solid var(--border2);
+  color:var(--text);padding:10px 16px;
+  font-family:'Noto Serif SC',serif;font-size:13px;
+  border-radius:4px;outline:none;
+  transition:border-color .2s;
+}}
+.search-input::placeholder{{color:var(--text-mute);}}
+.search-input:focus{{border-color:rgba(201,168,76,.4);}}
+
+/* Grid */
+.grid{{
+  position:relative;z-index:1;
+  max-width:1100px;margin:0 auto;
+  padding:0 60px 80px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:12px;
+}}
+
+/* Card */
+.card{{
+  display:flex;align-items:center;gap:16px;
+  padding:20px 22px;
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:8px;
+  text-decoration:none;
+  transition:all .22s ease;
+  cursor:pointer;
+}}
+.card:hover{{
+  background:var(--hover);
+  border-color:rgba(201,168,76,.3);
+  transform:translateY(-2px);
+  box-shadow:0 8px 32px rgba(0,0,0,.4);
+}}
+.card.hidden{{display:none;}}
+
+.card-deco{{
+  width:40px;height:40px;flex-shrink:0;
+  border:1px solid var(--border2);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--gold);opacity:.7;
+  font-weight:300;letter-spacing:0;
+  font-family:'Noto Serif SC',serif;
+  transition:opacity .2s;
+}}
+.card:hover .card-deco{{opacity:1;}}
+
+.card-body{{flex:1;min-width:0;}}
+.card-title{{
+  font-size:14px;font-weight:400;letter-spacing:.04em;
+  color:#f0ece4;line-height:1.4;margin-bottom:6px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}}
+.card-meta{{
+  display:flex;gap:12px;
+  font-family:'Crimson Pro',serif;font-size:11px;
+  color:var(--text-mute);letter-spacing:.05em;
+}}
+
+.card-arrow{{
+  font-family:'Crimson Pro',serif;font-size:16px;
+  color:var(--text-mute);flex-shrink:0;
+  transition:all .2s;
+}}
+.card:hover .card-arrow{{color:var(--gold);transform:translateX(3px);}}
+
+/* Empty */
+.empty{{
+  position:relative;z-index:1;
+  text-align:center;padding:80px 20px;
+  font-family:'Crimson Pro',serif;font-size:14px;
+  color:var(--text-mute);font-style:italic;
+}}
+
+/* Footer */
+footer{{
+  position:relative;z-index:1;
+  text-align:center;padding:32px;
+  font-family:'Crimson Pro',serif;font-size:11px;
+  color:var(--text-mute);letter-spacing:.1em;
+  border-top:1px solid var(--border);
+}}
+
+/* Curtain */
+.curtain{{position:fixed;inset:0;background:#000;z-index:9998;animation:cr 1s ease forwards .05s}}
+@keyframes cr{{to{{opacity:0;pointer-events:none}}}}
+
+@media(max-width:768px){{
+  .hero,.statsbar,.search-wrap,.grid{{padding-left:20px;padding-right:20px;}}
+  .hero{{padding-top:48px;padding-bottom:36px;}}
+  .grid{{grid-template-columns:1fr;}}
+  .statsbar{{gap:20px;flex-wrap:wrap;}}
+}}
+</style>
+</head>
+<body>
+<div class="curtain"></div>
+
+<div class="hero">
+  <div class="hero-label">字幕收藏</div>
+  <div class="hero-title">字幕阅读<br>归档</div>
+  <div class="hero-sub">所有字幕页面，由 GitHub Actions 自动生成</div>
+  <div class="hero-deco">
+    <div class="deco-line"></div>
+    <div class="deco-dot"></div>
+  </div>
+</div>
+
+<div class="statsbar">
+  <div class="stat">
+    <div class="stat-val" id="totalPages">{total_pages}</div>
+    <div class="stat-label">篇内容</div>
+  </div>
+  <div class="stat-sep"></div>
+  <div class="stat">
+    <div class="stat-val">{now}</div>
+    <div class="stat-label">最后更新</div>
+  </div>
+</div>
+
+<div class="search-wrap">
+  <input class="search-input" type="text" id="searchBox" placeholder="搜索标题…" oninput="filterCards()">
+</div>
+
+{"<div class='grid' id='grid'>" + cards_html + "</div>" if pages else "<div class='empty'>暂无字幕页面，上传字幕文件后自动生成</div>"}
+
+<footer>自动生成于 {now} · Subtitle2html</footer>
+
+<script>
+function filterCards() {{
+  const q = document.getElementById('searchBox').value.trim().toLowerCase();
+  document.querySelectorAll('.card').forEach(card => {{
+    const title = card.querySelector('.card-title').textContent.toLowerCase();
+    card.classList.toggle('hidden', q !== '' && !title.includes(q));
+  }});
+  const visible = document.querySelectorAll('.card:not(.hidden)').length;
+  document.getElementById('totalPages').textContent = q ? visible : {total_pages};
+}}
+</script>
+</body>
+</html>"""
+
 # ── 主逻辑 ────────────────────────────────────────────────
 def main():
     OUTPUT_DIR.mkdir(exist_ok=True)
 
-    subtitle_files = [
+    # 1. 生成字幕页面
+    subtitle_files = sorted([
         f for f in SUBTITLES_DIR.iterdir()
         if f.is_file() and f.suffix.lower() in SUPPORTED_EXT
-    ]
+    ])
+
+    pages = []
+    ok = 0
 
     if not subtitle_files:
-        print("subtitles/ 文件夹下没有找到字幕文件，跳过。")
-        return
+        print("subtitles/ 文件夹下没有找到字幕文件，跳过字幕页生成。")
+    else:
+        for src in subtitle_files:
+            out_name = derive_output_name(src.stem)
+            out_path = OUTPUT_DIR / out_name
+            title    = derive_title(src.stem)
 
-    ok = 0
-    for src in sorted(subtitle_files):
-        out_name = derive_output_name(src.stem)
-        out_path = OUTPUT_DIR / out_name
-        title    = derive_title(src.stem)
+            print(f"处理: {src.name}  →  subtitle/{out_name}")
+            try:
+                subs = parse_file(src)
+                if not subs:
+                    print(f"  ⚠ 未解析到字幕，跳过")
+                    continue
+                html = build_html(subs, title)
+                out_path.write_text(html, encoding="utf-8")
+                pages.append({
+                    "title":    title,
+                    "filename": out_name,
+                    "count":    len(subs),
+                    "duration": subs[-1]["e"],
+                })
+                print(f"  ✓ {len(subs)} 句，已写入 {out_path}")
+                ok += 1
+            except Exception as e:
+                print(f"  ✗ 失败: {e}")
 
-        print(f"处理: {src.name}  →  subtitle/{out_name}")
+        print(f"\n字幕页：{ok}/{len(subtitle_files)} 生成成功")
+
+    # 2. 扫描 subtitle/ 中已有的 HTML（包括本次没有重新生成的旧文件）
+    #    合并已生成的 pages 与旧有文件
+    existing = {p["filename"] for p in pages}
+    for html_file in OUTPUT_DIR.glob("*.html"):
+        if html_file.name in existing:
+            continue
+        # 从文件中提取 <title> 和 meta 信息
         try:
-            subs = parse_file(src)
-            if not subs:
-                print(f"  ⚠ 未解析到字幕，跳过")
-                continue
-            html = build_html(subs, title)
-            out_path.write_text(html, encoding="utf-8")
-            print(f"  ✓ {len(subs)} 句字幕，已写入 {out_path}")
-            ok += 1
-        except Exception as e:
-            print(f"  ✗ 失败: {e}")
+            content = html_file.read_text(encoding="utf-8", errors="replace")
+            title_m = re.search(r"<title>(.*?)</title>", content)
+            title   = title_m.group(1) if title_m else html_file.stem
+            # 提取句数和时长
+            count_m = re.search(r"(\d[\d,]+)\s*句字幕", content)
+            dur_m   = re.search(r"(\d+)分(\d+)秒", content)
+            count   = int((count_m.group(1) if count_m else "0").replace(",", ""))
+            dur     = (int(dur_m.group(1)) * 60 + int(dur_m.group(2))) if dur_m else 0
+            pages.append({
+                "title":    title,
+                "filename": html_file.name,
+                "count":    count,
+                "duration": float(dur),
+            })
+        except Exception:
+            pages.append({
+                "title":    html_file.stem,
+                "filename": html_file.name,
+                "count":    0,
+                "duration": 0.0,
+            })
 
-    print(f"\n完成：{ok}/{len(subtitle_files)} 个文件生成成功。")
+    # 3. 生成首页
+    print(f"\n生成首页 index.html（共 {len(pages)} 个页面）...")
+    INDEX_PATH.write_text(build_index(pages), encoding="utf-8")
+    print("✓ index.html 已生成")
 
 if __name__ == "__main__":
     main()
