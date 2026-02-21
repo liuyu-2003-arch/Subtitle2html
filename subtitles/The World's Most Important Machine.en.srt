@@ -1,0 +1,6182 @@
+1
+00:00:00,150 --> 00:00:01,530
+- This is a microchip.
+
+2
+00:00:01,530 --> 00:00:05,010
+When you zoom in, you find
+a nanoscopic computing city,
+
+3
+00:00:05,010 --> 00:00:07,320
+skyscrapers hundreds of layers tall
+
+4
+00:00:07,320 --> 00:00:10,950
+with hundreds of kilometers of
+wires connecting everything.
+
+5
+00:00:10,950 --> 00:00:13,830
+And at the very bottom is this,
+
+6
+00:00:13,830 --> 00:00:14,913
+transistors,
+
+7
+00:00:15,810 --> 00:00:17,430
+billions of them.
+
+8
+00:00:17,430 --> 00:00:20,550
+They are the ones and
+zeros of our computer.
+
+9
+00:00:20,550 --> 00:00:22,080
+The chip works by whizzing electrons
+
+10
+00:00:22,080 --> 00:00:24,060
+from transistor to transistor,
+
+11
+00:00:24,060 --> 00:00:25,890
+and the smaller you can
+make those transistors,
+
+12
+00:00:25,890 --> 00:00:27,420
+the less the signals have to travel,
+
+13
+00:00:27,420 --> 00:00:29,340
+so the faster they can compute.
+
+14
+00:00:29,340 --> 00:00:32,550
+Plus, you can fit more
+transistors into the same area,
+
+15
+00:00:32,550 --> 00:00:35,460
+resulting in a much more powerful chip.
+
+16
+00:00:35,460 --> 00:00:38,817
+So for over 50 years, transistors
+got smaller and smaller,
+
+17
+00:00:38,817 --> 00:00:41,190
+and the number you could
+fit on a chip doubled
+
+18
+00:00:41,190 --> 00:00:42,720
+every two years.
+
+19
+00:00:42,720 --> 00:00:44,490
+This became known as Moore's Law,
+
+20
+00:00:44,490 --> 00:00:46,860
+named for Intel's
+co-founder, Gordon Moore,
+
+21
+00:00:46,860 --> 00:00:49,590
+after he noticed the pattern back in 1965,
+
+22
+00:00:49,590 --> 00:00:52,590
+and it's been one of the main
+drivers of the tech industry.
+
+23
+00:00:52,590 --> 00:00:53,970
+But around 2015,
+
+24
+00:00:53,970 --> 00:00:56,400
+progress came to a screeching halt,
+
+25
+00:00:56,400 --> 00:00:58,090
+and we might have never gotten past it
+
+26
+00:00:58,090 --> 00:01:02,250
+if it wasn't for a single company
+that makes these machines,
+
+27
+00:01:02,250 --> 00:01:04,800
+the machines that saved Moore's Law.
+
+28
+00:01:04,800 --> 00:01:06,030
+- Holy.
+
+29
+00:01:06,030 --> 00:01:08,490
+- This is a video about
+the most complicated
+
+30
+00:01:08,490 --> 00:01:11,250
+commercial product humanity's ever built.
+
+31
+00:01:11,250 --> 00:01:12,690
+- That's insane.
+
+32
+00:01:12,690 --> 00:01:15,150
+- It costs a whopping $400 million,
+
+33
+00:01:15,150 --> 00:01:18,060
+and it is so bizarre that I
+want to introduce it to you
+
+34
+00:01:18,060 --> 00:01:19,593
+with a thought experiment.
+
+35
+00:01:21,150 --> 00:01:22,800
+Imagine you are shrunk down
+
+36
+00:01:22,800 --> 00:01:24,093
+to the size of an ant,
+
+37
+00:01:25,170 --> 00:01:27,960
+and you are given a laser
+that's strong enough to melt
+
+38
+00:01:27,960 --> 00:01:29,760
+through metal like butter.
+
+39
+00:01:29,760 --> 00:01:31,890
+Next, a tiny droplet of molten tin,
+
+40
+00:01:31,890 --> 00:01:33,900
+roughly the size of a white blood cell,
+
+41
+00:01:33,900 --> 00:01:35,340
+is shot out in front of you
+
+42
+00:01:35,340 --> 00:01:38,010
+around 250 kilometers per hour.
+
+43
+00:01:38,010 --> 00:01:41,310
+And your task is to hit
+this not once, not twice,
+
+44
+00:01:41,310 --> 00:01:44,130
+but three times in a
+row in 20 microseconds
+
+45
+00:01:44,130 --> 00:01:45,870
+with your little laser.
+
+46
+00:01:45,870 --> 00:01:48,450
+Well, that is exactly
+what this machine does.
+
+47
+00:01:48,450 --> 00:01:51,690
+It hits one tiny tin droplet
+three times in a row,
+
+48
+00:01:51,690 --> 00:01:55,350
+heating each one up to
+over 220,000 Kelvin.
+
+49
+00:01:55,350 --> 00:01:59,100
+That's roughly 40 times hotter
+than the surface of the Sun.
+
+50
+00:01:59,100 --> 00:02:01,230
+And it doesn't just hit one droplet,
+
+51
+00:02:01,230 --> 00:02:05,280
+it hits 50,000 droplets
+every single second.
+
+52
+00:02:05,280 --> 00:02:07,350
+How often do you miss a laser shot?
+
+53
+00:02:07,350 --> 00:02:08,610
+- We don't miss them.
+
+54
+00:02:08,610 --> 00:02:09,443
+- What?
+
+55
+00:02:09,443 --> 00:02:12,960
+You do 150,000 laser shots a second,
+
+56
+00:02:12,960 --> 00:02:14,370
+and you don't miss one?
+
+57
+00:02:14,370 --> 00:02:15,750
+- Exactly.
+
+58
+00:02:15,750 --> 00:02:17,640
+- The same machine also contains mirrors
+
+59
+00:02:17,640 --> 00:02:21,240
+that might just be the smoothest
+objects in the universe.
+
+60
+00:02:21,240 --> 00:02:23,580
+If you scale one up to
+the size of the Earth,
+
+61
+00:02:23,580 --> 00:02:24,930
+then the largest bump would be
+
+62
+00:02:24,930 --> 00:02:27,090
+no thicker than a playing card.
+
+63
+00:02:27,090 --> 00:02:28,980
+On top of that, it is able to overlay
+
+64
+00:02:28,980 --> 00:02:31,380
+one layer of a chip
+perfectly on top of another
+
+65
+00:02:31,380 --> 00:02:34,410
+and never be off by more than five atoms.
+
+66
+00:02:34,410 --> 00:02:35,700
+And this is all happening
+
+67
+00:02:35,700 --> 00:02:37,590
+while parts of the machine whip around
+
+68
+00:02:37,590 --> 00:02:40,130
+at accelerations of over 20 Gs.
+
+69
+00:02:40,130 --> 00:02:40,963
+(machine rattles).
+
+70
+00:02:40,963 --> 00:02:42,930
+For 30 years, almost everyone thought
+
+71
+00:02:42,930 --> 00:02:46,050
+that actually building this
+machine was impossible,
+
+72
+00:02:46,050 --> 00:02:48,090
+and yet it exists.
+
+73
+00:02:48,090 --> 00:02:51,630
+There is only one company in
+the world that can make it.
+
+74
+00:02:51,630 --> 00:02:53,670
+So what is this company and what is
+
+75
+00:02:53,670 --> 00:02:56,100
+this impossible machine they've built?
+
+76
+00:02:56,100 --> 00:02:58,020
+This video is sponsored by Brilliant.
+
+77
+00:02:58,020 --> 00:03:00,390
+More about them at the end of the show.
+
+78
+00:03:00,390 --> 00:03:01,830
+Now, just as a quick aside,
+
+79
+00:03:01,830 --> 00:03:04,290
+the makers of this machine
+didn't actually sponsor
+
+80
+00:03:04,290 --> 00:03:05,220
+this video.
+
+81
+00:03:05,220 --> 00:03:07,650
+We just thought that the science
+and engineering here were
+
+82
+00:03:07,650 --> 00:03:10,530
+so cool that we had to
+make a video about it.
+
+83
+00:03:10,530 --> 00:03:12,744
+So let's jump straight in.
+
+84
+00:03:12,744 --> 00:03:13,577
+(upbeat music)
+
+85
+00:03:13,577 --> 00:03:14,430
+- [Derek] To make a microchip, you start
+
+86
+00:03:14,430 --> 00:03:16,860
+by taking silicon dioxide,
+usually from sand,
+
+87
+00:03:16,860 --> 00:03:19,140
+and purifying it into ultrapure,
+
+88
+00:03:19,140 --> 00:03:22,530
+nearly 100% silicon chunks,
+
+89
+00:03:22,530 --> 00:03:25,590
+which is then melted down
+in a special furnace.
+
+90
+00:03:25,590 --> 00:03:28,770
+Next, you lower a small
+seed crystal into the vat.
+
+91
+00:03:28,770 --> 00:03:30,750
+Silicon atoms attach to the crystal,
+
+92
+00:03:30,750 --> 00:03:32,610
+extending its structure.
+
+93
+00:03:32,610 --> 00:03:35,760
+Then you slowly raise the
+seed crystal while rotating it
+
+94
+00:03:35,760 --> 00:03:39,420
+and this results in a large,
+single crystal silicon ingot.
+
+95
+00:03:39,420 --> 00:03:41,536
+- This is where the seed crystal would be.
+
+96
+00:03:41,536 --> 00:03:42,695
+Yeah.
+- And then you pull it out.
+
+97
+00:03:42,695 --> 00:03:43,539
+- [Casper] Can I touch it?
+
+98
+00:03:43,539 --> 00:03:44,550
+- Yeah, you can.
+
+99
+00:03:44,550 --> 00:03:46,890
+- It seems like you
+would not be able to hold
+
+100
+00:03:46,890 --> 00:03:48,780
+this from here.
+- Yes.
+
+101
+00:03:48,780 --> 00:03:50,220
+- It even feels fragile.
+
+102
+00:03:50,220 --> 00:03:51,337
+Like if you kinda.
+
+103
+00:03:51,337 --> 00:03:52,170
+- [Person Off-Camera] Don't snap it.
+
+104
+00:03:52,170 --> 00:03:53,970
+- Yeah, I'm scared to break it.
+
+105
+00:03:53,970 --> 00:03:55,110
+- Yes.
+
+106
+00:03:55,110 --> 00:03:56,670
+- He's using more force.
+
+107
+00:03:56,670 --> 00:03:58,530
+- [Derek] The ingot is
+then cut into wafers
+
+108
+00:03:58,530 --> 00:04:02,040
+with diamond wire saws,
+up to 5,000 of them,
+
+109
+00:04:02,040 --> 00:04:05,070
+after which each wafer
+is carefully polished.
+
+110
+00:04:05,070 --> 00:04:07,590
+Next, it's coated with a light
+sensitive material called
+
+111
+00:04:07,590 --> 00:04:08,790
+photoresist.
+
+112
+00:04:08,790 --> 00:04:09,810
+There are different kinds,
+
+113
+00:04:09,810 --> 00:04:11,490
+but in a positive photoresist,
+
+114
+00:04:11,490 --> 00:04:15,120
+the areas exposed to light
+become weaker and more soluble.
+
+115
+00:04:15,120 --> 00:04:17,430
+So if you shine light
+through a patterned mask,
+
+116
+00:04:17,430 --> 00:04:20,130
+you can selectively weaken
+parts of that coating.
+
+117
+00:04:20,130 --> 00:04:22,440
+Then, you rinse the wafer
+with a basic solution
+
+118
+00:04:22,440 --> 00:04:24,810
+to wash away the exposed photoresist,
+
+119
+00:04:24,810 --> 00:04:26,673
+leaving the design imprinted.
+
+120
+00:04:27,810 --> 00:04:29,790
+So now you can actually turn this pattern
+
+121
+00:04:29,790 --> 00:04:31,350
+into physical structures.
+
+122
+00:04:31,350 --> 00:04:32,760
+This is often done by etching
+
+123
+00:04:32,760 --> 00:04:34,200
+into the uncovered silicon
+
+124
+00:04:34,200 --> 00:04:36,840
+by using either chemicals or plasma.
+
+125
+00:04:36,840 --> 00:04:39,030
+And then you deposit a metal, like copper,
+
+126
+00:04:39,030 --> 00:04:41,550
+to fill in those etched lines.
+
+127
+00:04:41,550 --> 00:04:44,880
+As a last step, you wash away
+the remaining photoresist,
+
+128
+00:04:44,880 --> 00:04:48,360
+and now you've made a
+single layer of the chip.
+
+129
+00:04:48,360 --> 00:04:50,700
+We've simplified this cycle
+down to the main steps,
+
+130
+00:04:50,700 --> 00:04:53,100
+coat, expose, etch and deposit.
+
+131
+00:04:53,100 --> 00:04:55,410
+It repeats for every single chip layer,
+
+132
+00:04:55,410 --> 00:04:56,430
+and depending on the chip,
+
+133
+00:04:56,430 --> 00:04:59,520
+there could be anywhere
+from 10 to 100 layers.
+
+134
+00:04:59,520 --> 00:05:01,530
+The bottom layer is the transistors.
+
+135
+00:05:01,530 --> 00:05:03,090
+This is the most complicated layer,
+
+136
+00:05:03,090 --> 00:05:04,830
+requiring hundreds of steps
+
+137
+00:05:04,830 --> 00:05:06,750
+that all need to be perfect.
+
+138
+00:05:06,750 --> 00:05:09,150
+The higher layers are a little easier.
+
+139
+00:05:09,150 --> 00:05:12,420
+These are the metal wires
+that carry signals and power.
+
+140
+00:05:12,420 --> 00:05:15,480
+By the end, the completed wafer
+can have hundreds of chips,
+
+141
+00:05:15,480 --> 00:05:17,280
+which are then cut into separate pieces,
+
+142
+00:05:17,280 --> 00:05:19,203
+packaged and put into products.
+
+143
+00:05:20,130 --> 00:05:22,560
+But by far the hardest
+and most crucial step
+
+144
+00:05:22,560 --> 00:05:25,410
+in the process is where you
+shine light through the mask
+
+145
+00:05:25,410 --> 00:05:26,610
+and onto the wafer.
+
+146
+00:05:26,610 --> 00:05:28,200
+This is photolithography,
+
+147
+00:05:28,200 --> 00:05:30,540
+and that's because this step determines
+
+148
+00:05:30,540 --> 00:05:33,600
+how small you can make the features.
+
+149
+00:05:33,600 --> 00:05:35,220
+- At first, it seems simple,
+
+150
+00:05:35,220 --> 00:05:36,870
+light passes through the openings
+
+151
+00:05:36,870 --> 00:05:39,570
+and it gets blocked by all the rest.
+
+152
+00:05:39,570 --> 00:05:42,600
+But as you try to print
+smaller and smaller features,
+
+153
+00:05:42,600 --> 00:05:44,760
+the gaps in the mask start to approach
+
+154
+00:05:44,760 --> 00:05:45,990
+the wavelength of the light,
+
+155
+00:05:45,990 --> 00:05:48,450
+and that causes problems.
+
+156
+00:05:48,450 --> 00:05:49,530
+- And we can actually show it
+
+157
+00:05:49,530 --> 00:05:52,445
+because I happen to
+have a, this is a mask.
+
+158
+00:05:52,445 --> 00:05:53,278
+This is a reticle.
+
+159
+00:05:53,278 --> 00:05:55,110
+- [Casper] A reticle or a mask carries
+
+160
+00:05:55,110 --> 00:05:56,730
+the design of one chip layer.
+
+161
+00:05:56,730 --> 00:05:59,580
+This reticle is filled with
+microscopic lines and gaps,
+
+162
+00:05:59,580 --> 00:06:02,130
+around 670 nanometers across.
+
+163
+00:06:02,130 --> 00:06:03,840
+- And if I take like a laser pointer,
+
+164
+00:06:03,840 --> 00:06:05,670
+so this is a red laser.
+- Yep.
+
+165
+00:06:05,670 --> 00:06:08,220
+- If I shine it through
+it, then you see this here.
+
+166
+00:06:10,530 --> 00:06:11,790
+- [Casper] The laser has a wavelength
+
+167
+00:06:11,790 --> 00:06:13,560
+of around 650 nanometers.
+
+168
+00:06:13,560 --> 00:06:15,240
+When light hits the reticle,
+
+169
+00:06:15,240 --> 00:06:18,150
+its wavefronts bend as
+they pass through each gap.
+
+170
+00:06:18,150 --> 00:06:21,810
+So, each gap sends out waves
+that spread out and overlap.
+
+171
+00:06:21,810 --> 00:06:24,930
+Now, let's just look at the
+light from these two gaps.
+
+172
+00:06:24,930 --> 00:06:26,880
+When the peaks of one wave line up
+
+173
+00:06:26,880 --> 00:06:28,500
+with the troughs of the other,
+
+174
+00:06:28,500 --> 00:06:30,780
+we say that the two waves are out of phase
+
+175
+00:06:30,780 --> 00:06:32,190
+and they cancel each other out,
+
+176
+00:06:32,190 --> 00:06:33,870
+so you get dark spots,
+
+177
+00:06:33,870 --> 00:06:35,730
+and when the peaks line up with the peaks,
+
+178
+00:06:35,730 --> 00:06:37,440
+the two waves are in phase.
+
+179
+00:06:37,440 --> 00:06:39,780
+They add up and you get bright spots.
+
+180
+00:06:39,780 --> 00:06:41,160
+- You can get interference.
+- Yeah.
+
+181
+00:06:41,160 --> 00:06:43,590
+- Right, and you get
+a diffraction pattern.
+
+182
+00:06:43,590 --> 00:06:45,840
+- Now, diffraction is inevitable.
+
+183
+00:06:45,840 --> 00:06:47,250
+So instead of fighting it,
+
+184
+00:06:47,250 --> 00:06:50,730
+designers actually use it to
+get the patterns they want.
+
+185
+00:06:50,730 --> 00:06:53,130
+They kind of work backwards
+from the eventual pattern
+
+186
+00:06:53,130 --> 00:06:54,510
+they want on the wafer,
+
+187
+00:06:54,510 --> 00:06:56,220
+and they design the slits
+
+188
+00:06:56,220 --> 00:06:57,690
+so that diffraction will occur
+
+189
+00:06:57,690 --> 00:07:01,230
+in such a way that it creates
+the pattern that they want.
+
+190
+00:07:01,230 --> 00:07:03,540
+- You see three dots, the middle dot,
+
+191
+00:07:03,540 --> 00:07:04,560
+that's the original one.
+
+192
+00:07:04,560 --> 00:07:05,820
+That's the zero order.
+
+193
+00:07:05,820 --> 00:07:07,410
+And then on the left and the right,
+
+194
+00:07:07,410 --> 00:07:10,110
+you can see the first and the minus first.
+
+195
+00:07:10,110 --> 00:07:12,300
+Now, in order for us to have
+
+196
+00:07:12,300 --> 00:07:15,390
+this image resolved on the wafer,
+
+197
+00:07:15,390 --> 00:07:17,670
+you need to capture the zero and the first
+
+198
+00:07:17,670 --> 00:07:19,440
+and the minus first order.
+
+199
+00:07:19,440 --> 00:07:20,940
+- [Derek] The smaller
+you make the features,
+
+200
+00:07:20,940 --> 00:07:22,530
+the larger this angle, alpha,
+
+201
+00:07:22,530 --> 00:07:25,080
+between the zero and first orders becomes,
+
+202
+00:07:25,080 --> 00:07:28,980
+so the larger your lens needs
+to be to capture the light.
+
+203
+00:07:28,980 --> 00:07:32,490
+The size of the lens is described
+by the numerical aperture
+
+204
+00:07:32,490 --> 00:07:34,170
+or NA for short,
+
+205
+00:07:34,170 --> 00:07:36,450
+which is just the sin of this angle.
+
+206
+00:07:36,450 --> 00:07:37,740
+So the larger that is,
+
+207
+00:07:37,740 --> 00:07:40,260
+the smaller the features you can print.
+
+208
+00:07:40,260 --> 00:07:41,580
+But there is a hard limit
+
+209
+00:07:41,580 --> 00:07:43,680
+to how large your lens system can be
+
+210
+00:07:43,680 --> 00:07:45,300
+when this angle is 90 degrees
+
+211
+00:07:45,300 --> 00:07:47,370
+and your numerical aperture is one,
+
+212
+00:07:47,370 --> 00:07:49,620
+where your lens would have to be infinite.
+
+213
+00:07:49,620 --> 00:07:53,640
+Fortunately, there is one
+other thing we can change.
+
+214
+00:07:53,640 --> 00:07:55,740
+- This is a red laser.
+- [Casper] Yeah.
+
+215
+00:07:55,740 --> 00:07:59,460
+- And a red laser has a
+wavelength of 650 nanometers,
+
+216
+00:07:59,460 --> 00:08:00,750
+ish, I would say.
+- [Casper] Yeah.
+
+217
+00:08:00,750 --> 00:08:03,510
+- And if I take a green laser
+
+218
+00:08:03,510 --> 00:08:05,407
+and this one has a wavelength of 532,
+
+219
+00:08:07,230 --> 00:08:09,463
+then you can see that the green dots are
+
+220
+00:08:10,320 --> 00:08:13,650
+closer spaced than the red dots.
+
+221
+00:08:13,650 --> 00:08:14,640
+- [Derek] That's because the light
+
+222
+00:08:14,640 --> 00:08:16,770
+from the two different
+gaps doesn't have to travel
+
+223
+00:08:16,770 --> 00:08:19,170
+as far to match up in phase again.
+
+224
+00:08:19,170 --> 00:08:21,540
+So, the orders end up closer together.
+
+225
+00:08:21,540 --> 00:08:22,770
+So with a smaller wavelength,
+
+226
+00:08:22,770 --> 00:08:26,340
+you can print smaller
+patterns using the same lens.
+
+227
+00:08:26,340 --> 00:08:28,770
+All of this is captured
+by the Rayleigh Equation,
+
+228
+00:08:28,770 --> 00:08:30,900
+which determines the smallest feature size
+
+229
+00:08:30,900 --> 00:08:32,163
+or critical dimension.
+
+230
+00:08:33,390 --> 00:08:34,920
+- But since there's a limit
+
+231
+00:08:34,920 --> 00:08:37,230
+to how much you can increase
+the numerical aperture,
+
+232
+00:08:37,230 --> 00:08:38,460
+I mean to one,
+
+233
+00:08:38,460 --> 00:08:40,380
+over time, the only way to keep making
+
+234
+00:08:40,380 --> 00:08:42,540
+smaller and smaller features is
+
+235
+00:08:42,540 --> 00:08:44,580
+by using shorter and shorter wavelengths.
+
+236
+00:08:44,580 --> 00:08:46,500
+So this is exactly what happened
+
+237
+00:08:46,500 --> 00:08:48,270
+up until the late 1990s,
+
+238
+00:08:48,270 --> 00:08:51,420
+when the industry settled on 193 nanometer
+
+239
+00:08:51,420 --> 00:08:53,190
+deep UV light.
+
+240
+00:08:53,190 --> 00:08:54,780
+This was the light that was used to make
+
+241
+00:08:54,780 --> 00:08:56,580
+all of the most advanced chips
+
+242
+00:08:56,580 --> 00:08:58,740
+right until around 2015.
+
+243
+00:08:58,740 --> 00:09:01,410
+But by that point, scientists
+had reached a limit
+
+244
+00:09:01,410 --> 00:09:03,330
+to how small they could make the features.
+
+245
+00:09:03,330 --> 00:09:06,810
+And Moore's Law was about
+to run into a brick wall.
+
+246
+00:09:06,810 --> 00:09:08,970
+So a radical change was needed,
+
+247
+00:09:08,970 --> 00:09:12,183
+a change that had been
+brewing for around 30 years.
+
+248
+00:09:14,310 --> 00:09:16,050
+All the way back in the 1980s,
+
+249
+00:09:16,050 --> 00:09:18,180
+Japanese scientist, Hiroo Kinoshita,
+
+250
+00:09:18,180 --> 00:09:20,670
+came up with a crazy idea.
+
+251
+00:09:20,670 --> 00:09:22,650
+Why not use much shorter wavelengths,
+
+252
+00:09:22,650 --> 00:09:25,080
+like x-rays of around 10 nanometers?
+
+253
+00:09:25,080 --> 00:09:26,880
+In theory, that should allow you to print
+
+254
+00:09:26,880 --> 00:09:28,530
+much smaller features,
+
+255
+00:09:28,530 --> 00:09:30,780
+but you quickly run into a problem.
+
+256
+00:09:30,780 --> 00:09:32,250
+X-rays at these wavelengths have
+
+257
+00:09:32,250 --> 00:09:35,130
+enough energy to eject
+electrons from their atoms,
+
+258
+00:09:35,130 --> 00:09:37,830
+so most materials absorb them.
+
+259
+00:09:37,830 --> 00:09:39,930
+But unlike medical X-rays which have
+
+260
+00:09:39,930 --> 00:09:42,150
+wavelengths shorter than one nanometer,
+
+261
+00:09:42,150 --> 00:09:44,790
+these are still long enough
+to interact with air.
+
+262
+00:09:44,790 --> 00:09:47,070
+So, air absorbs them too.
+
+263
+00:09:47,070 --> 00:09:50,400
+That meant that Kinoshita's
+setup had to be in a vacuum,
+
+264
+00:09:50,400 --> 00:09:51,540
+but even worse,
+
+265
+00:09:51,540 --> 00:09:53,730
+he couldn't use lenses to focus the light
+
+266
+00:09:53,730 --> 00:09:55,803
+because the lenses would absorb it too.
+
+267
+00:09:57,240 --> 00:10:00,033
+So, it seemed like this
+idea would never work.
+
+268
+00:10:01,290 --> 00:10:02,640
+- [Derek] But around 1983,
+
+269
+00:10:02,640 --> 00:10:04,110
+Kinoshita stumbled on a paper
+
+270
+00:10:04,110 --> 00:10:06,180
+by Jim Underwood and Troy Barbee.
+
+271
+00:10:06,180 --> 00:10:08,160
+Their work focused on special mirrors
+
+272
+00:10:08,160 --> 00:10:09,480
+that could reflect x-rays
+
+273
+00:10:09,480 --> 00:10:12,360
+with a wavelength of 4.48 nanometers.
+
+274
+00:10:12,360 --> 00:10:14,610
+So, Kinoshita was intrigued.
+
+275
+00:10:14,610 --> 00:10:17,340
+Curved mirrors can focus
+light just like lenses do.
+
+276
+00:10:17,340 --> 00:10:18,540
+If he could figure out how to make
+
+277
+00:10:18,540 --> 00:10:21,030
+these special mirrors for
+the wavelength he was using,
+
+278
+00:10:21,030 --> 00:10:24,060
+then this could be another
+way to do photolithography.
+
+279
+00:10:24,060 --> 00:10:26,313
+The mirrors work something like this.
+
+280
+00:10:27,690 --> 00:10:30,240
+When light crosses from
+one medium to another,
+
+281
+00:10:30,240 --> 00:10:31,380
+say, from air to glass,
+
+282
+00:10:31,380 --> 00:10:33,210
+it bends or refracts.
+
+283
+00:10:33,210 --> 00:10:36,030
+Some of it goes through
+and part reflects back.
+
+284
+00:10:36,030 --> 00:10:38,790
+How much gets reflected depends
+on things like the angle,
+
+285
+00:10:38,790 --> 00:10:40,290
+the light's polarization,
+
+286
+00:10:40,290 --> 00:10:42,120
+and most importantly for us,
+
+287
+00:10:42,120 --> 00:10:44,160
+the difference between
+the refractive indices
+
+288
+00:10:44,160 --> 00:10:45,330
+of the two media.
+
+289
+00:10:45,330 --> 00:10:48,480
+The larger that difference,
+the more light is reflected.
+
+290
+00:10:48,480 --> 00:10:51,300
+And Underwood and Barbee
+used that principle.
+
+291
+00:10:51,300 --> 00:10:53,520
+They made a super thin layer of tungsten,
+
+292
+00:10:53,520 --> 00:10:55,470
+less than one nanometer thick,
+
+293
+00:10:55,470 --> 00:10:57,480
+thin enough that x-rays could pass through
+
+294
+00:10:57,480 --> 00:10:59,520
+without immediately being absorbed.
+
+295
+00:10:59,520 --> 00:11:02,250
+When x-rays hit the layer
+at a specific angle,
+
+296
+00:11:02,250 --> 00:11:04,950
+the tungsten reflected less than 1%.
+
+297
+00:11:04,950 --> 00:11:07,380
+Then, they carefully
+tuned the layer thickness
+
+298
+00:11:07,380 --> 00:11:09,900
+so the path length of the
+transmitted x-rays was
+
+299
+00:11:09,900 --> 00:11:12,570
+only one quarter of its wavelength.
+
+300
+00:11:12,570 --> 00:11:15,870
+Then they added another layer,
+this time out of carbon.
+
+301
+00:11:15,870 --> 00:11:17,970
+It has a higher refractive
+index than tungsten
+
+302
+00:11:17,970 --> 00:11:20,610
+for wavelengths of 4.48 nanometers.
+
+303
+00:11:20,610 --> 00:11:22,110
+The x-rays hit the boundary
+
+304
+00:11:22,110 --> 00:11:24,540
+and a little bit more reflects,
+
+305
+00:11:24,540 --> 00:11:26,520
+but this time the phase is inverted
+
+306
+00:11:26,520 --> 00:11:28,860
+or it's changed by half a wavelength.
+
+307
+00:11:28,860 --> 00:11:30,690
+This happens when any light moves
+
+308
+00:11:30,690 --> 00:11:33,750
+from a lower refractive
+index to a higher one.
+
+309
+00:11:33,750 --> 00:11:36,180
+Now, by the time this new
+reflected wave reaches
+
+310
+00:11:36,180 --> 00:11:37,200
+the tungsten boundary,
+
+311
+00:11:37,200 --> 00:11:39,660
+it has traveled another
+quarter of its wavelength
+
+312
+00:11:39,660 --> 00:11:41,580
+for a half wavelength in total.
+
+313
+00:11:41,580 --> 00:11:43,230
+So the two phases line up
+
+314
+00:11:43,230 --> 00:11:45,510
+and the waves interfere constructively.
+
+315
+00:11:45,510 --> 00:11:47,400
+Underwood and Barbee kept doing this trick
+
+316
+00:11:47,400 --> 00:11:50,130
+for a total of 76 alternating layers,
+
+317
+00:11:50,130 --> 00:11:52,140
+so that in total they could reflect back
+
+318
+00:11:52,140 --> 00:11:54,033
+much more of the x-rays.
+
+319
+00:11:55,560 --> 00:11:57,000
+Now, they only managed to reflect
+
+320
+00:11:57,000 --> 00:11:58,500
+around 6% of the light,
+
+321
+00:11:58,500 --> 00:12:00,210
+but it was a proof of principle
+
+322
+00:12:00,210 --> 00:12:02,103
+that you could reflect x-rays.
+
+323
+00:12:03,150 --> 00:12:05,610
+- So Kinoshita saw the possibilities.
+
+324
+00:12:05,610 --> 00:12:08,100
+He got to work, and
+after around two years,
+
+325
+00:12:08,100 --> 00:12:09,450
+his team designed and built
+
+326
+00:12:09,450 --> 00:12:12,570
+three tungsten-carbon
+curved multi-layer mirrors
+
+327
+00:12:12,570 --> 00:12:14,760
+to reflect 11 nanometer light.
+
+328
+00:12:14,760 --> 00:12:16,590
+And with it, he managed to print
+
+329
+00:12:16,590 --> 00:12:20,160
+lines four microns or
+4,000 nanometers thick,
+
+330
+00:12:20,160 --> 00:12:22,200
+proving that at least in theory,
+
+331
+00:12:22,200 --> 00:12:24,453
+x-ray lithography was possible.
+
+332
+00:12:25,410 --> 00:12:27,300
+A year later in 1986,
+
+333
+00:12:27,300 --> 00:12:28,770
+he went to present his findings
+
+334
+00:12:28,770 --> 00:12:31,470
+to the Japanese Society
+of Applied Physics.
+
+335
+00:12:31,470 --> 00:12:33,270
+Proud and excited, he explained his setup
+
+336
+00:12:33,270 --> 00:12:34,950
+and showed his image.
+
+337
+00:12:34,950 --> 00:12:38,310
+But to his horror, the
+audience refused to believe it.
+
+338
+00:12:38,310 --> 00:12:41,790
+- [Kinoshita] Unfortunately,
+the audience was
+
+339
+00:12:41,790 --> 00:12:44,820
+highly skeptical of my talk.
+
+340
+00:12:44,820 --> 00:12:46,770
+- [Casper] Kinoshita was devastated.
+
+341
+00:12:46,770 --> 00:12:49,650
+He later said, "People
+seemed unwilling to believe
+
+342
+00:12:49,650 --> 00:12:52,800
+that we had actually made
+an image by bending x-rays,
+
+343
+00:12:52,800 --> 00:12:54,720
+and they tended to regard the whole thing
+
+344
+00:12:54,720 --> 00:12:56,157
+as a big fish story."
+
+345
+00:12:57,270 --> 00:13:00,450
+- Nobody believed that this
+was a viable way forward,
+
+346
+00:13:00,450 --> 00:13:02,850
+and unfortunately, the reaction was
+
+347
+00:13:02,850 --> 00:13:05,070
+at least somewhat justified.
+
+348
+00:13:05,070 --> 00:13:07,260
+First, this light isn't naturally produced
+
+349
+00:13:07,260 --> 00:13:08,700
+by anything on Earth.
+
+350
+00:13:08,700 --> 00:13:11,493
+The closest natural source is the Sun.
+
+351
+00:13:12,450 --> 00:13:17,450
+- We had to basically build an
+artificial sun here on Earth.
+
+352
+00:13:17,460 --> 00:13:19,290
+- [Derek] Most scientists,
+including Kinoshita,
+
+353
+00:13:19,290 --> 00:13:20,640
+produced x-ray light using
+
+354
+00:13:20,640 --> 00:13:23,220
+a particle accelerator or a synchrotron.
+
+355
+00:13:23,220 --> 00:13:25,230
+- [Jos] It gives an
+enormous amount of power.
+
+356
+00:13:25,230 --> 00:13:26,910
+It's as big as a soccer field.
+
+357
+00:13:26,910 --> 00:13:28,410
+You can fuel a whole fab.
+
+358
+00:13:28,410 --> 00:13:30,090
+The problem is if the light goes out,
+
+359
+00:13:30,090 --> 00:13:31,710
+the whole fab goes out.
+
+360
+00:13:31,710 --> 00:13:35,220
+- So each machine needed
+its own power source.
+
+361
+00:13:35,220 --> 00:13:37,050
+But even if you could produce the light,
+
+362
+00:13:37,050 --> 00:13:39,480
+you'd need to make
+incredibly smooth mirrors
+
+363
+00:13:39,480 --> 00:13:42,720
+to actually focus and
+print those tiny features.
+
+364
+00:13:42,720 --> 00:13:46,710
+You would need the smoothest
+objects in the universe.
+
+365
+00:13:46,710 --> 00:13:48,270
+- Okay, so I got a football
+
+366
+00:13:48,270 --> 00:13:50,850
+and I've got a bouncy ball
+and a cobblestone street.
+
+367
+00:13:50,850 --> 00:13:53,363
+Now what do you think is
+gonna happen when I drop them?
+
+368
+00:13:54,630 --> 00:13:56,550
+The football basically
+bounces straight up,
+
+369
+00:13:56,550 --> 00:13:58,320
+but for the bouncy ball,
+
+370
+00:13:58,320 --> 00:13:59,760
+it just shoots off to the side.
+
+371
+00:13:59,760 --> 00:14:02,220
+And it's because the
+surface is relatively flat
+
+372
+00:14:02,220 --> 00:14:04,050
+for the football, which is much larger,
+
+373
+00:14:04,050 --> 00:14:06,660
+but it's super rough for the bouncy ball.
+
+374
+00:14:06,660 --> 00:14:08,850
+And a similar thing happens with mirrors.
+
+375
+00:14:08,850 --> 00:14:10,650
+If the surface is super rough
+
+376
+00:14:10,650 --> 00:14:12,300
+compared to the size of the wavelength,
+
+377
+00:14:12,300 --> 00:14:14,670
+then the light scatters randomly.
+
+378
+00:14:14,670 --> 00:14:16,050
+Now it might look smooth,
+
+379
+00:14:16,050 --> 00:14:17,310
+but if you zoom into a mirror,
+
+380
+00:14:17,310 --> 00:14:19,440
+you find something that looks like this,
+
+381
+00:14:19,440 --> 00:14:22,200
+you find all these crazy bumps.
+
+382
+00:14:22,200 --> 00:14:23,520
+And now to measure the roughness,
+
+383
+00:14:23,520 --> 00:14:26,490
+what you do is you take
+the average of these bumps
+
+384
+00:14:26,490 --> 00:14:28,200
+and that will give you your mean line.
+
+385
+00:14:28,200 --> 00:14:30,240
+Now, for a normal household mirror,
+
+386
+00:14:30,240 --> 00:14:33,153
+the average height is
+about 4,000 silicon atoms.
+
+387
+00:14:34,320 --> 00:14:36,150
+But for Kinoshita's mirrors,
+
+388
+00:14:36,150 --> 00:14:38,250
+which not only needed
+to reflect x-ray light,
+
+389
+00:14:38,250 --> 00:14:40,410
+which has 100 times shorter wavelength,
+
+390
+00:14:40,410 --> 00:14:42,360
+but also needed to minimize scattering,
+
+391
+00:14:42,360 --> 00:14:45,060
+you know, so that all the
+photons make it onto the wafer,
+
+392
+00:14:45,060 --> 00:14:47,190
+it needed to be way more smooth.
+
+393
+00:14:47,190 --> 00:14:49,170
+It needed to be atomically smooth.
+
+394
+00:14:49,170 --> 00:14:51,120
+In fact, the average bump could only be
+
+395
+00:14:51,120 --> 00:14:54,270
+about 2.3 silicon atoms thick.
+
+396
+00:14:54,270 --> 00:14:56,790
+- If one mirror would
+be the size of Germany,
+
+397
+00:14:56,790 --> 00:14:59,280
+the biggest bump would be
+about a millimeter high.
+
+398
+00:14:59,280 --> 00:15:01,680
+- [Casper] But Kinoshita
+refused to give up.
+
+399
+00:15:01,680 --> 00:15:04,020
+- [Kinoshita] However,
+my belief did not change.
+
+400
+00:15:04,020 --> 00:15:08,220
+- [Casper] And soon help would
+come from an unlikely place.
+
+401
+00:15:08,220 --> 00:15:09,150
+- Across the Pacific,
+
+402
+00:15:09,150 --> 00:15:11,610
+around 70 kilometers
+east of San Francisco is
+
+403
+00:15:11,610 --> 00:15:13,470
+Lawrence Livermore National Lab,
+
+404
+00:15:13,470 --> 00:15:15,540
+a lab that was born out of the Cold War,
+
+405
+00:15:15,540 --> 00:15:17,370
+heavily funded by the US government,
+
+406
+00:15:17,370 --> 00:15:20,400
+and built for one purpose
+and one purpose only,
+
+407
+00:15:20,400 --> 00:15:22,170
+nuclear weapons.
+
+408
+00:15:22,170 --> 00:15:24,930
+The lab was founded by the
+inventor of the Cyclotron,
+
+409
+00:15:24,930 --> 00:15:26,010
+Ernest Lawrence,
+
+410
+00:15:26,010 --> 00:15:28,680
+and the father of the
+hydrogen bomb, Edward Teller.
+
+411
+00:15:28,680 --> 00:15:30,450
+And over its lifetime, they designed
+
+412
+00:15:30,450 --> 00:15:33,210
+over 10 fusion-type nuclear warheads.
+
+413
+00:15:33,210 --> 00:15:34,740
+So part of their research focused
+
+414
+00:15:34,740 --> 00:15:38,460
+on what happens inside
+nuclear fusion reactions.
+
+415
+00:15:38,460 --> 00:15:41,070
+Fusion reactions release
+a lot of x-ray light,
+
+416
+00:15:41,070 --> 00:15:44,550
+light that they had never been
+able to capture and analyze.
+
+417
+00:15:44,550 --> 00:15:47,670
+But now, using those
+special multilayer mirrors,
+
+418
+00:15:47,670 --> 00:15:49,470
+there was a chance.
+
+419
+00:15:49,470 --> 00:15:50,970
+- [Casper] One of the scientists tasked
+
+420
+00:15:50,970 --> 00:15:53,400
+with making this work was Andrew Hawryluk.
+
+421
+00:15:53,400 --> 00:15:54,840
+And within a few years,
+
+422
+00:15:54,840 --> 00:15:57,450
+he and his team used
+multilayer mirrors to reflect
+
+423
+00:15:57,450 --> 00:15:59,310
+some x-ray light.
+
+424
+00:15:59,310 --> 00:16:01,020
+But then in 1987,
+
+425
+00:16:01,020 --> 00:16:04,020
+Andy got a visit from a
+professor from Cornell.
+
+426
+00:16:04,020 --> 00:16:05,940
+- He was very impressed
+with the technologies
+
+427
+00:16:05,940 --> 00:16:06,773
+that we developed.
+
+428
+00:16:06,773 --> 00:16:08,677
+And he looked at me at the
+end of the day and said,
+
+429
+00:16:08,677 --> 00:16:11,010
+"This is all very interesting
+and very neat and stuff,"
+
+430
+00:16:11,010 --> 00:16:14,707
+but his words, and I'll remember
+it to the day I died, was,
+
+431
+00:16:14,707 --> 00:16:16,957
+"Can you do anything
+useful with this stuff?"
+
+432
+00:16:18,279 --> 00:16:22,290
+And this was the day before
+a Christmas shutdown in 1987.
+
+433
+00:16:22,290 --> 00:16:25,680
+And I was so inflamed by that comment
+
+434
+00:16:25,680 --> 00:16:28,290
+that I went home and for the next 10 days,
+
+435
+00:16:28,290 --> 00:16:31,140
+I wrote up a multi-page white paper.
+
+436
+00:16:31,140 --> 00:16:33,060
+- [Casper] He applied these
+mirrors to lithography,
+
+437
+00:16:33,060 --> 00:16:35,100
+to print chips using x-rays.
+
+438
+00:16:35,100 --> 00:16:38,040
+Around five months later,
+Andy presented his findings
+
+439
+00:16:38,040 --> 00:16:39,600
+at a conference.
+
+440
+00:16:39,600 --> 00:16:42,060
+But like Kinoshita, it
+was not the response
+
+441
+00:16:42,060 --> 00:16:43,203
+he was hoping for.
+
+442
+00:16:44,130 --> 00:16:47,040
+- It was extremely negative.
+
+443
+00:16:47,040 --> 00:16:48,873
+That was the low point in my career.
+
+444
+00:16:49,920 --> 00:16:52,320
+I was literally laughed off the stage.
+
+445
+00:16:52,320 --> 00:16:56,700
+And I kid you not, every
+person who I looked up to
+
+446
+00:16:56,700 --> 00:16:57,533
+in the field,
+
+447
+00:16:57,533 --> 00:16:58,620
+they were listening to my talk
+
+448
+00:16:58,620 --> 00:17:00,750
+and they came up to the microphone
+
+449
+00:17:00,750 --> 00:17:04,320
+and told me basically
+why it wouldn't work,
+
+450
+00:17:04,320 --> 00:17:06,900
+how stupid an idea it was.
+
+451
+00:17:06,900 --> 00:17:09,780
+Later that week, I flew back
+and the following Monday,
+
+452
+00:17:09,780 --> 00:17:11,757
+my boss asked me, "How did it go?"
+
+453
+00:17:12,660 --> 00:17:13,957
+And I looked at him and I said,
+
+454
+00:17:13,957 --> 00:17:15,867
+"I will never speak of it again."
+
+455
+00:17:16,756 --> 00:17:18,810
+(uptempo music)
+
+456
+00:17:18,810 --> 00:17:20,400
+- [Casper] But then three days later,
+
+457
+00:17:20,400 --> 00:17:23,700
+he gets a phone call from
+someone named Bill Brinkman
+
+458
+00:17:23,700 --> 00:17:25,564
+from Bell Labs.
+
+459
+00:17:25,564 --> 00:17:27,277
+- [Andy] And so I walked
+over to my boss and I said,
+
+460
+00:17:27,277 --> 00:17:29,370
+"Just got this phone call from
+a guy named Bill Brinkman.
+
+461
+00:17:29,370 --> 00:17:30,540
+Do you know who he is?"
+
+462
+00:17:30,540 --> 00:17:32,647
+And my boss's eyes popped open and said,
+
+463
+00:17:32,647 --> 00:17:35,910
+"Yeah, he's the Executive
+Vice President of AT&T."
+
+464
+00:17:35,910 --> 00:17:37,620
+And I said, "Well, he just called me
+
+465
+00:17:37,620 --> 00:17:41,220
+and asked me to fly out to
+New Jersey and give a talk."
+
+466
+00:17:41,220 --> 00:17:44,223
+The response from my boss said it all.
+
+467
+00:17:45,150 --> 00:17:47,277
+He basically said, "Well, you gotta go."
+
+468
+00:17:48,360 --> 00:17:50,760
+- [Casper] At Bell Labs,
+Andy found fellow believers
+
+469
+00:17:50,760 --> 00:17:53,220
+and it couldn't have
+come at a better time.
+
+470
+00:17:53,220 --> 00:17:54,510
+Over the past 30 years,
+
+471
+00:17:54,510 --> 00:17:55,980
+the US government had invested
+
+472
+00:17:55,980 --> 00:17:58,800
+billions of dollars into
+national labs to maintain
+
+473
+00:17:58,800 --> 00:18:02,340
+the country's technological
+edge during the Cold War.
+
+474
+00:18:02,340 --> 00:18:03,930
+But by the late 1980s,
+
+475
+00:18:03,930 --> 00:18:05,970
+the Cold War was slowing down
+
+476
+00:18:05,970 --> 00:18:08,070
+and all these labs were
+sitting on research
+
+477
+00:18:08,070 --> 00:18:09,930
+that had commercial potential.
+
+478
+00:18:09,930 --> 00:18:12,360
+So the government encouraged
+the labs to partner
+
+479
+00:18:12,360 --> 00:18:13,980
+with US companies
+
+480
+00:18:13,980 --> 00:18:15,840
+to turn that research into products
+
+481
+00:18:15,840 --> 00:18:17,640
+and to stimulate the economy.
+
+482
+00:18:17,640 --> 00:18:20,220
+And the government would
+then supply seed money.
+
+483
+00:18:20,220 --> 00:18:23,580
+And so Bell Labs partnered
+with Andy's labs and two others
+
+484
+00:18:23,580 --> 00:18:25,773
+to keep developing x-ray lithography.
+
+485
+00:18:27,180 --> 00:18:28,377
+And by 1993,
+
+486
+00:18:28,377 --> 00:18:32,040
+the first international conference
+for x-ray lithography was
+
+487
+00:18:32,040 --> 00:18:34,740
+held in Japan, near Mount Fuji.
+
+488
+00:18:34,740 --> 00:18:36,810
+In the opening address, Kinoshita said
+
+489
+00:18:36,810 --> 00:18:39,600
+that, "As long as we
+do not lose the desire
+
+490
+00:18:39,600 --> 00:18:41,130
+that has sprung from within us,
+
+491
+00:18:41,130 --> 00:18:42,900
+technology will steadily advance
+
+492
+00:18:42,900 --> 00:18:46,560
+from the micro to the nano to the pico."
+
+493
+00:18:46,560 --> 00:18:48,720
+They even gave the technology a new name,
+
+494
+00:18:48,720 --> 00:18:51,030
+extreme ultraviolet lithography,
+
+495
+00:18:51,030 --> 00:18:52,503
+or just EUV.
+
+496
+00:18:53,850 --> 00:18:55,380
+- But then in 1996,
+
+497
+00:18:55,380 --> 00:18:58,350
+the US government cut
+funding for the project.
+
+498
+00:18:58,350 --> 00:19:02,070
+This spelled disaster for the
+big chip companies like Intel.
+
+499
+00:19:02,070 --> 00:19:03,360
+The industry estimated
+
+500
+00:19:03,360 --> 00:19:06,300
+that the 193 nanometer
+lithography tools would fall
+
+501
+00:19:06,300 --> 00:19:09,330
+behind Moore's Law by 2005,
+
+502
+00:19:09,330 --> 00:19:12,093
+but there were no other alternatives.
+
+503
+00:19:13,470 --> 00:19:16,860
+So Intel, Motorola, AMD and
+other companies got together
+
+504
+00:19:16,860 --> 00:19:19,980
+and invested $250
+million to keep it going,
+
+505
+00:19:19,980 --> 00:19:21,930
+making it the largest investment ever
+
+506
+00:19:21,930 --> 00:19:23,250
+by private industry
+
+507
+00:19:23,250 --> 00:19:26,130
+in a Department of
+Energy research project.
+
+508
+00:19:26,130 --> 00:19:28,620
+By the year 2000, the
+labs had produced this,
+
+509
+00:19:28,620 --> 00:19:30,450
+the Engineering Test Stand.
+
+510
+00:19:30,450 --> 00:19:33,660
+It was the first fully
+functioning EUV prototype.
+
+511
+00:19:33,660 --> 00:19:38,100
+It produced 9.8 watts of
+13.4 nanometer EUV light,
+
+512
+00:19:38,100 --> 00:19:40,140
+which was then reflected by eight mirrors
+
+513
+00:19:40,140 --> 00:19:42,540
+from the source to the mask to the wafer.
+
+514
+00:19:42,540 --> 00:19:44,700
+It could print 70 nanometer features
+
+515
+00:19:44,700 --> 00:19:47,283
+and it proved that EUV could work.
+
+516
+00:19:48,490 --> 00:19:49,323
+- It was a milestone to get
+
+517
+00:19:49,323 --> 00:19:50,700
+the Engineering Test Stand to work.
+
+518
+00:19:50,700 --> 00:19:52,890
+It demonstrated to people like Intel
+
+519
+00:19:52,890 --> 00:19:56,010
+that, you know, good
+engineering will get us there.
+
+520
+00:19:56,010 --> 00:19:58,950
+- And then it seems like
+you've got the prototype,
+
+521
+00:19:58,950 --> 00:20:02,163
+shouldn't be too hard to
+then commercialize it.
+
+522
+00:20:03,000 --> 00:20:04,281
+- That's what they thought.
+
+523
+00:20:04,281 --> 00:20:05,550
+(Andy and Casper laugh)
+
+524
+00:20:05,550 --> 00:20:07,560
+- But the prototype had a major flaw.
+
+525
+00:20:07,560 --> 00:20:10,200
+It could only print
+about 10 wafers per hour.
+
+526
+00:20:10,200 --> 00:20:12,540
+And to make EUV economically viable,
+
+527
+00:20:12,540 --> 00:20:15,090
+it would have to print
+hundreds of wafers per hour,
+
+528
+00:20:15,090 --> 00:20:18,570
+24/7, 365 days a year.
+
+529
+00:20:18,570 --> 00:20:20,880
+The main reason output was so slow was
+
+530
+00:20:20,880 --> 00:20:23,130
+because the light reflected
+off of eight mirrors
+
+531
+00:20:23,130 --> 00:20:24,030
+and the reticle,
+
+532
+00:20:24,030 --> 00:20:27,480
+which is also a mirror, just
+with the design imprinted.
+
+533
+00:20:27,480 --> 00:20:29,820
+Traditional masks that
+allow light to pass through
+
+534
+00:20:29,820 --> 00:20:32,420
+don't work because, well,
+they absorb all the light.
+
+535
+00:20:33,540 --> 00:20:36,300
+Each mirror had a
+reflectivity of around 70%,
+
+536
+00:20:36,300 --> 00:20:37,830
+which is close to the max,
+
+537
+00:20:37,830 --> 00:20:39,330
+but after nine bounces,
+
+538
+00:20:39,330 --> 00:20:42,240
+you are only left with 4% of the light,
+
+539
+00:20:42,240 --> 00:20:45,150
+which means that out of every 100 photons,
+
+540
+00:20:45,150 --> 00:20:47,163
+only four make it to the wafer.
+
+541
+00:20:48,180 --> 00:20:51,510
+So you might think just
+use way fewer mirrors,
+
+542
+00:20:51,510 --> 00:20:53,670
+but that only works up to a point.
+
+543
+00:20:53,670 --> 00:20:56,010
+When you focus light
+with any optical system,
+
+544
+00:20:56,010 --> 00:20:58,140
+you always get some distortion.
+
+545
+00:20:58,140 --> 00:21:00,570
+For example, rays that pass
+through the outer edges
+
+546
+00:21:00,570 --> 00:21:02,790
+of most lenses focus
+light slightly different
+
+547
+00:21:02,790 --> 00:21:04,020
+from those near the center.
+
+548
+00:21:04,020 --> 00:21:06,060
+This is called spherical aberration.
+
+549
+00:21:06,060 --> 00:21:07,920
+And normal cameras correct for this
+
+550
+00:21:07,920 --> 00:21:10,827
+and other aberrations by
+using multiple lenses.
+
+551
+00:21:10,827 --> 00:21:12,960
+And a mirror system is no different.
+
+552
+00:21:12,960 --> 00:21:16,050
+- You need to have a
+certain amount of mirrors
+
+553
+00:21:16,050 --> 00:21:20,490
+before you can say I have my
+aberrations under control.
+
+554
+00:21:20,490 --> 00:21:24,510
+In reality, the systems
+of today have six mirrors.
+
+555
+00:21:24,510 --> 00:21:25,830
+- That helps a little.
+
+556
+00:21:25,830 --> 00:21:29,040
+But after reflecting off
+six mirrors and the reticle,
+
+557
+00:21:29,040 --> 00:21:32,220
+you are still only left with
+around 8% of your light.
+
+558
+00:21:32,220 --> 00:21:34,230
+So they needed to drastically increase
+
+559
+00:21:34,230 --> 00:21:36,810
+the source power to at least 100 watts.
+
+560
+00:21:36,810 --> 00:21:38,340
+Now to most companies,
+
+561
+00:21:38,340 --> 00:21:41,010
+that tenfold increase seemed impossible.
+
+562
+00:21:41,010 --> 00:21:43,620
+Even people who worked on the
+Engineering Test Stand noted
+
+563
+00:21:43,620 --> 00:21:47,190
+that while EUV technology
+itself is a done deal,
+
+564
+00:21:47,190 --> 00:21:50,220
+there were six zillion
+engineering challenges
+
+565
+00:21:50,220 --> 00:21:52,710
+to make it a fab-line reality.
+
+566
+00:21:52,710 --> 00:21:54,330
+And so one by one,
+
+567
+00:21:54,330 --> 00:21:56,160
+American companies walked away
+
+568
+00:21:56,160 --> 00:21:59,220
+from developing a full
+EUV lithography machine.
+
+569
+00:21:59,220 --> 00:22:02,373
+That left just one company, ASML.
+
+570
+00:22:03,605 --> 00:22:04,770
+ASML, which used to stand for
+
+571
+00:22:04,770 --> 00:22:07,110
+Advanced Semiconductor
+Materials Lithography,
+
+572
+00:22:07,110 --> 00:22:10,320
+is located in a small, nondescript
+town in the Netherlands.
+
+573
+00:22:10,320 --> 00:22:12,480
+It spun off from Philips back in the '80s
+
+574
+00:22:12,480 --> 00:22:13,800
+with little more than a shed
+
+575
+00:22:13,800 --> 00:22:16,680
+and a barely working
+wafer stepper to its name.
+
+576
+00:22:16,680 --> 00:22:18,973
+But Philips also gave them people,
+
+577
+00:22:18,973 --> 00:22:21,120
+Jos Benschop, ASML's first researcher,
+
+578
+00:22:21,120 --> 00:22:22,590
+and Martin van den Brink,
+
+579
+00:22:22,590 --> 00:22:25,200
+who would eventually become ASML's CTO,
+
+580
+00:22:25,200 --> 00:22:27,720
+and EUV's greatest champion.
+
+581
+00:22:27,720 --> 00:22:30,300
+- And he is really like the
+Steve Jobs of lithography.
+
+582
+00:22:30,300 --> 00:22:32,040
+And he saw EUV coming.
+
+583
+00:22:32,040 --> 00:22:35,070
+- ASML had joined the US
+EUV consortium earlier
+
+584
+00:22:35,070 --> 00:22:37,950
+and now it became their task to find a way
+
+585
+00:22:37,950 --> 00:22:39,480
+to commercialize EUV.
+
+586
+00:22:39,480 --> 00:22:42,060
+They would work together with
+their German partner, Zeiss,
+
+587
+00:22:42,060 --> 00:22:43,830
+where Zeiss would take
+care of the mirrors,
+
+588
+00:22:43,830 --> 00:22:47,250
+and ASML would focus on the light source.
+
+589
+00:22:47,250 --> 00:22:48,900
+One of the first decisions when making
+
+590
+00:22:48,900 --> 00:22:52,890
+any lithography system is
+deciding which wavelength to use.
+
+591
+00:22:52,890 --> 00:22:54,420
+- In the early days, anything between
+
+592
+00:22:54,420 --> 00:22:57,690
+five and 14 nanometers was explored.
+
+593
+00:22:57,690 --> 00:23:00,750
+The thing is you need to find a source
+
+594
+00:23:00,750 --> 00:23:02,610
+and you need to find optics that reflect
+
+595
+00:23:02,610 --> 00:23:03,630
+the wavelengths.
+- Right.
+
+596
+00:23:03,630 --> 00:23:05,370
+- So you have to look for the combination.
+
+597
+00:23:05,370 --> 00:23:07,080
+- Underwood and Barbee had already made
+
+598
+00:23:07,080 --> 00:23:09,930
+mirrors that could reflect
+light of around four nanometers.
+
+599
+00:23:09,930 --> 00:23:11,940
+And since that wavelength is so small,
+
+600
+00:23:11,940 --> 00:23:14,310
+it seems like the obvious choice,
+
+601
+00:23:14,310 --> 00:23:16,710
+but the maximum reflectivity
+for those mirrors was
+
+602
+00:23:16,710 --> 00:23:18,120
+only around 20%.
+
+603
+00:23:18,120 --> 00:23:21,330
+So after hitting six
+mirrors and the reticle,
+
+604
+00:23:21,330 --> 00:23:26,330
+you are just left with
+0.00128% of the light,
+
+605
+00:23:26,700 --> 00:23:28,800
+which is way too low.
+
+606
+00:23:28,800 --> 00:23:30,900
+Fortunately, further
+researchers also looked
+
+607
+00:23:30,900 --> 00:23:32,670
+at two other pairs,
+
+608
+00:23:32,670 --> 00:23:34,140
+silicon and molybdenum,
+
+609
+00:23:34,140 --> 00:23:37,800
+which had a theoretical
+maximum reflectivity of 70%
+
+610
+00:23:37,800 --> 00:23:40,080
+for wavelengths around 13 nanometers,
+
+611
+00:23:40,080 --> 00:23:42,480
+and molybdenum and beryllium
+
+612
+00:23:42,480 --> 00:23:46,110
+with a theoretical maximum
+reflectivity of 80%
+
+613
+00:23:46,110 --> 00:23:48,300
+for wavelengths around 11 nanometers.
+
+614
+00:23:48,300 --> 00:23:50,610
+So the choice seemed obvious, right?
+
+615
+00:23:50,610 --> 00:23:52,260
+I mean, pick the shorter wavelength
+
+616
+00:23:52,260 --> 00:23:53,760
+and the higher reflectivity.
+
+617
+00:23:53,760 --> 00:23:57,360
+But it turns out that
+beryllium is extremely toxic
+
+618
+00:23:57,360 --> 00:23:59,310
+and it's also difficult to handle.
+
+619
+00:23:59,310 --> 00:24:03,720
+So scientists focused on
+silicon and molybdenum instead.
+
+620
+00:24:03,720 --> 00:24:07,110
+To make the mirrors, Zeiss used
+a process called sputtering.
+
+621
+00:24:07,110 --> 00:24:09,000
+A target of coating material is
+
+622
+00:24:09,000 --> 00:24:11,790
+bombarded with either plasma or ions,
+
+623
+00:24:11,790 --> 00:24:14,190
+causing atoms to be ejected, fly off
+
+624
+00:24:14,190 --> 00:24:15,960
+and stick to the mirror.
+
+625
+00:24:15,960 --> 00:24:17,460
+This is a messy process,
+
+626
+00:24:17,460 --> 00:24:20,760
+so the layers end up
+having bumps and gaps.
+
+627
+00:24:20,760 --> 00:24:22,950
+- There was a nice trick that actually
+
+628
+00:24:22,950 --> 00:24:26,520
+the team in the Netherlands
+perfected with ion beam.
+
+629
+00:24:26,520 --> 00:24:28,320
+You just shake it a little bit
+
+630
+00:24:28,320 --> 00:24:31,115
+until the atoms falls in the
+hole where it needs to be
+
+631
+00:24:31,115 --> 00:24:32,460
+and then it's all flat.
+
+632
+00:24:32,460 --> 00:24:34,260
+- [Casper] With the
+mirror design locked in,
+
+633
+00:24:34,260 --> 00:24:37,939
+ASML needed a source for
+that specific wavelength.
+
+634
+00:24:37,939 --> 00:24:40,261
+- So it was 13.x.
+- Yeah.
+
+635
+00:24:40,261 --> 00:24:43,074
+- Okay, now the next good
+question is what's the x?
+
+636
+00:24:43,074 --> 00:24:45,390
+Now you look for the source.
+
+637
+00:24:45,390 --> 00:24:48,750
+So there are basically
+three ways to generate EUV,
+
+638
+00:24:48,750 --> 00:24:52,091
+to build a sun on Earth.
+
+639
+00:24:52,091 --> 00:24:54,030
+- [Casper] The first method
+which early researchers used
+
+640
+00:24:54,030 --> 00:24:55,200
+was the Synchrotron,
+
+641
+00:24:55,200 --> 00:24:56,610
+but it was quickly ruled out
+
+642
+00:24:56,610 --> 00:24:59,760
+because each machine
+needed its own source.
+
+643
+00:24:59,760 --> 00:25:02,310
+The other two methods are
+based on the same principle.
+
+644
+00:25:02,310 --> 00:25:04,800
+When an electron recombines with an ion,
+
+645
+00:25:04,800 --> 00:25:07,290
+the ion drops to a lower energy level
+
+646
+00:25:07,290 --> 00:25:10,080
+and it releases that
+excess energy as a photon.
+
+647
+00:25:10,080 --> 00:25:12,810
+And if you choose the ion just right,
+
+648
+00:25:12,810 --> 00:25:16,380
+then that photon will have
+exactly the wavelength you need.
+
+649
+00:25:16,380 --> 00:25:19,200
+Now, there are two ways
+you can create those ions.
+
+650
+00:25:19,200 --> 00:25:20,730
+The first is you take a metal,
+
+651
+00:25:20,730 --> 00:25:22,470
+heat it up until you get a metal vapor,
+
+652
+00:25:22,470 --> 00:25:26,010
+and then you apply a strong
+electric field across it.
+
+653
+00:25:26,010 --> 00:25:28,830
+This causes free electrons
+to knock into nearby atoms
+
+654
+00:25:28,830 --> 00:25:30,093
+and ionize them.
+
+655
+00:25:30,960 --> 00:25:32,880
+If you then turn off the electric field,
+
+656
+00:25:32,880 --> 00:25:36,540
+the electrons recombine with
+the ions and produce light.
+
+657
+00:25:36,540 --> 00:25:39,360
+This is discharge-produced plasma.
+
+658
+00:25:39,360 --> 00:25:40,950
+- [Jos] That's the concept we use first.
+
+659
+00:25:40,950 --> 00:25:41,910
+- [Casper] Yeah.
+- Because of its
+
+660
+00:25:41,910 --> 00:25:43,530
+relative simplicity.
+
+661
+00:25:43,530 --> 00:25:46,260
+And we quickly got it to a few watts.
+
+662
+00:25:46,260 --> 00:25:49,800
+We wanted to get 100 watts
+and we struggled forever.
+
+663
+00:25:49,800 --> 00:25:51,523
+- So you couldn't scale it.
+
+664
+00:25:51,523 --> 00:25:52,356
+- We could not scale it.
+
+665
+00:25:52,356 --> 00:25:54,300
+- They needed a drastic change.
+
+666
+00:25:54,300 --> 00:25:56,490
+So they switched to the second method.
+
+667
+00:25:56,490 --> 00:25:58,530
+This method uses a high powered laser
+
+668
+00:25:58,530 --> 00:26:00,150
+to hit a target material,
+
+669
+00:26:00,150 --> 00:26:01,170
+creating a plasma
+
+670
+00:26:01,170 --> 00:26:04,980
+that's more than 220,000
+degrees Celsius hot.
+
+671
+00:26:04,980 --> 00:26:06,750
+The electrons have so much energy
+
+672
+00:26:06,750 --> 00:26:09,210
+that the nucleus can't
+hold onto them anymore,
+
+673
+00:26:09,210 --> 00:26:12,750
+and up to 14 electrons
+escape their orbits.
+
+674
+00:26:12,750 --> 00:26:14,010
+After the laser shuts off,
+
+675
+00:26:14,010 --> 00:26:17,610
+the electrons and ions
+recombine to produce light.
+
+676
+00:26:17,610 --> 00:26:19,440
+This is laser-produced plasma
+
+677
+00:26:19,440 --> 00:26:22,023
+and it was the only method
+that seemed scalable.
+
+678
+00:26:23,670 --> 00:26:25,320
+In fact, this was the same method
+
+679
+00:26:25,320 --> 00:26:26,970
+that the Engineering Test Stand used,
+
+680
+00:26:26,970 --> 00:26:30,900
+a 1,700 watt laser fired
+into a stream of xenon gas
+
+681
+00:26:30,900 --> 00:26:34,440
+to produce 13.4 nanometer light.
+
+682
+00:26:34,440 --> 00:26:36,570
+But xenon had a big problem.
+
+683
+00:26:36,570 --> 00:26:38,400
+The conversion efficiency that is
+
+684
+00:26:38,400 --> 00:26:40,110
+the ratio of usable light
+
+685
+00:26:40,110 --> 00:26:42,690
+to the amount of power
+you put in was terrible.
+
+686
+00:26:42,690 --> 00:26:44,303
+It was only around 0.5%.
+
+687
+00:26:45,614 --> 00:26:47,250
+That's because while xenon does emit light
+
+688
+00:26:47,250 --> 00:26:49,560
+in the 13 to 14 nanometer range,
+
+689
+00:26:49,560 --> 00:26:52,590
+there's much more light
+released around 11 nanometers.
+
+690
+00:26:52,590 --> 00:26:54,990
+So most of the energy
+went into making light
+
+691
+00:26:54,990 --> 00:26:57,060
+that the mirrors couldn't reflect.
+
+692
+00:26:57,060 --> 00:26:59,550
+Plus, the laser didn't
+ionize all the atoms.
+
+693
+00:26:59,550 --> 00:27:01,890
+So, leftover neutral xenon atoms would
+
+694
+00:27:01,890 --> 00:27:05,553
+strongly reabsorb some of
+that 13.4 nanometer light.
+
+695
+00:27:06,630 --> 00:27:10,560
+So ASML started looking
+at another material, tin.
+
+696
+00:27:10,560 --> 00:27:12,660
+Now, tin has a much higher emission peak,
+
+697
+00:27:12,660 --> 00:27:14,430
+around 13.5 nanometers,
+
+698
+00:27:14,430 --> 00:27:17,100
+which results in a five to 10 times higher
+
+699
+00:27:17,100 --> 00:27:19,080
+conversion efficiency than xenon.
+
+700
+00:27:19,080 --> 00:27:21,870
+But just like xenon, neutral
+tin atoms also absorb
+
+701
+00:27:21,870 --> 00:27:22,890
+EUV light.
+
+702
+00:27:22,890 --> 00:27:25,470
+So they came up with a crazy idea,
+
+703
+00:27:25,470 --> 00:27:29,010
+to shoot one tiny tin droplet at a time.
+
+704
+00:27:29,010 --> 00:27:30,330
+But to get the required power,
+
+705
+00:27:30,330 --> 00:27:31,800
+you would have to make and hit
+
+706
+00:27:31,800 --> 00:27:34,560
+thousands of droplets every second,
+
+707
+00:27:34,560 --> 00:27:37,923
+all of which have to be the
+exact same shape and size.
+
+708
+00:27:39,000 --> 00:27:41,490
+But it turns out that
+you can't instantly make
+
+709
+00:27:41,490 --> 00:27:44,370
+thousands of tin droplets
+that are the exact same.
+
+710
+00:27:44,370 --> 00:27:46,710
+So, they found a workaround.
+
+711
+00:27:46,710 --> 00:27:49,890
+To make the droplets,
+extremely pure tin is melted
+
+712
+00:27:49,890 --> 00:27:51,930
+and pushed through a microscopic nozzle
+
+713
+00:27:51,930 --> 00:27:53,550
+by high pressure nitrogen.
+
+714
+00:27:53,550 --> 00:27:55,740
+This nozzle vibrates at a high frequency,
+
+715
+00:27:55,740 --> 00:27:58,470
+breaking the stream into tiny droplets.
+
+716
+00:27:58,470 --> 00:28:01,050
+These droplets are
+irregular in size, shape,
+
+717
+00:28:01,050 --> 00:28:02,250
+velocity and distance,
+
+718
+00:28:02,250 --> 00:28:04,980
+and the whole process is chaotic.
+
+719
+00:28:04,980 --> 00:28:06,510
+- That's like our magic sauce,
+
+720
+00:28:06,510 --> 00:28:10,050
+is how do you modulate that tin jet
+
+721
+00:28:10,050 --> 00:28:11,430
+so that it forms the droplets we want
+
+722
+00:28:11,430 --> 00:28:12,263
+and that they're stable?
+
+723
+00:28:12,263 --> 00:28:16,560
+- I think we found some paper
+that describe this process
+
+724
+00:28:16,560 --> 00:28:19,080
+and it was sort of eyeopening to me
+
+725
+00:28:19,080 --> 00:28:20,940
+that it seems like all the droplets
+
+726
+00:28:20,940 --> 00:28:23,880
+actually come out irregular
+out of the nozzle,
+
+727
+00:28:23,880 --> 00:28:26,010
+but then before they reach the side
+
+728
+00:28:26,010 --> 00:28:27,510
+where they get hit by the laser,
+
+729
+00:28:27,510 --> 00:28:29,970
+like the little irregular
+droplets come together
+
+730
+00:28:29,970 --> 00:28:32,280
+to form these perfectly spaced,
+
+731
+00:28:32,280 --> 00:28:33,660
+perfectly regular droplets
+
+732
+00:28:33,660 --> 00:28:36,360
+that are about the same size and shape
+
+733
+00:28:36,360 --> 00:28:38,730
+and all traveling at the same velocity.
+
+734
+00:28:38,730 --> 00:28:40,740
+That feels like magic to me, Jayson.
+
+735
+00:28:40,740 --> 00:28:42,210
+- Yeah, it's exactly that.
+
+736
+00:28:42,210 --> 00:28:45,610
+It's how do you take a
+long stream of a tin jet
+
+737
+00:28:46,470 --> 00:28:49,380
+that wants to break up into
+all these irregular droplets
+
+738
+00:28:49,380 --> 00:28:51,720
+and like force onto it
+
+739
+00:28:51,720 --> 00:28:53,880
+that it's gonna collapse
+into a single droplet
+
+740
+00:28:53,880 --> 00:28:56,310
+and then happen again and again and again?
+
+741
+00:28:56,310 --> 00:28:57,960
+- [Casper] You also don't
+have that many variables
+
+742
+00:28:57,960 --> 00:28:58,793
+to play with.
+
+743
+00:28:58,793 --> 00:28:59,940
+You've got the pressure
+
+744
+00:28:59,940 --> 00:29:01,380
+with which you push out the tin
+
+745
+00:29:01,380 --> 00:29:03,480
+and at the frequency of the nozzle.
+
+746
+00:29:03,480 --> 00:29:05,880
+Yeah, it seems like a
+hard problem to solve.
+
+747
+00:29:05,880 --> 00:29:07,980
+- There's not a whole lot
+of variables to play with.
+
+748
+00:29:07,980 --> 00:29:12,780
+And so mastering that
+modulation of the jet is
+
+749
+00:29:12,780 --> 00:29:14,030
+how we make the droplets.
+
+750
+00:29:15,180 --> 00:29:17,850
+- [Casper] But these droplets
+not only have to be identical,
+
+751
+00:29:17,850 --> 00:29:20,733
+they have to be moving incredibly fast.
+
+752
+00:29:21,660 --> 00:29:24,030
+- What will happen is if the next droplet
+
+753
+00:29:24,030 --> 00:29:26,250
+that's coming down the line is too close,
+
+754
+00:29:26,250 --> 00:29:28,830
+then it'll actually get like disturbed
+
+755
+00:29:28,830 --> 00:29:31,560
+and mess up the next plasma event.
+
+756
+00:29:31,560 --> 00:29:33,630
+So we have a requirement
+
+757
+00:29:33,630 --> 00:29:36,150
+which is both that we make
+50,000 droplets per second,
+
+758
+00:29:36,150 --> 00:29:39,810
+but also that they're
+traveling extremely fast.
+
+759
+00:29:39,810 --> 00:29:42,720
+- [Casper] By 2011, their
+laser-produced plasma source
+
+760
+00:29:42,720 --> 00:29:44,310
+reached 11 watts,
+
+761
+00:29:44,310 --> 00:29:46,320
+which was more than
+double what they managed
+
+762
+00:29:46,320 --> 00:29:47,940
+with their previous source.
+
+763
+00:29:47,940 --> 00:29:51,030
+But they were still limited
+to just five wafers per hour.
+
+764
+00:29:51,030 --> 00:29:54,210
+So, they needed to increase
+the power and fast,
+
+765
+00:29:54,210 --> 00:29:56,850
+because they promised they'd
+hit 60 wafers per hour
+
+766
+00:29:56,850 --> 00:29:59,280
+by the end of 2011.
+
+767
+00:29:59,280 --> 00:30:02,790
+Unfortunately, this new
+method had a major flaw.
+
+768
+00:30:02,790 --> 00:30:05,160
+- Now the problem with the tin
+issue, you hit the droplet,
+
+769
+00:30:05,160 --> 00:30:08,940
+you generate EUV with a very
+decent conversion efficiency.
+
+770
+00:30:08,940 --> 00:30:10,110
+Where does the tin go?
+
+771
+00:30:10,110 --> 00:30:13,050
+Because like, you know,
+30 centimeters away,
+
+772
+00:30:13,050 --> 00:30:15,480
+you have this atomically flat,
+
+773
+00:30:15,480 --> 00:30:18,120
+very beautiful, very expensive mirror
+
+774
+00:30:18,120 --> 00:30:19,920
+from our friends at Zeiss.
+- [Casper] Yeah.
+
+775
+00:30:19,920 --> 00:30:21,600
+- And in the early days,
+
+776
+00:30:21,600 --> 00:30:23,458
+we would coat a thing within.
+
+777
+00:30:23,458 --> 00:30:24,291
+(Jos clicks fingers)
+
+778
+00:30:24,291 --> 00:30:25,350
+Like this.
+- These machines need
+
+779
+00:30:25,350 --> 00:30:26,760
+to run for a year.
+
+780
+00:30:26,760 --> 00:30:31,760
+You're putting liters of tin
+through this plasma event
+
+781
+00:30:31,890 --> 00:30:33,690
+and a single nanometer of tin,
+
+782
+00:30:33,690 --> 00:30:35,670
+if it was to land on
+that collector mirror,
+
+783
+00:30:35,670 --> 00:30:37,710
+you'd have to take the
+collector outta commission.
+
+784
+00:30:37,710 --> 00:30:42,030
+We need to keep it almost
+perfectly clean for a year.
+
+785
+00:30:42,030 --> 00:30:43,830
+- Yeah, how do you even approach that?
+
+786
+00:30:43,830 --> 00:30:47,550
+- So our main tool here is
+the hydrogen gas, actually.
+
+787
+00:30:47,550 --> 00:30:48,690
+- [Casper] They fill the chamber
+
+788
+00:30:48,690 --> 00:30:50,190
+with low pressure hydrogen.
+
+789
+00:30:50,190 --> 00:30:52,980
+This slows and cools
+the tin particles down.
+
+790
+00:30:52,980 --> 00:30:55,440
+And even if something
+makes it to the collector,
+
+791
+00:30:55,440 --> 00:30:59,070
+the hydrogen pulls it off to
+form a gas called stannane.
+
+792
+00:30:59,070 --> 00:31:01,230
+This way, the machine
+cleans the collectors
+
+793
+00:31:01,230 --> 00:31:02,520
+while it's running,
+
+794
+00:31:02,520 --> 00:31:04,620
+but that hydrogen gas also gets hot
+
+795
+00:31:04,620 --> 00:31:06,480
+from all those tin explosions.
+
+796
+00:31:06,480 --> 00:31:09,270
+So they need to keep
+flushing new, cooler hydrogen
+
+797
+00:31:09,270 --> 00:31:11,820
+into the system while
+flushing out the stannane
+
+798
+00:31:11,820 --> 00:31:13,350
+and hotter gas.
+
+799
+00:31:13,350 --> 00:31:15,480
+But they have to get the
+pressure and the flow rate
+
+800
+00:31:15,480 --> 00:31:16,410
+just right.
+
+801
+00:31:16,410 --> 00:31:17,970
+I mean, too little hydrogen
+
+802
+00:31:17,970 --> 00:31:19,860
+and the mirrors would get too dirty,
+
+803
+00:31:19,860 --> 00:31:21,960
+but too much hydrogen
+would not only absorb
+
+804
+00:31:21,960 --> 00:31:23,340
+too much EUV light,
+
+805
+00:31:23,340 --> 00:31:26,160
+but it would also cause
+the system to overheat.
+
+806
+00:31:26,160 --> 00:31:28,710
+- The question is how much heat is there?
+
+807
+00:31:28,710 --> 00:31:31,560
+How much energy is being
+deposited into the gas?
+
+808
+00:31:31,560 --> 00:31:33,630
+And we were stumped for quite some time.
+
+809
+00:31:33,630 --> 00:31:35,610
+If you look at a EUV light source,
+
+810
+00:31:35,610 --> 00:31:39,030
+what you'll see is that
+it's kinda like a globe
+
+811
+00:31:39,030 --> 00:31:41,520
+of like purple-ish red light
+
+812
+00:31:41,520 --> 00:31:43,920
+and you kinda ask yourself
+like, why is that happening?
+
+813
+00:31:43,920 --> 00:31:46,650
+So we bought an ultra-fast camera.
+
+814
+00:31:46,650 --> 00:31:49,200
+What we realized is that
+after every plasma event,
+
+815
+00:31:49,200 --> 00:31:51,810
+there's a shockwave that goes
+
+816
+00:31:51,810 --> 00:31:54,450
+propagating out into the hydrogen gas
+
+817
+00:31:54,450 --> 00:31:57,330
+and it's extremely repeatable.
+
+818
+00:31:57,330 --> 00:31:58,163
+And you think to yourself,
+
+819
+00:31:58,163 --> 00:32:00,420
+there must be like an
+explanation for this.
+
+820
+00:32:00,420 --> 00:32:02,940
+And there's this formula,
+
+821
+00:32:02,940 --> 00:32:06,000
+the Taylor-von Neumann-Sedov
+formula that explains
+
+822
+00:32:06,000 --> 00:32:07,920
+point source explosions in an environment,
+
+823
+00:32:07,920 --> 00:32:11,520
+in like, say, a nuclear
+blast out to like supernova.
+
+824
+00:32:11,520 --> 00:32:12,840
+So I took this formula,
+
+825
+00:32:12,840 --> 00:32:14,970
+it like exactly describes the data.
+
+826
+00:32:14,970 --> 00:32:17,550
+It's just fantastic that we're seeing
+
+827
+00:32:17,550 --> 00:32:19,950
+these, like, tiny little
+supernovas happening
+
+828
+00:32:19,950 --> 00:32:22,440
+in our vessel 50,000 times a second.
+
+829
+00:32:22,440 --> 00:32:24,390
+- And is that a fair
+way to think about this,
+
+830
+00:32:24,390 --> 00:32:27,090
+like creating mini supernova?
+
+831
+00:32:27,090 --> 00:32:28,650
+- Yeah, it's actually pretty similar.
+
+832
+00:32:28,650 --> 00:32:30,300
+It's almost like very similar to a,
+
+833
+00:32:30,300 --> 00:32:32,160
+like a type 1A supernova, it turns out,
+
+834
+00:32:32,160 --> 00:32:33,480
+where you kind of have an object
+
+835
+00:32:33,480 --> 00:32:36,120
+that just fully evaporates
+and explodes apart.
+
+836
+00:32:36,120 --> 00:32:39,390
+And when all that energy
+goes into the hydrogen gas,
+
+837
+00:32:39,390 --> 00:32:41,520
+it produces a shock wave, a blast wave
+
+838
+00:32:41,520 --> 00:32:42,660
+that comes flying out,
+
+839
+00:32:42,660 --> 00:32:44,651
+which is basically the same thing.
+
+840
+00:32:44,651 --> 00:32:45,570
+If you look up in the night sky,
+
+841
+00:32:45,570 --> 00:32:47,250
+there are these like remnant supernovas
+
+842
+00:32:47,250 --> 00:32:49,440
+that you can see coming from space.
+
+843
+00:32:49,440 --> 00:32:51,120
+- [Casper] Using those
+energy calculations,
+
+844
+00:32:51,120 --> 00:32:52,680
+they discovered they needed to flush
+
+845
+00:32:52,680 --> 00:32:54,900
+the hydrogen at incredibly high speeds,
+
+846
+00:32:54,900 --> 00:32:57,450
+around 360 kilometers per hour.
+
+847
+00:32:57,450 --> 00:32:59,520
+That's more than a Category 5 hurricane,
+
+848
+00:32:59,520 --> 00:33:02,760
+even if, you know, those
+speeds are at low density.
+
+849
+00:33:02,760 --> 00:33:04,500
+But 2012 came and went
+
+850
+00:33:04,500 --> 00:33:06,900
+and they still didn't have enough power.
+
+851
+00:33:06,900 --> 00:33:10,410
+In fact, by 2013, ASML
+just reached 50 watts
+
+852
+00:33:10,410 --> 00:33:13,320
+by shooting 50,000 tin
+droplets per second.
+
+853
+00:33:13,320 --> 00:33:15,600
+But this increased power came at a price
+
+854
+00:33:15,600 --> 00:33:18,330
+because more power means more heat,
+
+855
+00:33:18,330 --> 00:33:21,180
+heat that ends up slightly
+shifting the mirrors,
+
+856
+00:33:21,180 --> 00:33:25,110
+resulting in misaligned light
+and misaligned chip layers.
+
+857
+00:33:25,110 --> 00:33:27,270
+So Zeiss built a nervous system
+
+858
+00:33:27,270 --> 00:33:29,010
+directly into the optics,
+
+859
+00:33:29,010 --> 00:33:31,530
+robot-guided sensors
+that constantly measure
+
+860
+00:33:31,530 --> 00:33:34,410
+the exact position and
+angle of each mirror
+
+861
+00:33:34,410 --> 00:33:37,140
+down to the nanometer at the pico-radian,
+
+862
+00:33:37,140 --> 00:33:39,570
+which is absolutely insane.
+
+863
+00:33:39,570 --> 00:33:42,600
+- So how accurate do we
+need to control this mirror?
+
+864
+00:33:42,600 --> 00:33:45,510
+Now one of the things, you
+can do a thought experiment.
+
+865
+00:33:45,510 --> 00:33:47,880
+- [Casper] Okay.
+- And I can place
+
+866
+00:33:47,880 --> 00:33:51,660
+a little laser on the side of this mirror.
+
+867
+00:33:51,660 --> 00:33:53,700
+Then we go all the way to the Moon
+
+868
+00:33:53,700 --> 00:33:56,400
+and we put a dime here.
+
+869
+00:33:56,400 --> 00:33:58,260
+So then this light travels
+
+870
+00:33:58,260 --> 00:34:01,290
+all the way here and
+then with the accuracy,
+
+871
+00:34:01,290 --> 00:34:02,880
+I can control this mirror.
+
+872
+00:34:02,880 --> 00:34:04,530
+- Yes.
+- I can decide
+
+873
+00:34:04,530 --> 00:34:07,830
+whether I point to this side of the dime
+
+874
+00:34:07,830 --> 00:34:09,538
+or whether I point.
+- That's insane.
+
+875
+00:34:09,538 --> 00:34:10,699
+- To this side of the dime.
+
+876
+00:34:10,699 --> 00:34:12,930
+- What, that's crazy.
+
+877
+00:34:12,930 --> 00:34:16,500
+- So you can see that
+the pointing accuracy is
+
+878
+00:34:16,500 --> 00:34:18,580
+that's also in pico-radians.
+
+879
+00:34:19,693 --> 00:34:21,243
+That is something very extreme.
+
+880
+00:34:22,080 --> 00:34:23,760
+- This allowed them to control the light
+
+881
+00:34:23,760 --> 00:34:26,040
+even when the power increased.
+
+882
+00:34:26,040 --> 00:34:28,500
+While Zeiss was doing a
+stellar job with the optics,
+
+883
+00:34:28,500 --> 00:34:31,710
+ASML was still struggling
+with the power source.
+
+884
+00:34:31,710 --> 00:34:34,800
+The problem was that the
+tin droplets were too dense,
+
+885
+00:34:34,800 --> 00:34:37,620
+meaning that most of the
+emitted EUV light was
+
+886
+00:34:37,620 --> 00:34:39,030
+still getting reabsorbed
+
+887
+00:34:39,030 --> 00:34:41,490
+by the neutral atoms
+before it could ever reach
+
+888
+00:34:41,490 --> 00:34:42,570
+the collector mirror.
+
+889
+00:34:42,570 --> 00:34:44,790
+- The way we blasted the droplet was
+
+890
+00:34:44,790 --> 00:34:47,460
+so not enough light, too much debris.
+
+891
+00:34:47,460 --> 00:34:48,960
+- To make matters worse,
+
+892
+00:34:48,960 --> 00:34:51,210
+they could see that
+about 10 years from now,
+
+893
+00:34:51,210 --> 00:34:53,610
+they would need a new
+generation of machine,
+
+894
+00:34:53,610 --> 00:34:55,710
+a high NA EUV machine,
+
+895
+00:34:55,710 --> 00:34:58,290
+essentially one with a larger optic system
+
+896
+00:34:58,290 --> 00:34:59,910
+that could print smaller features.
+
+897
+00:34:59,910 --> 00:35:02,070
+So what did they do?
+
+898
+00:35:02,070 --> 00:35:04,680
+They decided to double down and invest
+
+899
+00:35:04,680 --> 00:35:06,270
+in the next generation
+
+900
+00:35:06,270 --> 00:35:08,850
+before they even got
+the current one to work.
+
+901
+00:35:08,850 --> 00:35:11,160
+- The most doubtful period
+was in the beginning.
+
+902
+00:35:11,160 --> 00:35:14,130
+So I started to work on this in 2012.
+
+903
+00:35:14,130 --> 00:35:17,079
+By that time, EUV was not working
+
+904
+00:35:17,079 --> 00:35:19,110
+and there was this crazy idiot
+
+905
+00:35:19,110 --> 00:35:21,220
+working on the next generation
+
+906
+00:35:22,141 --> 00:35:23,547
+where we could not even make
+
+907
+00:35:23,547 --> 00:35:25,440
+the EUV light in the first place.
+
+908
+00:35:25,440 --> 00:35:27,690
+- Not only are you all in on EUV,
+
+909
+00:35:27,690 --> 00:35:29,340
+you're doubling down even before you know
+
+910
+00:35:29,340 --> 00:35:31,530
+if EUV is gonna work.
+- Yes, yes.
+
+911
+00:35:31,530 --> 00:35:33,180
+- But to keep funding the development,
+
+912
+00:35:33,180 --> 00:35:35,610
+they needed money and lots of it.
+
+913
+00:35:35,610 --> 00:35:37,740
+So, they turned to the
+very people who needed
+
+914
+00:35:37,740 --> 00:35:38,673
+this technology.
+
+915
+00:35:39,690 --> 00:35:41,970
+- ASML reached out to its main customers,
+
+916
+00:35:41,970 --> 00:35:44,700
+okay, you want this technology
+
+917
+00:35:44,700 --> 00:35:46,440
+for the next generation of chips?
+
+918
+00:35:46,440 --> 00:35:48,690
+Well, you need to make us able
+
+919
+00:35:48,690 --> 00:35:52,110
+to invest more by investing in us.
+
+920
+00:35:52,110 --> 00:35:55,320
+- Intel invested around $4.1 billion
+
+921
+00:35:55,320 --> 00:36:00,060
+and Samsung and TSMC invested
+another 1.3 billion combined.
+
+922
+00:36:00,060 --> 00:36:01,950
+So they can keep the research going,
+
+923
+00:36:01,950 --> 00:36:04,080
+but with no product to show,
+
+924
+00:36:04,080 --> 00:36:06,390
+customers were running out of patience.
+
+925
+00:36:06,390 --> 00:36:09,540
+- We were crucified at every conference
+
+926
+00:36:09,540 --> 00:36:11,550
+that the promises we made last year,
+
+927
+00:36:11,550 --> 00:36:13,680
+we were unable to live up to.
+
+928
+00:36:13,680 --> 00:36:14,617
+- Yeah.
+- And they said,
+
+929
+00:36:14,617 --> 00:36:16,080
+"This is what you showed two years ago.
+
+930
+00:36:16,080 --> 00:36:17,310
+This is what you showed last year
+
+931
+00:36:17,310 --> 00:36:18,750
+and this is what you're
+telling me this year.
+
+932
+00:36:18,750 --> 00:36:20,280
+So why would I believe you?"
+
+933
+00:36:20,280 --> 00:36:22,140
+- They were getting desperate.
+
+934
+00:36:22,140 --> 00:36:27,140
+- But this was, I think,
+about 2012 or '13,
+
+935
+00:36:27,180 --> 00:36:29,700
+we were struggling to get the EUV power up
+
+936
+00:36:29,700 --> 00:36:31,200
+and Kinoshita visited us.
+
+937
+00:36:31,200 --> 00:36:33,570
+I took him to dinner
+in a small town nearby
+
+938
+00:36:33,570 --> 00:36:37,500
+and across from the
+restaurant was a Maria Chapel.
+
+939
+00:36:37,500 --> 00:36:39,210
+And now, you know, science,
+
+940
+00:36:39,210 --> 00:36:41,460
+we have come to the limits of science.
+
+941
+00:36:41,460 --> 00:36:43,320
+Hey, let's go for Divine intervention.
+
+942
+00:36:43,320 --> 00:36:44,880
+So we went to the chapel,
+
+943
+00:36:44,880 --> 00:36:49,110
+so Kinoshita just to be
+safe lit three candles
+
+944
+00:36:49,110 --> 00:36:52,170
+for the three suppliers that
+were pursuing EUV technology
+
+945
+00:36:52,170 --> 00:36:53,100
+at the time.
+
+946
+00:36:53,100 --> 00:36:56,400
+And lo and behold, and I
+have the data to prove it,
+
+947
+00:36:56,400 --> 00:36:58,856
+there is a very strong correlation
+
+948
+00:36:58,856 --> 00:37:02,943
+between us lighting the
+candle and power going up.
+
+949
+00:37:03,960 --> 00:37:07,500
+It's not a causal effect, but
+there is a strong correlation.
+
+950
+00:37:07,500 --> 00:37:10,380
+- The big idea was instead
+of hitting the droplet once,
+
+951
+00:37:10,380 --> 00:37:11,670
+hit it twice.
+
+952
+00:37:11,670 --> 00:37:14,130
+- [Jos] One shot to hit the droplet
+
+953
+00:37:14,130 --> 00:37:16,833
+and it expands in like a pancake shape.
+
+954
+00:37:16,833 --> 00:37:18,060
+- [Casper] Yep.
+- And then,
+
+955
+00:37:18,060 --> 00:37:19,980
+only then have the second shot,
+
+956
+00:37:19,980 --> 00:37:21,990
+the more powerful main pulse
+
+957
+00:37:21,990 --> 00:37:23,910
+where you evaporate the pancake
+
+958
+00:37:23,910 --> 00:37:25,470
+and turn it into a plasma.
+
+959
+00:37:25,470 --> 00:37:26,303
+- [Casper] Yeah.
+- This was
+
+960
+00:37:26,303 --> 00:37:27,630
+a major breakthrough.
+
+961
+00:37:27,630 --> 00:37:28,890
+- [Casper] By changing the target
+
+962
+00:37:28,890 --> 00:37:30,480
+from a droplet to a pancake,
+
+963
+00:37:30,480 --> 00:37:33,660
+you got a larger surface area
+for the laser to vaporize,
+
+964
+00:37:33,660 --> 00:37:37,170
+but without the cost of adding
+more debris or neutral atoms
+
+965
+00:37:37,170 --> 00:37:40,710
+because now the tin is
+vaporized all at once.
+
+966
+00:37:40,710 --> 00:37:43,440
+By 2014, they finally managed to hit
+
+967
+00:37:43,440 --> 00:37:45,750
+that coveted 100 watts mark.
+
+968
+00:37:45,750 --> 00:37:47,580
+But improvements in multi patterning
+
+969
+00:37:47,580 --> 00:37:49,410
+with 193 nanometers
+
+970
+00:37:49,410 --> 00:37:51,930
+now meant that EUV would only be useful
+
+971
+00:37:51,930 --> 00:37:54,210
+if the source reached at least 200 watts
+
+972
+00:37:54,210 --> 00:37:56,850
+and made 125 wafers per hour.
+
+973
+00:37:56,850 --> 00:37:58,547
+- The source went from 100 to 200,
+
+974
+00:37:58,547 --> 00:38:01,290
+but as the industry moved
+on, nobody waits for you.
+
+975
+00:38:01,290 --> 00:38:03,600
+You know, they find other solutions.
+
+976
+00:38:03,600 --> 00:38:05,040
+We had to catch up.
+
+977
+00:38:05,040 --> 00:38:07,050
+So, it was a moving goalpost.
+
+978
+00:38:07,050 --> 00:38:09,330
+- One of the problems was
+how do you perfectly time
+
+979
+00:38:09,330 --> 00:38:12,180
+the laser so you hit
+each of these droplets?
+
+980
+00:38:12,180 --> 00:38:14,940
+- So the analogy is a bit like a golf ball
+
+981
+00:38:14,940 --> 00:38:18,960
+that you need to land in
+the hole 200 meters away,
+
+982
+00:38:18,960 --> 00:38:20,160
+not like land on the green,
+
+983
+00:38:20,160 --> 00:38:21,300
+not bouncing and get in the hole,
+
+984
+00:38:21,300 --> 00:38:23,640
+but like land in the hole every time.
+
+985
+00:38:23,640 --> 00:38:25,080
+That's the level of precision that we need
+
+986
+00:38:25,080 --> 00:38:26,880
+to deliver the droplets.
+
+987
+00:38:26,880 --> 00:38:28,050
+Those droplets are traveling
+
+988
+00:38:28,050 --> 00:38:30,720
+through this like
+maelstrom of hydrogen flow.
+
+989
+00:38:30,720 --> 00:38:32,580
+The speeds are tremendously high,
+
+990
+00:38:32,580 --> 00:38:34,500
+like shooting golf
+balls through a tornado,
+
+991
+00:38:34,500 --> 00:38:36,750
+and then right when it lands at the hole,
+
+992
+00:38:36,750 --> 00:38:38,610
+that's when it needs to
+get hit by the laser.
+
+993
+00:38:38,610 --> 00:38:41,730
+So in order to basically
+track the droplets for that,
+
+994
+00:38:41,730 --> 00:38:44,640
+we use laser curtains and
+we can sort of look at
+
+995
+00:38:44,640 --> 00:38:46,770
+when does the droplet pass
+through a laser curtain.
+
+996
+00:38:46,770 --> 00:38:50,220
+Those scattered photons tell
+us basically when and where is
+
+997
+00:38:50,220 --> 00:38:51,053
+the droplet,
+
+998
+00:38:51,053 --> 00:38:53,070
+and then importantly tells
+us when to fire the laser.
+
+999
+00:38:53,070 --> 00:38:54,870
+So we actually have to take into account
+
+1000
+00:38:54,870 --> 00:38:57,090
+how long will it take for
+the light pulse to hit
+
+1001
+00:38:57,090 --> 00:38:58,890
+the droplet after we send the pulse.
+
+1002
+00:38:59,850 --> 00:39:01,320
+- Now by 2015,
+
+1003
+00:39:01,320 --> 00:39:03,240
+they were getting closer and closer
+
+1004
+00:39:03,240 --> 00:39:05,490
+to that coveted 200 watt mark,
+
+1005
+00:39:05,490 --> 00:39:09,420
+when all of a sudden the ASML
+board members got summoned.
+
+1006
+00:39:09,420 --> 00:39:12,090
+- This was one of these decisive moments
+
+1007
+00:39:12,090 --> 00:39:15,360
+where our customers were
+really thin on patience
+
+1008
+00:39:15,360 --> 00:39:16,920
+and Martin and all the board members were
+
+1009
+00:39:16,920 --> 00:39:19,590
+summoned to Korea to show
+
+1010
+00:39:19,590 --> 00:39:22,560
+200 watt and they were
+really fed up with it.
+
+1011
+00:39:22,560 --> 00:39:26,460
+You know, you either show
+it now or you go away.
+
+1012
+00:39:26,460 --> 00:39:28,020
+And when they entered the plane,
+
+1013
+00:39:28,020 --> 00:39:28,990
+the experiment was still running.
+
+1014
+00:39:28,990 --> 00:39:31,410
+- [Casper] Okay.
+- When they exited
+
+1015
+00:39:31,410 --> 00:39:32,730
+the plane,
+
+1016
+00:39:32,730 --> 00:39:34,883
+they had the first result
+demonstrating 200 watt.
+
+1017
+00:39:34,883 --> 00:39:36,960
+This is how close we came.
+
+1018
+00:39:36,960 --> 00:39:38,190
+- With the source power up,
+
+1019
+00:39:38,190 --> 00:39:41,340
+there was one final problem
+that had to be solved
+
+1020
+00:39:41,340 --> 00:39:44,310
+before they could begin
+manufacturing their machine.
+
+1021
+00:39:44,310 --> 00:39:46,350
+See, while the hydrogen gas did protect
+
+1022
+00:39:46,350 --> 00:39:48,180
+the collector mirror from debris,
+
+1023
+00:39:48,180 --> 00:39:49,710
+it wasn't perfect.
+
+1024
+00:39:49,710 --> 00:39:51,870
+All the intense, high energy photons
+
+1025
+00:39:51,870 --> 00:39:54,150
+and hydrogen ions zipping around
+
+1026
+00:39:54,150 --> 00:39:57,840
+deteriorated a very special
+top coating on the collector.
+
+1027
+00:39:57,840 --> 00:40:01,260
+So they still had to clean
+the mirrors every 10 hours,
+
+1028
+00:40:01,260 --> 00:40:04,050
+which, you know, is
+terrible for productivity.
+
+1029
+00:40:04,050 --> 00:40:06,330
+Martin van den Brink asked
+for updates every day
+
+1030
+00:40:06,330 --> 00:40:07,260
+on their progress.
+
+1031
+00:40:07,260 --> 00:40:09,240
+But then one of the engineers noticed
+
+1032
+00:40:09,240 --> 00:40:11,670
+that every time they
+opened up the machine,
+
+1033
+00:40:11,670 --> 00:40:14,400
+the mirrors suddenly seemed cleaner.
+
+1034
+00:40:14,400 --> 00:40:16,027
+- That he kind of chimed in and said,
+
+1035
+00:40:16,027 --> 00:40:18,090
+"Oh, wait a second.
+
+1036
+00:40:18,090 --> 00:40:20,160
+Whenever we opened up the machine,
+
+1037
+00:40:20,160 --> 00:40:22,800
+oxygen comes in and our problem is solved.
+
+1038
+00:40:22,800 --> 00:40:24,870
+Couldn't we think of a way to add
+
+1039
+00:40:24,870 --> 00:40:27,300
+just a little oxygen to our system
+
+1040
+00:40:27,300 --> 00:40:31,290
+and make sure that the
+collector stays clean longer?"
+
+1041
+00:40:31,290 --> 00:40:33,780
+And so they started experimenting
+
+1042
+00:40:33,780 --> 00:40:36,347
+with the amount of oxygen that was needed
+
+1043
+00:40:36,347 --> 00:40:39,090
+in the vacuum and then
+finally got to this point,
+
+1044
+00:40:39,090 --> 00:40:41,010
+okay, if we add so much oxygen,
+
+1045
+00:40:41,010 --> 00:40:43,530
+we'll keep the collector clean for longer.
+
+1046
+00:40:43,530 --> 00:40:45,570
+- With this fix, ASML's machine could run
+
+1047
+00:40:45,570 --> 00:40:48,960
+continuously for much
+longer and it finally became
+
+1048
+00:40:48,960 --> 00:40:50,640
+commercially viable.
+
+1049
+00:40:50,640 --> 00:40:53,160
+By 2016, orders started pouring in
+
+1050
+00:40:53,160 --> 00:40:55,770
+and now all of the most
+advanced chips need
+
+1051
+00:40:55,770 --> 00:40:56,910
+ASML's machine,
+
+1052
+00:40:56,910 --> 00:40:59,190
+making them perhaps the most important
+
+1053
+00:40:59,190 --> 00:41:01,140
+tech company in the world.
+
+1054
+00:41:01,140 --> 00:41:03,120
+ASML's first commercial machines had
+
+1055
+00:41:03,120 --> 00:41:05,370
+a numerical aperture of 0.33
+
+1056
+00:41:05,370 --> 00:41:08,010
+and could print 13 nanometer lines.
+
+1057
+00:41:08,010 --> 00:41:10,140
+These are called the low NA machines
+
+1058
+00:41:10,140 --> 00:41:11,880
+and ASML still makes them.
+
+1059
+00:41:11,880 --> 00:41:14,340
+But the machine that Jan's
+team started working on
+
+1060
+00:41:14,340 --> 00:41:17,280
+back in 2012 was the next generation,
+
+1061
+00:41:17,280 --> 00:41:19,050
+which had a larger optic system
+
+1062
+00:41:19,050 --> 00:41:21,240
+so they could print even smaller features.
+
+1063
+00:41:21,240 --> 00:41:23,340
+This is the high NA machine
+
+1064
+00:41:23,340 --> 00:41:26,340
+with a numerical aperture of 0.55,
+
+1065
+00:41:26,340 --> 00:41:29,493
+and we get to see their
+latest version up close.
+
+1066
+00:41:30,570 --> 00:41:32,160
+- How much is the machine?
+
+1067
+00:41:32,160 --> 00:41:36,000
+- We always say north
+of 350 million euros.
+
+1068
+00:41:36,000 --> 00:41:37,410
+- And you can actually buy it, right?
+
+1069
+00:41:37,410 --> 00:41:38,490
+- You can if you want, yeah.
+
+1070
+00:41:38,490 --> 00:41:40,263
+- If I had the money I could buy it?
+
+1071
+00:41:40,263 --> 00:41:41,223
+- Yes, you could.
+
+1072
+00:41:42,090 --> 00:41:43,590
+- How many people have seen this before?
+
+1073
+00:41:43,590 --> 00:41:46,020
+- We really limit the amount of people
+
+1074
+00:41:46,020 --> 00:41:47,820
+that get to go inside the clean room.
+
+1075
+00:41:47,820 --> 00:41:49,290
+- [Casper] ASML's machines are built
+
+1076
+00:41:49,290 --> 00:41:51,000
+in a super strict clean room.
+
+1077
+00:41:51,000 --> 00:41:53,910
+In any cubic meter, there can
+be no more than 10 particles,
+
+1078
+00:41:53,910 --> 00:41:55,860
+only 0.1 microns large,
+
+1079
+00:41:55,860 --> 00:41:57,570
+and nothing bigger than that.
+
+1080
+00:41:57,570 --> 00:41:59,640
+A spec of pollen is around 20 microns
+
+1081
+00:41:59,640 --> 00:42:02,700
+and extremely fine sand
+is around 10 microns.
+
+1082
+00:42:02,700 --> 00:42:04,440
+To put all of this in perspective,
+
+1083
+00:42:04,440 --> 00:42:05,730
+hospital operating rooms,
+
+1084
+00:42:05,730 --> 00:42:07,560
+which have to be extremely clean,
+
+1085
+00:42:07,560 --> 00:42:11,040
+only allow a maximum of 10,000
+particles per cubic meter
+
+1086
+00:42:11,040 --> 00:42:13,830
+that are 0.1 microns wide.
+
+1087
+00:42:13,830 --> 00:42:16,450
+It's so unfair how much
+better Marc looks, though
+
+1088
+00:42:17,430 --> 00:42:18,420
+in his light suit.
+
+1089
+00:42:18,420 --> 00:42:19,770
+I feel like a little Smurf.
+
+1090
+00:42:21,100 --> 00:42:24,690
+- Okay, so we're gonna go
+through the air showers,
+
+1091
+00:42:24,690 --> 00:42:26,700
+so you're gonna have to do as I do.
+
+1092
+00:42:26,700 --> 00:42:27,720
+- [Casper] Okay.
+
+1093
+00:42:27,720 --> 00:42:30,142
+So this is brushing down all the particles
+
+1094
+00:42:30,142 --> 00:42:30,975
+that are still on us.
+
+1095
+00:42:30,975 --> 00:42:32,430
+- [Marc] Yes, so this
+is like super clean air
+
+1096
+00:42:32,430 --> 00:42:33,543
+blowing us clean.
+
+1097
+00:42:34,920 --> 00:42:36,183
+- [Casper] This place is huge.
+
+1098
+00:42:36,183 --> 00:42:38,220
+- [Marc] It's huge.
+- [Casper] It's insane.
+
+1099
+00:42:38,220 --> 00:42:40,740
+I've been in a clean room
+a couple times before,
+
+1100
+00:42:40,740 --> 00:42:42,540
+but it's nothing compared to this.
+
+1101
+00:42:42,540 --> 00:42:44,460
+Are there any secret areas here
+
+1102
+00:42:44,460 --> 00:42:46,160
+where almost no one has access to?
+
+1103
+00:42:47,490 --> 00:42:48,800
+- [Marc] I can't tell you.
+
+1104
+00:42:48,800 --> 00:42:49,865
+(Casper laughs)
+
+1105
+00:42:49,865 --> 00:42:50,698
+- [Casper] Great answer.
+
+1106
+00:42:50,698 --> 00:42:52,473
+- [Marc] Okay, so this
+is the total system.
+
+1107
+00:42:54,980 --> 00:42:56,292
+- [Casper] This is crazy.
+
+1108
+00:42:56,292 --> 00:42:57,960
+Look how big it is.
+
+1109
+00:42:57,960 --> 00:43:01,170
+This is the most advanced
+machine humanity's ever built.
+
+1110
+00:43:01,170 --> 00:43:04,890
+It's taken many, many years,
+decades of development,
+
+1111
+00:43:04,890 --> 00:43:06,690
+many billions of dollars,
+
+1112
+00:43:06,690 --> 00:43:09,243
+all to get this humongous beauty.
+
+1113
+00:43:10,230 --> 00:43:12,120
+So this is the first high NA machine.
+
+1114
+00:43:12,120 --> 00:43:12,953
+- [Marc] Yes.
+
+1115
+00:43:12,953 --> 00:43:16,950
+So if you saw pictures on
+the internet or whatever,
+
+1116
+00:43:16,950 --> 00:43:17,783
+that's this machine.
+
+1117
+00:43:17,783 --> 00:43:20,490
+So the very first lines ever
+printed at eight nanometers
+
+1118
+00:43:20,490 --> 00:43:22,170
+and stuff, that was this machine.
+
+1119
+00:43:22,170 --> 00:43:24,690
+- [Casper] This smoothest object on earth.
+
+1120
+00:43:24,690 --> 00:43:26,670
+- [Marc] Yeah, it's all in here, yeah.
+
+1121
+00:43:26,670 --> 00:43:29,130
+- [Casper] Wait, so let me
+see if I can figure this out.
+
+1122
+00:43:29,130 --> 00:43:31,980
+This is the light source.
+
+1123
+00:43:31,980 --> 00:43:34,170
+It's where they make
+the extreme ultraviolet.
+
+1124
+00:43:34,170 --> 00:43:35,003
+- [Marc] Yes.
+
+1125
+00:43:36,106 --> 00:43:37,740
+- [Casper] And then the laser
+must come in from there.
+
+1126
+00:43:37,740 --> 00:43:39,690
+- [Marc] Yeah, let's
+take a look at the laser.
+
+1127
+00:43:39,690 --> 00:43:40,710
+- [Casper] In fact, we got to see
+
+1128
+00:43:40,710 --> 00:43:42,760
+just how the laser and light source work.
+
+1129
+00:43:43,744 --> 00:43:45,450
+I think we're entering
+the laser system here.
+
+1130
+00:43:45,450 --> 00:43:46,680
+Marc's just making sure I think
+
+1131
+00:43:46,680 --> 00:43:48,510
+that we can actually film here,
+
+1132
+00:43:48,510 --> 00:43:50,850
+that we're not catching
+anything we're not supposed to.
+
+1133
+00:43:50,850 --> 00:43:53,610
+Oh wow, this looks dangerous.
+
+1134
+00:43:53,610 --> 00:43:55,020
+Now the laser system is covered
+
+1135
+00:43:55,020 --> 00:43:56,550
+by all of these brown cabinets,
+
+1136
+00:43:56,550 --> 00:43:58,530
+but here is a model version.
+
+1137
+00:43:58,530 --> 00:44:01,380
+A carbon dioxide laser of
+just a few watts enters
+
+1138
+00:44:01,380 --> 00:44:03,720
+this amplifier where it bounces around
+
+1139
+00:44:03,720 --> 00:44:06,660
+until it's roughly five
+times its original power.
+
+1140
+00:44:06,660 --> 00:44:09,510
+It then goes through a total
+of four different amplifiers
+
+1141
+00:44:09,510 --> 00:44:12,780
+to bring the final laser
+up to 20,000 watts,
+
+1142
+00:44:12,780 --> 00:44:15,090
+which is four times stronger
+than lasers that cut
+
+1143
+00:44:15,090 --> 00:44:16,350
+through steel.
+
+1144
+00:44:16,350 --> 00:44:19,860
+- Over here we have the
+amplifiers that generates
+
+1145
+00:44:19,860 --> 00:44:22,050
+this powerful laser beam.
+
+1146
+00:44:22,050 --> 00:44:23,820
+And then it basically comes out
+
+1147
+00:44:23,820 --> 00:44:26,880
+and this is part of the
+beam transport system
+
+1148
+00:44:26,880 --> 00:44:29,190
+where it's brought to the machine.
+
+1149
+00:44:29,190 --> 00:44:31,800
+So this pipe here has the big laser beam.
+
+1150
+00:44:31,800 --> 00:44:34,560
+- And this has a mirror.
+- [Marc] Yes.
+
+1151
+00:44:34,560 --> 00:44:35,730
+- [Casper] Then the pulses travel
+
+1152
+00:44:35,730 --> 00:44:37,050
+to the light source module.
+
+1153
+00:44:37,050 --> 00:44:38,700
+It kind of looks like a Transformer
+
+1154
+00:44:38,700 --> 00:44:41,580
+or like a, I don't know, like a spaceship.
+
+1155
+00:44:41,580 --> 00:44:44,220
+There's so many wires going everywhere.
+
+1156
+00:44:44,220 --> 00:44:45,520
+- [Marc] Don't touch this.
+
+1157
+00:44:48,450 --> 00:44:49,500
+- [Casper] Holy crap.
+
+1158
+00:44:50,460 --> 00:44:51,934
+This is pretty big, huh?
+
+1159
+00:44:51,934 --> 00:44:53,000
+This is insane.
+
+1160
+00:44:53,000 --> 00:44:54,203
+- [Marc] And this is
+just the light source.
+
+1161
+00:44:54,203 --> 00:44:55,036
+- [Casper] This is just a light source.
+
+1162
+00:44:55,036 --> 00:44:56,850
+Are you getting this comparison shot?
+
+1163
+00:44:56,850 --> 00:45:00,180
+- [Marc] And so you need all
+of this just to make EUV light.
+
+1164
+00:45:00,180 --> 00:45:02,430
+- [Casper] Just to make the
+light, that's incredible.
+
+1165
+00:45:02,430 --> 00:45:03,973
+Can we do a little walk around?
+
+1166
+00:45:03,973 --> 00:45:04,823
+- [Marc] We can do a little walk.
+
+1167
+00:45:06,450 --> 00:45:07,650
+- Let's go.
+
+1168
+00:45:07,650 --> 00:45:10,770
+- So basically, this is
+the heart of the source.
+
+1169
+00:45:10,770 --> 00:45:12,320
+- [Casper] Can I stand on here?
+
+1170
+00:45:13,200 --> 00:45:15,750
+- [Marc] If you are below 137, you can.
+
+1171
+00:45:15,750 --> 00:45:17,400
+- [Casper] I don't, I think I am.
+
+1172
+00:45:21,270 --> 00:45:22,103
+Woo.
+
+1173
+00:45:22,103 --> 00:45:24,420
+And so the tin droplets are
+coming in from the left.
+
+1174
+00:45:24,420 --> 00:45:25,470
+- [Marc] Yes.
+
+1175
+00:45:25,470 --> 00:45:27,930
+- [Casper] Then we're
+shooting the laser from here.
+
+1176
+00:45:27,930 --> 00:45:29,250
+- [Marc] Yeah.
+
+1177
+00:45:29,250 --> 00:45:30,750
+- [Casper] Okay, it explodes.
+
+1178
+00:45:30,750 --> 00:45:31,650
+- [Marc] And then the light.
+
+1179
+00:45:31,650 --> 00:45:33,450
+- [Casper] The light goes out there.
+
+1180
+00:45:34,620 --> 00:45:37,260
+One improvement from
+ASML's first EUV machine
+
+1181
+00:45:37,260 --> 00:45:38,670
+to their newest one is
+
+1182
+00:45:38,670 --> 00:45:41,460
+the number of pulses that hit the droplet.
+
+1183
+00:45:41,460 --> 00:45:43,890
+The first pre-pulse still
+flattens the droplet
+
+1184
+00:45:43,890 --> 00:45:45,090
+into a pancake,
+
+1185
+00:45:45,090 --> 00:45:47,430
+but now there's also a second pre-pulse
+
+1186
+00:45:47,430 --> 00:45:49,020
+that further reduces the density.
+
+1187
+00:45:49,020 --> 00:45:51,900
+It basically turns it
+into a low density gas,
+
+1188
+00:45:51,900 --> 00:45:53,640
+it rarifies it.
+
+1189
+00:45:53,640 --> 00:45:57,210
+And then the final pulse
+essentially ionizes all of it.
+
+1190
+00:45:57,210 --> 00:46:00,570
+So for basically the same power
+coming from the drive laser,
+
+1191
+00:46:00,570 --> 00:46:03,030
+they get even more EUV light.
+
+1192
+00:46:03,030 --> 00:46:04,530
+Now if they want even more light,
+
+1193
+00:46:04,530 --> 00:46:05,760
+then the only way to do that is
+
+1194
+00:46:05,760 --> 00:46:07,290
+by hitting more droplets.
+
+1195
+00:46:07,290 --> 00:46:09,300
+And that's exactly what they did.
+
+1196
+00:46:09,300 --> 00:46:11,760
+- Our most recent EUV light sources
+
+1197
+00:46:11,760 --> 00:46:12,810
+that we're shipping right now,
+
+1198
+00:46:12,810 --> 00:46:15,330
+which are around the 500 watt level,
+
+1199
+00:46:15,330 --> 00:46:18,480
+we increased the rep rate up
+to 60,000 times per second.
+
+1200
+00:46:18,480 --> 00:46:20,460
+And then we have a roadmap that's gonna go
+
+1201
+00:46:20,460 --> 00:46:22,920
+to 100,000 droplets per second.
+
+1202
+00:46:22,920 --> 00:46:24,510
+We've actually now already demonstrated
+
+1203
+00:46:24,510 --> 00:46:26,670
+this 100,000 droplets
+per second in the lab.
+
+1204
+00:46:26,670 --> 00:46:28,410
+So it's not an if but a when.
+
+1205
+00:46:28,410 --> 00:46:30,030
+- Crazy.
+
+1206
+00:46:30,030 --> 00:46:31,860
+- [Marc] The three pulses
+that we use to make
+
+1207
+00:46:31,860 --> 00:46:34,020
+the pancake, to blow up
+the pancake a little bit
+
+1208
+00:46:34,020 --> 00:46:36,360
+and then to evaporate the pancake.
+
+1209
+00:46:36,360 --> 00:46:37,596
+- [Casper] Yeah.
+
+1210
+00:46:37,596 --> 00:46:38,429
+- The first two pulses,
+
+1211
+00:46:38,429 --> 00:46:41,970
+they would be coming in
+through this pipe here
+
+1212
+00:46:41,970 --> 00:46:45,180
+and then the main pulse
+with the big laser,
+
+1213
+00:46:45,180 --> 00:46:48,000
+the laser beam would be
+delivered through this pipe here.
+
+1214
+00:46:48,000 --> 00:46:49,710
+- [Casper] Both the
+high and low NA machine
+
+1215
+00:46:49,710 --> 00:46:51,810
+shipping out right now use three pulses
+
+1216
+00:46:51,810 --> 00:46:55,260
+and eventually they will hit
+more droplets per second.
+
+1217
+00:46:55,260 --> 00:46:57,480
+But the light source
+is just one small part
+
+1218
+00:46:57,480 --> 00:46:58,470
+of the full machine.
+
+1219
+00:46:58,470 --> 00:47:00,300
+After bouncing off the collector mirror,
+
+1220
+00:47:00,300 --> 00:47:02,970
+the EUV light moves to the illuminator.
+
+1221
+00:47:02,970 --> 00:47:05,250
+A set of mirrors shape and focus the light
+
+1222
+00:47:05,250 --> 00:47:06,870
+before it hits the reticle.
+
+1223
+00:47:06,870 --> 00:47:08,160
+The reticle is the top half
+
+1224
+00:47:08,160 --> 00:47:10,440
+and this module is built
+in a separate facility
+
+1225
+00:47:10,440 --> 00:47:11,880
+and installed later.
+
+1226
+00:47:11,880 --> 00:47:14,760
+Next the light goes into
+the projection optics box,
+
+1227
+00:47:14,760 --> 00:47:17,640
+which is a set of mirrors
+that shrink the light down.
+
+1228
+00:47:17,640 --> 00:47:19,530
+The high NA machine can shrink the pattern
+
+1229
+00:47:19,530 --> 00:47:21,330
+eight times in the vertical direction
+
+1230
+00:47:21,330 --> 00:47:24,000
+and four times in the
+horizontal direction.
+
+1231
+00:47:24,000 --> 00:47:26,490
+The mirrors are also much smoother still.
+
+1232
+00:47:26,490 --> 00:47:28,950
+If the low NA's mirrors
+were the size of Germany,
+
+1233
+00:47:28,950 --> 00:47:31,110
+the tallest bump would
+be about a millimeter.
+
+1234
+00:47:31,110 --> 00:47:33,660
+But if the high NA mirrors
+were the size of the world,
+
+1235
+00:47:33,660 --> 00:47:34,740
+the tallest bump would be
+
+1236
+00:47:34,740 --> 00:47:36,990
+about the thickness of a playing card.
+
+1237
+00:47:36,990 --> 00:47:39,180
+By the combination of both
+of these improvements,
+
+1238
+00:47:39,180 --> 00:47:41,550
+ASML was able to increase
+the numerical aperture
+
+1239
+00:47:41,550 --> 00:47:45,120
+from 0.33 to 0.55.
+
+1240
+00:47:45,120 --> 00:47:47,760
+And finally, the light hits the wafer.
+
+1241
+00:47:47,760 --> 00:47:51,180
+In order to print around
+185 wafers per hour,
+
+1242
+00:47:51,180 --> 00:47:52,770
+the reticle whips back and forth
+
+1243
+00:47:52,770 --> 00:47:55,290
+at accelerations of over 20 Gs.
+
+1244
+00:47:55,290 --> 00:47:57,270
+That's over five times the acceleration
+
+1245
+00:47:57,270 --> 00:47:58,890
+of a Formula 1 car.
+
+1246
+00:47:58,890 --> 00:48:00,840
+And this is some actual footage
+
+1247
+00:48:00,840 --> 00:48:02,610
+of what that's like inside this machine.
+
+1248
+00:48:02,610 --> 00:48:04,623
+And notice that this is not sped up.
+
+1249
+00:48:06,330 --> 00:48:08,220
+But the crazy thing to
+me about this machine
+
+1250
+00:48:08,220 --> 00:48:10,260
+isn't how fast the reticle moves
+
+1251
+00:48:10,260 --> 00:48:12,840
+or even how small it can print,
+
+1252
+00:48:12,840 --> 00:48:15,930
+but it's just how insanely
+accurate it needs to be.
+
+1253
+00:48:15,930 --> 00:48:18,060
+The most any two layers can be off,
+
+1254
+00:48:18,060 --> 00:48:21,510
+which is called the
+overlay, is one nanometer.
+
+1255
+00:48:21,510 --> 00:48:24,600
+That's five freaking
+silicon atoms of precision.
+
+1256
+00:48:24,600 --> 00:48:25,800
+That's insane.
+
+1257
+00:48:25,800 --> 00:48:29,160
+- So typically what we
+do as system engineers is
+
+1258
+00:48:29,160 --> 00:48:30,690
+that we make a budget.
+- [Casper] Yeah.
+
+1259
+00:48:30,690 --> 00:48:33,780
+- So we say, hey, you
+get, let's say a nanometer
+
+1260
+00:48:33,780 --> 00:48:38,780
+and we divide then the nanometers
+
+1261
+00:48:39,000 --> 00:48:40,230
+to smaller fractions.
+- Right,
+
+1262
+00:48:40,230 --> 00:48:41,280
+the nanometers total.
+
+1263
+00:48:41,280 --> 00:48:43,474
+It's not like you group gets a nanometer.
+
+1264
+00:48:43,474 --> 00:48:44,790
+- You get a nanometer, you get, no, no.
+
+1265
+00:48:44,790 --> 00:48:48,240
+You get a nanometer in total, yes.
+
+1266
+00:48:48,240 --> 00:48:50,760
+- [Casper] So you have to fight for the,
+
+1267
+00:48:50,760 --> 00:48:52,770
+for your part of the nanometer.
+
+1268
+00:48:52,770 --> 00:48:53,970
+- It's kind of cool to realize
+
+1269
+00:48:53,970 --> 00:48:57,330
+that like every smartphone
+nowadays has a chip
+
+1270
+00:48:57,330 --> 00:48:58,710
+that is made with the machine
+
+1271
+00:48:58,710 --> 00:49:01,080
+that was actually put together here.
+
+1272
+00:49:01,080 --> 00:49:02,330
+So that's a cool thought.
+
+1273
+00:49:04,290 --> 00:49:06,210
+- Take a look at this.
+
+1274
+00:49:06,210 --> 00:49:07,410
+- [Marc] It's pretty massive, eh?
+
+1275
+00:49:07,410 --> 00:49:09,000
+- [Casper] So big.
+
+1276
+00:49:09,000 --> 00:49:10,890
+So do you cover it up?
+
+1277
+00:49:10,890 --> 00:49:11,723
+- [Marc] Yes.
+
+1278
+00:49:11,723 --> 00:49:15,093
+Had a customer fab, it will be
+looking like a big white box.
+
+1279
+00:49:17,280 --> 00:49:18,420
+I like it better like this.
+
+1280
+00:49:18,420 --> 00:49:19,620
+- [Casper] Yeah, me too.
+
+1281
+00:49:20,970 --> 00:49:23,520
+It's funny, you need such a big machine,
+
+1282
+00:49:23,520 --> 00:49:25,740
+so much infrastructure
+
+1283
+00:49:25,740 --> 00:49:29,640
+to make the tiniest things
+we can make at scale.
+
+1284
+00:49:29,640 --> 00:49:31,140
+- It's inversely proportional.
+
+1285
+00:49:31,140 --> 00:49:32,790
+- Yeah, smaller you want to go,
+
+1286
+00:49:32,790 --> 00:49:34,790
+the larger everything around it becomes.
+
+1287
+00:49:35,700 --> 00:49:38,160
+After the machines are
+assembled, tested and approved,
+
+1288
+00:49:38,160 --> 00:49:41,083
+they are disassembled to
+ship all around the world.
+
+1289
+00:49:41,083 --> 00:49:44,280
+5,000 companies supply 100,000 parts,
+
+1290
+00:49:44,280 --> 00:49:46,710
+3000 cables, 40,000 bolts
+
+1291
+00:49:46,710 --> 00:49:48,990
+and two kilometers of hosing.
+
+1292
+00:49:48,990 --> 00:49:52,020
+ASML ships their high NA
+machine in 250 containers
+
+1293
+00:49:52,020 --> 00:49:53,760
+spread out over 25 trucks
+
+1294
+00:49:53,760 --> 00:49:55,953
+and seven Boeing 747s.
+
+1295
+00:49:57,540 --> 00:49:59,400
+Despite all the doubt and setback,
+
+1296
+00:49:59,400 --> 00:50:01,890
+EUV finally made it to manufacturing level
+
+1297
+00:50:01,890 --> 00:50:05,070
+three decades after
+Kinoshita's first images.
+
+1298
+00:50:05,070 --> 00:50:07,830
+But even when almost the
+entire world didn't believe
+
+1299
+00:50:07,830 --> 00:50:08,790
+it would work,
+
+1300
+00:50:08,790 --> 00:50:11,400
+there were some people at ASML who knew
+
+1301
+00:50:11,400 --> 00:50:14,760
+that it was going to work
+all the way back in 2010.
+
+1302
+00:50:14,760 --> 00:50:18,900
+- Around 2001, we said let's do EUV.
+
+1303
+00:50:18,900 --> 00:50:21,180
+And then we run into many challenges.
+
+1304
+00:50:21,180 --> 00:50:24,000
+2010, we installed the
+first system at a customer.
+
+1305
+00:50:24,000 --> 00:50:25,710
+So it was installed in Korea.
+
+1306
+00:50:25,710 --> 00:50:28,680
+There it was, this thing
+I had been pursuing
+
+1307
+00:50:28,680 --> 00:50:30,690
+for, you know, 13 years was
+
+1308
+00:50:30,690 --> 00:50:34,380
+now standing at a
+customer, producing wafers.
+
+1309
+00:50:34,380 --> 00:50:37,140
+This for me was a moment I realized,
+
+1310
+00:50:37,140 --> 00:50:39,330
+yes, we made the right bet.
+
+1311
+00:50:39,330 --> 00:50:40,800
+- [Casper] Years later, Jos ran into
+
+1312
+00:50:40,800 --> 00:50:43,410
+the man who helped
+install the first machine.
+
+1313
+00:50:43,410 --> 00:50:45,900
+- He's now a professor
+at a renowned institute.
+
+1314
+00:50:45,900 --> 00:50:48,210
+And I shared the story about my relief
+
+1315
+00:50:48,210 --> 00:50:50,719
+and how great we made the decision.
+
+1316
+00:50:50,719 --> 00:50:51,810
+(indistinct) said, "Yeah, yeah, yeah."
+
+1317
+00:50:51,810 --> 00:50:54,630
+He said, "When you left and
+you flew out after Christmas,
+
+1318
+00:50:54,630 --> 00:50:57,180
+the thing broke down and it took
+
+1319
+00:50:57,180 --> 00:50:58,950
+two months to get back up again.
+
+1320
+00:50:58,950 --> 00:51:00,240
+And they almost fired me
+
+1321
+00:51:00,240 --> 00:51:02,100
+for making the wrong decision."
+
+1322
+00:51:02,100 --> 00:51:04,500
+We had some ups and downs along the way.
+
+1323
+00:51:04,500 --> 00:51:05,333
+- [Casper] Yeah.
+
+1324
+00:51:05,333 --> 00:51:07,530
+- But again, once I saw
+the system installed
+
+1325
+00:51:07,530 --> 00:51:10,050
+at a customer, in a customer fab,
+
+1326
+00:51:10,050 --> 00:51:11,790
+I knew we had done the right thing.
+
+1327
+00:51:11,790 --> 00:51:12,720
+This was 2010.
+
+1328
+00:51:12,720 --> 00:51:14,820
+The first phone that came out was 2019.
+
+1329
+00:51:14,820 --> 00:51:17,160
+So we still had some hurdles to resolve.
+
+1330
+00:51:17,160 --> 00:51:17,993
+- [Casper] Right.
+
+1331
+00:51:17,993 --> 00:51:18,826
+- But we kept going.
+
+1332
+00:51:22,590 --> 00:51:24,330
+- Now, I have spent several months
+
+1333
+00:51:24,330 --> 00:51:27,169
+working on this video
+and thinking about it
+
+1334
+00:51:27,169 --> 00:51:30,120
+and it still feels absolutely impossible.
+
+1335
+00:51:30,120 --> 00:51:32,220
+And the more I think about it,
+
+1336
+00:51:32,220 --> 00:51:35,250
+the more I think, you know,
+those people 40 years ago
+
+1337
+00:51:35,250 --> 00:51:38,130
+that said it was impossible,
+they had a point.
+
+1338
+00:51:38,130 --> 00:51:40,740
+It's completely unreasonable to think
+
+1339
+00:51:40,740 --> 00:51:43,050
+that you could make this
+artificial sun in a lab,
+
+1340
+00:51:43,050 --> 00:51:44,310
+that you could make these mirrors
+
+1341
+00:51:44,310 --> 00:51:45,330
+that are this smooth
+
+1342
+00:51:45,330 --> 00:51:49,620
+and that you could get the
+required overlay accuracy.
+
+1343
+00:51:49,620 --> 00:51:50,940
+The reasonable thing is to think
+
+1344
+00:51:50,940 --> 00:51:52,350
+that none of that is possible
+
+1345
+00:51:52,350 --> 00:51:55,290
+and to point out all the
+problems with each of them.
+
+1346
+00:51:55,290 --> 00:51:57,570
+Which reminds me of this quote,
+
+1347
+00:51:57,570 --> 00:52:00,420
+the reasonable man adapts
+himself to the world.
+
+1348
+00:52:00,420 --> 00:52:02,580
+The unreasonable one persists
+
+1349
+00:52:02,580 --> 00:52:05,340
+in trying to adapt the world to himself.
+
+1350
+00:52:05,340 --> 00:52:07,860
+Therefore, all progress depends
+
+1351
+00:52:07,860 --> 00:52:09,450
+on the unreasonable man.
+
+1352
+00:52:09,450 --> 00:52:12,810
+Imagine if Andy and
+Kinoshita and all the others
+
+1353
+00:52:12,810 --> 00:52:14,400
+had been reasonable,
+
+1354
+00:52:14,400 --> 00:52:16,470
+we would have none of this.
+
+1355
+00:52:16,470 --> 00:52:18,510
+In fact, imagine what
+the world would be like
+
+1356
+00:52:18,510 --> 00:52:21,180
+if everyone on it was reasonable.
+
+1357
+00:52:21,180 --> 00:52:23,220
+It would probably be extremely boring.
+
+1358
+00:52:23,220 --> 00:52:24,750
+Probably most of the technology,
+
+1359
+00:52:24,750 --> 00:52:27,360
+most of the things you
+enjoy on a daily basis
+
+1360
+00:52:27,360 --> 00:52:28,650
+wouldn't be here.
+
+1361
+00:52:28,650 --> 00:52:30,000
+In fact, you probably wouldn't be
+
+1362
+00:52:30,000 --> 00:52:31,200
+watching this video,
+
+1363
+00:52:31,200 --> 00:52:33,120
+because just about all
+the technology we have
+
+1364
+00:52:33,120 --> 00:52:36,600
+nowadays would seem
+completely unreasonable
+
+1365
+00:52:36,600 --> 00:52:39,030
+even just 200 years ago.
+
+1366
+00:52:39,030 --> 00:52:42,060
+And so I really think
+that to a large extent,
+
+1367
+00:52:42,060 --> 00:52:45,090
+we owe our lives to those
+unreasonable people.
+
+1368
+00:52:45,090 --> 00:52:46,890
+And maybe at least to me,
+
+1369
+00:52:46,890 --> 00:52:50,220
+it's a reminder that it's good
+to be a little unreasonable,
+
+1370
+00:52:50,220 --> 00:52:52,473
+at least in some of the big parts of life.
+
+1371
+00:52:57,210 --> 00:52:58,710
+Changing the world is difficult.
+
+1372
+00:52:58,710 --> 00:53:00,660
+It took overcoming thousands of obstacles
+
+1373
+00:53:00,660 --> 00:53:03,060
+and over 30 years to get EUV to work.
+
+1374
+00:53:03,060 --> 00:53:06,000
+But big breakthroughs usually
+start in the same way.
+
+1375
+00:53:06,000 --> 00:53:09,570
+That is, you learn, you
+explore some related ideas,
+
+1376
+00:53:09,570 --> 00:53:11,824
+you try to apply them in some new ways,
+
+1377
+00:53:11,824 --> 00:53:13,230
+and then you build skills to take on
+
+1378
+00:53:13,230 --> 00:53:15,240
+bigger and bigger challenges.
+
+1379
+00:53:15,240 --> 00:53:17,370
+Bit by bit, you gain knowledge
+
+1380
+00:53:17,370 --> 00:53:20,970
+and that's where today's video
+sponsor, Brilliant, comes in.
+
+1381
+00:53:20,970 --> 00:53:22,170
+Brilliant helps you excel
+
+1382
+00:53:22,170 --> 00:53:24,750
+in math, science and computer science
+
+1383
+00:53:24,750 --> 00:53:26,550
+with visual, interactive learning
+
+1384
+00:53:26,550 --> 00:53:28,560
+that's personalized for you.
+
+1385
+00:53:28,560 --> 00:53:32,190
+It's an incredibly powerful way
+to reach big learning goals,
+
+1386
+00:53:32,190 --> 00:53:33,600
+mastering math for class
+
+1387
+00:53:33,600 --> 00:53:37,200
+or contributing to the next
+big technological breakthrough.
+
+1388
+00:53:37,200 --> 00:53:39,420
+On brilliant, you learn by doing,
+
+1389
+00:53:39,420 --> 00:53:41,220
+a method that research has shown to be
+
+1390
+00:53:41,220 --> 00:53:43,380
+far more effective than
+just passive learning.
+
+1391
+00:53:43,380 --> 00:53:45,210
+It starts you at the right level
+
+1392
+00:53:45,210 --> 00:53:47,520
+based on your background,
+designs practice sets
+
+1393
+00:53:47,520 --> 00:53:49,620
+and reviews customized for you.
+
+1394
+00:53:49,620 --> 00:53:52,470
+And then it helps you
+advance at your ideal pace.
+
+1395
+00:53:52,470 --> 00:53:55,230
+There is always something
+new to discover on Brilliant.
+
+1396
+00:53:55,230 --> 00:53:56,940
+Want to better understand optics
+
+1397
+00:53:56,940 --> 00:53:58,020
+after watching this video?
+
+1398
+00:53:58,020 --> 00:54:00,390
+Well, their "Scientific
+Thinking" course is
+
+1399
+00:54:00,390 --> 00:54:02,370
+a great place to start.
+
+1400
+00:54:02,370 --> 00:54:04,290
+It helps you think like an engineer
+
+1401
+00:54:04,290 --> 00:54:05,880
+by showing you how to break down
+
+1402
+00:54:05,880 --> 00:54:10,080
+large concepts into smaller,
+more understandable pieces.
+
+1403
+00:54:10,080 --> 00:54:12,360
+Whether you are conquering
+fundamental math,
+
+1404
+00:54:12,360 --> 00:54:13,980
+algebra or calculus,
+
+1405
+00:54:13,980 --> 00:54:15,900
+diving deep into algorithms,
+
+1406
+00:54:15,900 --> 00:54:17,520
+exploring material science
+
+1407
+00:54:17,520 --> 00:54:21,420
+or understanding the physics
+that will take us beyond EUV,
+
+1408
+00:54:21,420 --> 00:54:23,160
+Brilliant will help you get there.
+
+1409
+00:54:23,160 --> 00:54:25,890
+And if, like me, you've
+resolved to learn more
+
+1410
+00:54:25,890 --> 00:54:26,730
+in the New Year,
+
+1411
+00:54:26,730 --> 00:54:29,040
+then Brilliant is a great
+way to actually make
+
+1412
+00:54:29,040 --> 00:54:30,360
+that resolution stick.
+
+1413
+00:54:30,360 --> 00:54:31,920
+So to learn for free,
+
+1414
+00:54:31,920 --> 00:54:34,590
+go to brilliant.org/Veritasium,
+
+1415
+00:54:34,590 --> 00:54:36,300
+scan the QR code on screen,
+
+1416
+00:54:36,300 --> 00:54:38,490
+or click the link in the description.
+
+1417
+00:54:38,490 --> 00:54:41,340
+Brilliant has also given
+our viewers 20% off
+
+1418
+00:54:41,340 --> 00:54:43,110
+an annual Premium subscription,
+
+1419
+00:54:43,110 --> 00:54:45,210
+which gives you unlimited daily access
+
+1420
+00:54:45,210 --> 00:54:47,100
+to everything on Brilliant.
+
+1421
+00:54:47,100 --> 00:54:49,980
+So I want to thank Brilliant
+for sponsoring this video
+
+1422
+00:54:49,980 --> 00:54:51,963
+and I want to thank you for watching.
+
