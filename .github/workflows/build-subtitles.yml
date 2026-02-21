@@ -1,0 +1,32 @@
+name: Build Subtitle HTML
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'subtitles/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate subtitle HTML files
+        run: python scripts/build_subtitle.py
+
+      - name: Commit and push generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add subtitle/
+          git diff --cached --quiet || git commit -m "chore: auto-generate subtitle HTML [skip ci]"
+          git push
