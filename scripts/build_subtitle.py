@@ -201,6 +201,7 @@ def build_html(subs: list, title: str) -> str:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{esc(title)}</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap');
 *,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
@@ -358,6 +359,7 @@ def build_index(pages: list) -> str:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>字幕收藏</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap');
 *,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
@@ -381,6 +383,7 @@ body::before{{content:'';position:fixed;inset:0;background-image:url("data:image
   display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
 }}
 .hero-left{{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}}
+.hero-logo{{width:36px;height:36px;flex-shrink:0;display:block;}}
 .hero-label{{
   font-family:'Crimson Pro',serif;font-size:11px;font-style:italic;
   letter-spacing:.3em;text-transform:uppercase;
@@ -515,6 +518,7 @@ footer .footer-sep{{opacity:.5;user-select:none;}}
 
 <div class="hero">
   <div class="hero-left">
+    <img src="logo.svg" alt="" class="hero-logo" width="36" height="36">
     <span class="hero-label">字幕收藏</span>
     <div class="hero-title">字幕阅读 归档</div>
     <div class="hero-deco">
