@@ -362,59 +362,62 @@ def build_index(pages: list) -> str:
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap');
 *,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
 :root{{
-  --bg:#0a0a0c;--bg2:#111116;--bg3:#16161e;
-  --border:rgba(255,255,255,.06);--border2:rgba(255,255,255,.1);
-  --gold:#c9a84c;--gold2:#e8c97a;
-  --text:#d4cfc8;--text-dim:#6b6760;--text-mute:#38383a;
-  --hover:rgba(201,168,76,.06);
+  --bg:#faf9f7;--bg2:#f3f1ed;--bg3:#ebe8e3;
+  --border:rgba(0,0,0,.08);--border2:rgba(0,0,0,.12);
+  --gold:#a67c52;--gold2:#8b6914;
+  --text:#2c2a26;--text-dim:#6b6560;--text-mute:#9a9590;
+  --hover:rgba(166,124,82,.08);
 }}
 html{{scroll-behavior:smooth}}
 body{{background:var(--bg);color:var(--text);font-family:'Noto Serif SC','Songti SC',serif;min-height:100vh}}
-body::before{{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.35}}
+body::before{{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.5}}
 
-/* Hero */
+/* Hero - 标题与搜索同一行 */
 .hero{{
   position:relative;z-index:1;
-  padding:80px 60px 60px;
+  padding:48px 60px 36px;
   border-bottom:1px solid var(--border);
   max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
 }}
+.hero-left{{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}}
 .hero-label{{
   font-family:'Crimson Pro',serif;font-size:11px;font-style:italic;
   letter-spacing:.3em;text-transform:uppercase;
-  color:var(--gold);opacity:.7;margin-bottom:16px;
+  color:var(--gold);opacity:.85;margin-right:12px;
 }}
 .hero-title{{
-  font-size:clamp(28px,5vw,52px);font-weight:300;
-  letter-spacing:.06em;line-height:1.2;color:#f0ece4;
-  margin-bottom:16px;
+  font-size:clamp(24px,4vw,40px);font-weight:300;
+  letter-spacing:.06em;line-height:1.3;color:var(--text);
+  white-space:nowrap;
 }}
-.hero-sub{{
-  font-family:'Crimson Pro',serif;font-size:14px;
-  color:var(--text-dim);letter-spacing:.04em;
-}}
-.hero-deco{{
-  display:flex;align-items:center;gap:12px;margin-top:32px;
-}}
-.deco-line{{width:48px;height:1px;background:linear-gradient(to right,var(--gold),transparent);opacity:.4;}}
-.deco-dot{{width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.5;}}
+.hero-deco{{display:flex;align-items:center;gap:12px;}}
+.deco-line{{width:32px;height:1px;background:linear-gradient(to right,var(--gold),transparent);opacity:.5;}}
+.deco-dot{{width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.6;}}
 
-/* Search */
+/* 搜索 - 右侧图标，点击展开输入框 */
 .search-wrap{{
-  position:relative;z-index:1;
-  max-width:1100px;margin:0 auto;
-  padding:24px 60px;
+  display:flex;align-items:center;justify-content:flex-end;
 }}
+.search-btn{{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:40px;height:40px;border:1px solid var(--border2);
+  background:var(--bg2);border-radius:8px;cursor:pointer;
+  color:var(--text-mute);transition:all .2s;
+}}
+.search-btn:hover{{border-color:var(--gold);color:var(--gold);background:var(--hover);}}
+.search-btn svg{{width:18px;height:18px;}}
 .search-input{{
-  width:100%;max-width:380px;
-  background:var(--bg2);border:1px solid var(--border2);
-  color:var(--text);padding:10px 16px;
-  font-family:'Noto Serif SC',serif;font-size:13px;
-  border-radius:4px;outline:none;
-  transition:border-color .2s;
+  width:0;padding:0;border:none;outline:none;opacity:0;
+  font-family:'Noto Serif SC',serif;font-size:13px;color:var(--text);
+  background:var(--bg2);border-radius:6px;transition:width .2s,opacity .2s,margin .2s;
 }}
+.search-wrap.open .search-input{{
+  width:160px;margin-left:8px;padding:8px 12px;
+  border:1px solid var(--border2);opacity:1;
+}}
+.search-wrap.open .search-input:focus{{border-color:var(--gold);}}
 .search-input::placeholder{{color:var(--text-mute);}}
-.search-input:focus{{border-color:rgba(201,168,76,.4);}}
 
 /* Grid - 一行展示一个网页 */
 .grid{{
@@ -459,7 +462,7 @@ body::before{{content:'';position:fixed;inset:0;background-image:url("data:image
 .card-body{{flex:1;min-width:0;}}
 .card-title{{
   font-size:14px;font-weight:400;letter-spacing:.04em;
-  color:#f0ece4;line-height:1.4;margin-bottom:6px;
+  color:var(--text);line-height:1.4;margin-bottom:6px;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }}
 .card-meta{{
@@ -496,12 +499,14 @@ footer .footer-desc{{color:var(--text-dim);}}
 footer .footer-meta{{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;}}
 
 /* Curtain */
-.curtain{{position:fixed;inset:0;background:#000;z-index:9998;animation:cr 1s ease forwards .05s}}
+.curtain{{position:fixed;inset:0;background:var(--bg);z-index:9998;animation:cr 1s ease forwards .05s}}
 @keyframes cr{{to{{opacity:0;pointer-events:none}}}}
 
 @media(max-width:768px){{
-  .hero,.search-wrap,.grid{{padding-left:20px;padding-right:20px;}}
-  .hero{{padding-top:48px;padding-bottom:36px;}}
+  .hero,.grid{{padding-left:20px;padding-right:20px;}}
+  .hero{{padding-top:36px;padding-bottom:28px;}}
+  .hero-left{{flex-direction:column;align-items:flex-start;}}
+  .hero-title{{white-space:normal;}}
   .grid{{grid-template-columns:1fr;}}
 }}
 </style>
@@ -510,16 +515,20 @@ footer .footer-meta{{display:flex;gap:24px;flex-wrap:wrap;justify-content:center
 <div class="curtain"></div>
 
 <div class="hero">
-  <div class="hero-label">字幕收藏</div>
-  <div class="hero-title">字幕阅读<br>归档</div>
-  <div class="hero-deco">
-    <div class="deco-line"></div>
-    <div class="deco-dot"></div>
+  <div class="hero-left">
+    <span class="hero-label">字幕收藏</span>
+    <div class="hero-title">字幕阅读 归档</div>
+    <div class="hero-deco">
+      <div class="deco-line"></div>
+      <div class="deco-dot"></div>
+    </div>
   </div>
-</div>
-
-<div class="search-wrap">
-  <input class="search-input" type="text" id="searchBox" placeholder="搜索标题…" oninput="filterCards()">
+  <div class="search-wrap" id="searchWrap">
+    <button type="button" class="search-btn" id="searchBtn" title="搜索标题" aria-label="搜索">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    </button>
+    <input class="search-input" type="text" id="searchBox" placeholder="搜索标题…" oninput="filterCards()">
+  </div>
 </div>
 
 {"<div class='grid' id='grid'>" + cards_html + "</div>" if pages else "<div class='empty'>暂无字幕页面，上传字幕文件后自动生成</div>"}
@@ -543,6 +552,11 @@ function filterCards() {{
   const visible = document.querySelectorAll('.card:not(.hidden)').length;
   document.getElementById('totalPages').textContent = (q ? visible : {total_pages}) + ' 篇内容';
 }}
+document.getElementById('searchBtn').onclick = function() {{
+  var wrap = document.getElementById('searchWrap');
+  wrap.classList.toggle('open');
+  if (wrap.classList.contains('open')) document.getElementById('searchBox').focus();
+}};
 </script>
 </body>
 </html>"""
