@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>字幕收藏</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0c;--bg2:#111116;--bg3:#16161e;
+  --border:rgba(255,255,255,.06);--border2:rgba(255,255,255,.1);
+  --gold:#c9a84c;--gold2:#e8c97a;
+  --text:#d4cfc8;--text-dim:#6b6760;--text-mute:#38383a;
+  --hover:rgba(201,168,76,.06);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif SC','Songti SC',serif;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.35}
+
+/* Hero */
+.hero{
+  position:relative;z-index:1;
+  padding:80px 60px 60px;
+  border-bottom:1px solid var(--border);
+  max-width:1100px;margin:0 auto;
+}
+.hero-label{
+  font-family:'Crimson Pro',serif;font-size:11px;font-style:italic;
+  letter-spacing:.3em;text-transform:uppercase;
+  color:var(--gold);opacity:.7;margin-bottom:16px;
+}
+.hero-title{
+  font-size:clamp(28px,5vw,52px);font-weight:300;
+  letter-spacing:.06em;line-height:1.2;color:#f0ece4;
+  margin-bottom:16px;
+}
+.hero-sub{
+  font-family:'Crimson Pro',serif;font-size:14px;
+  color:var(--text-dim);letter-spacing:.04em;
+}
+.hero-deco{
+  display:flex;align-items:center;gap:12px;margin-top:32px;
+}
+.deco-line{width:48px;height:1px;background:linear-gradient(to right,var(--gold),transparent);opacity:.4;}
+.deco-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.5;}
+
+/* Stats bar */
+.statsbar{
+  position:relative;z-index:1;
+  max-width:1100px;margin:0 auto;
+  padding:20px 60px;
+  display:flex;gap:40px;align-items:center;
+  border-bottom:1px solid var(--border);
+}
+.stat{display:flex;flex-direction:column;gap:3px;}
+.stat-val{font-family:'Crimson Pro',serif;font-size:22px;font-weight:300;color:#f0ece4;letter-spacing:.04em;}
+.stat-label{font-family:'Crimson Pro',serif;font-size:11px;color:var(--text-mute);letter-spacing:.1em;}
+.stat-sep{width:1px;height:32px;background:var(--border);}
+
+/* Search */
+.search-wrap{
+  position:relative;z-index:1;
+  max-width:1100px;margin:0 auto;
+  padding:24px 60px;
+}
+.search-input{
+  width:100%;max-width:380px;
+  background:var(--bg2);border:1px solid var(--border2);
+  color:var(--text);padding:10px 16px;
+  font-family:'Noto Serif SC',serif;font-size:13px;
+  border-radius:4px;outline:none;
+  transition:border-color .2s;
+}
+.search-input::placeholder{color:var(--text-mute);}
+.search-input:focus{border-color:rgba(201,168,76,.4);}
+
+/* Grid */
+.grid{
+  position:relative;z-index:1;
+  max-width:1100px;margin:0 auto;
+  padding:0 60px 80px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:12px;
+}
+
+/* Card */
+.card{
+  display:flex;align-items:center;gap:16px;
+  padding:20px 22px;
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:8px;
+  text-decoration:none;
+  transition:all .22s ease;
+  cursor:pointer;
+}
+.card:hover{
+  background:var(--hover);
+  border-color:rgba(201,168,76,.3);
+  transform:translateY(-2px);
+  box-shadow:0 8px 32px rgba(0,0,0,.4);
+}
+.card.hidden{display:none;}
+
+.card-deco{
+  width:40px;height:40px;flex-shrink:0;
+  border:1px solid var(--border2);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--gold);opacity:.7;
+  font-weight:300;letter-spacing:0;
+  font-family:'Noto Serif SC',serif;
+  transition:opacity .2s;
+}
+.card:hover .card-deco{opacity:1;}
+
+.card-body{flex:1;min-width:0;}
+.card-title{
+  font-size:14px;font-weight:400;letter-spacing:.04em;
+  color:#f0ece4;line-height:1.4;margin-bottom:6px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.card-meta{
+  display:flex;gap:12px;
+  font-family:'Crimson Pro',serif;font-size:11px;
+  color:var(--text-mute);letter-spacing:.05em;
+}
+
+.card-arrow{
+  font-family:'Crimson Pro',serif;font-size:16px;
+  color:var(--text-mute);flex-shrink:0;
+  transition:all .2s;
+}
+.card:hover .card-arrow{color:var(--gold);transform:translateX(3px);}
+
+/* Empty */
+.empty{
+  position:relative;z-index:1;
+  text-align:center;padding:80px 20px;
+  font-family:'Crimson Pro',serif;font-size:14px;
+  color:var(--text-mute);font-style:italic;
+}
+
+/* Footer */
+footer{
+  position:relative;z-index:1;
+  text-align:center;padding:32px;
+  font-family:'Crimson Pro',serif;font-size:11px;
+  color:var(--text-mute);letter-spacing:.1em;
+  border-top:1px solid var(--border);
+}
+
+/* Curtain */
+.curtain{position:fixed;inset:0;background:#000;z-index:9998;animation:cr 1s ease forwards .05s}
+@keyframes cr{to{opacity:0;pointer-events:none}}
+
+@media(max-width:768px){
+  .hero,.statsbar,.search-wrap,.grid{padding-left:20px;padding-right:20px;}
+  .hero{padding-top:48px;padding-bottom:36px;}
+  .grid{grid-template-columns:1fr;}
+  .statsbar{gap:20px;flex-wrap:wrap;}
+}
+</style>
+</head>
+<body>
+<div class="curtain"></div>
+
+<div class="hero">
+  <div class="hero-label">字幕收藏</div>
+  <div class="hero-title">字幕阅读<br>归档</div>
+  <div class="hero-sub">所有字幕页面，由 GitHub Actions 自动生成</div>
+  <div class="hero-deco">
+    <div class="deco-line"></div>
+    <div class="deco-dot"></div>
+  </div>
+</div>
+
+<div class="statsbar">
+  <div class="stat">
+    <div class="stat-val" id="totalPages">12</div>
+    <div class="stat-label">篇内容</div>
+  </div>
+  <div class="stat-sep"></div>
+  <div class="stat">
+    <div class="stat-val">2026-02-21 06:09 UTC</div>
+    <div class="stat-label">最后更新</div>
+  </div>
+</div>
+
+<div class="search-wrap">
+  <input class="search-input" type="text" id="searchBox" placeholder="搜索标题…" oninput="filterCards()">
+</div>
+
+<div class='grid' id='grid'>
+    <a class="card" href="subtitle/how-one-rock-almost-poisoned-the-entire-planet-en-59d346.html">
+      <div class="card-deco">H</div>
+      <div class="card-body">
+        <div class="card-title">How One Rock (Almost) Poisoned The Entire Planet.en</div>
+        <div class="card-meta">
+          <span>🕐 54分39秒</span>
+          <span>1,260 句</span>
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a class="card" href="subtitle/the-man-who-accidentally-killed-the-most-people-in-history-en-dffb3c.html">
+      <div class="card-deco">T</div>
+      <div class="card-body">
+        <div class="card-title">The Man Who Accidentally Killed The Most People In History.en</div>
+        <div class="card-meta">
+          <span>🕐 24分56秒</span>
+          <span>405 句</span>
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a class="card" href="subtitle/the-world-s-most-important-machine-en-4e6980.html">
+      <div class="card-deco">T</div>
+      <div class="card-body">
+        <div class="card-title">The World's Most Important Machine.en</div>
+        <div class="card-meta">
+          <span>🕐 54分51秒</span>
+          <span>1,422 句</span>
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a class="card" href="subtitle/35-f7174f.html">
+      <div class="card-deco">政</div>
+      <div class="card-body">
+        <div class="card-title">政治哲学：35分钟看懂权力的本质</div>
+        <div class="card-meta">
+          <span>🕐 34分58秒</span>
+          <span>1,020 句</span>
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a class="card" href="subtitle/40-zh-hans-0304c0.html">
+      <div class="card-deco">政</div>
+      <div class="card-body">
+        <div class="card-title">政治哲学：40分钟看懂如何驯服权力？.zh-Hans</div>
+        <div class="card-meta">
+          <span>🕐 41分38秒</span>
+          <span>1,114 句</span>
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a class="card" href="subtitle/40-zh-hant-9a5614.html">
+      <div class="card-deco">政</div>
+      <div class="card-body">
+        <div class="card-title">政治哲学：40分钟看懂如何驯服权力？.zh-Hant</div>
+        <div class="card-meta">
+          <span>🕐 41分38秒</span>
+          <span>1,114 句</span>
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a class="card" href="subtitle/sub-874c85.html">
+      <div class="card-deco">热</div>
+      <div class="card-body">
+        <div class="card-title">热爱和喜欢的区别是什么？</div>
+        <div class="card-meta">
+          <span>🕐 5分26秒</span>
+          <span>216 句</span>
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a class="card" href="subtitle/zh-ff0890.html">
+      <div class="card-deco">番</div>
+      <div class="card-body">
+        <div class="card-title">番外：我们为什么关心正义的问题？.zh</div>
+        <div class="card-meta">
+          <span>🕐 1小时34分49秒</span>
+          <span>2,781 句</span>
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a class="card" href="subtitle/zh-8b4a3f.html">
+      <div class="card-deco">瘋</div>
+      <div class="card-body">
+        <div class="card-title">瘋狂的舉國體制——斯巴達人：武裝僧侶，彩虹戰士；顏值燈塔，文明窪地.zh</div>
+        <div class="card-meta">
+          <span>🕐 17分42秒</span>
+          <span>391 句</span>
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a class="card" href="subtitle/zh-hant-557ba0.html">
+      <div class="card-deco">瘋</div>
+      <div class="card-body">
+        <div class="card-title">瘋狂的舉國體制——斯巴達人：武裝僧侶，彩虹戰士；顏值燈塔，文明窪地.zh-Hant</div>
+        <div class="card-meta">
+          <span>🕐 17分42秒</span>
+          <span>391 句</span>
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a class="card" href="subtitle/zh-hans-e9cd32.html">
+      <div class="card-deco">美</div>
+      <div class="card-body">
+        <div class="card-title">美索不達米亞文明史：蘇美爾，阿卡德，亞述，巴比倫，一集全看懂！.zh-Hans</div>
+        <div class="card-meta">
+          <span>🕐 16分3秒</span>
+          <span>326 句</span>
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a class="card" href="subtitle/zh-hant-e41fc9.html">
+      <div class="card-deco">美</div>
+      <div class="card-body">
+        <div class="card-title">美索不達米亞文明史：蘇美爾，阿卡德，亞述，巴比倫，一集全看懂！.zh-Hant</div>
+        <div class="card-meta">
+          <span>🕐 16分3秒</span>
+          <span>326 句</span>
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a></div>
+
+<footer>自动生成于 2026-02-21 06:09 UTC · Subtitle2html</footer>
+
+<script>
+function filterCards() {
+  const q = document.getElementById('searchBox').value.trim().toLowerCase();
+  document.querySelectorAll('.card').forEach(card => {
+    const title = card.querySelector('.card-title').textContent.toLowerCase();
+    card.classList.toggle('hidden', q !== '' && !title.includes(q));
+  });
+  const visible = document.querySelectorAll('.card:not(.hidden)').length;
+  document.getElementById('totalPages').textContent = q ? visible : 12;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>上传字幕 → 生成在线 HTML</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Noto+Serif+SC:wght@300;400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0e0f11;
+  --bg2: #13141a;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --accent: #5b8fff;
+  --green: #4ade80;
+  --red: #f87171;
+  --text: #d4d0c8;
+  --text-dim: #7a7870;
+  --mono: 'DM Mono', monospace;
+  --serif: 'Noto Serif SC', serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  min-height: 100vh;
+  padding: 48px 24px;
+}
+
+.wrap {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  color: #f0ece4;
+}
+
+.sub {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-bottom: 36px;
+}
+
+.dropzone {
+  border: 1.5px dashed var(--border2);
+  border-radius: 10px;
+  padding: 48px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s;
+  background: rgba(91,143,255,0.02);
+}
+
+.dropzone:hover, .dropzone.drag-over {
+  border-color: var(--accent);
+  background: rgba(91,143,255,0.05);
+}
+
+.dropzone.has-file {
+  border-color: var(--green);
+  background: rgba(74,222,128,0.04);
+  border-style: solid;
+}
+
+.dropzone input { display: none; }
+
+.drop-icon { font-size: 36px; margin-bottom: 12px; opacity: 0.5; }
+
+.drop-title {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.drop-sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+}
+
+.upload-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.upload-btn:hover:not(:disabled) {
+  background: #7aaeff;
+  transform: translateY(-1px);
+}
+
+.upload-btn:disabled {
+  background: var(--bg2);
+  color: var(--text-dim);
+  cursor: not-allowed;
+}
+
+.result {
+  margin-top: 28px;
+  padding: 20px;
+  border-radius: 8px;
+  display: none;
+}
+
+.result.ok {
+  display: block;
+  background: rgba(74,222,128,0.08);
+  border: 1px solid rgba(74,222,128,0.2);
+}
+
+.result.err {
+  display: block;
+  background: rgba(248,113,113,0.08);
+  border: 1px solid rgba(248,113,113,0.2);
+}
+
+.result-title {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+
+.result-msg { font-size: 14px; line-height: 1.6; margin-bottom: 12px; }
+
+.result-link {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(74,222,128,0.15);
+  border-radius: 6px;
+  color: var(--green);
+  font-family: var(--mono);
+  font-size: 13px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.result-link:hover {
+  background: rgba(74,222,128,0.25);
+}
+
+.footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+.footer a { color: var(--accent); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>上传字幕 → 生成在线 HTML</h1>
+  <div class="sub">文件名英文部分作为网页名称，统一输出到 subtitle/ 文件夹</div>
+
+  <div class="dropzone" id="dropzone">
+    <input type="file" id="fileInput" accept=".srt,.ass,.ssa,.vtt,.txt">
+    <div id="dropDefault">
+      <span class="drop-icon">📄</span>
+      <div class="drop-title">拖入或点击选择字幕文件</div>
+      <div class="drop-sub">支持 .srt · .ass · .ssa · .vtt · .txt</div>
+    </div>
+    <div id="fileInfo" style="display:none">
+      <span style="font-size:28px">✅</span>
+      <div class="file-name" id="fileName" style="font-family:var(--mono);font-size:13px;color:var(--green);margin-top:8px"></div>
+    </div>
+  </div>
+
+  <button class="upload-btn" id="uploadBtn" disabled>生成并保存到 subtitle/</button>
+
+  <div class="result" id="result"></div>
+
+  <div class="footer">
+    使用前请运行 <code>python server.py</code> 启动服务 · 
+    <a href="index.html">← 返回首页</a> · 
+    <a href="subtitle-generator.html">本地生成器</a>
+  </div>
+</div>
+
+<script>
+const dz = document.getElementById('dropzone');
+const fileInput = document.getElementById('fileInput');
+const fileName = document.getElementById('fileName');
+const uploadBtn = document.getElementById('uploadBtn');
+const result = document.getElementById('result');
+const dropDefault = document.getElementById('dropDefault');
+const fileInfo = document.getElementById('fileInfo');
+
+let selectedFile = null;
+
+dz.addEventListener('click', () => fileInput.click());
+dz.addEventListener('dragover', e => { e.preventDefault(); dz.classList.add('drag-over'); });
+dz.addEventListener('dragleave', () => dz.classList.remove('drag-over'));
+dz.addEventListener('drop', e => {
+  e.preventDefault();
+  dz.classList.remove('drag-over');
+  if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+});
+fileInput.addEventListener('change', e => {
+  if (e.target.files[0]) handleFile(e.target.files[0]);
+});
+
+function handleFile(file) {
+  const ext = '.' + (file.name.split('.').pop() || '').toLowerCase();
+  const allowed = ['.srt','.ass','.ssa','.vtt','.txt'];
+  if (!allowed.includes(ext)) {
+    showResult(false, `不支持格式 ${ext}`);
+    return;
+  }
+  selectedFile = file;
+  dz.classList.add('has-file');
+  dropDefault.style.display = 'none';
+  fileInfo.style.display = 'block';
+  fileName.textContent = file.name;
+  uploadBtn.disabled = false;
+  result.style.display = 'none';
+}
+
+function showResult(ok, msg, url, title, count) {
+  result.className = 'result ' + (ok ? 'ok' : 'err');
+  result.innerHTML = '';
+  const titleEl = document.createElement('div');
+  titleEl.className = 'result-title';
+  titleEl.textContent = ok ? '✓ 生成成功' : '✗ 失败';
+  result.appendChild(titleEl);
+  const msgEl = document.createElement('div');
+  msgEl.className = 'result-msg';
+  msgEl.textContent = msg;
+  result.appendChild(msgEl);
+  if (ok && url) {
+    const link = document.createElement('a');
+    link.className = 'result-link';
+    link.href = url;
+    link.textContent = '打开网页 →';
+    link.target = '_blank';
+    result.appendChild(link);
+    if (title && count) {
+      const extra = document.createElement('div');
+      extra.style.marginTop = '8px';
+      extra.style.fontSize = '12px';
+      extra.style.color = 'var(--text-dim)';
+      extra.textContent = `${title} · ${count} 句`;
+      result.appendChild(extra);
+    }
+  }
+  result.style.display = 'block';
+}
+
+uploadBtn.addEventListener('click', async () => {
+  if (!selectedFile) return;
+  uploadBtn.disabled = true;
+  uploadBtn.textContent = '处理中...';
+  result.style.display = 'none';
+
+  const form = new FormData();
+  form.append('file', selectedFile);
+
+  try {
+    const res = await fetch('/api/upload', {
+      method: 'POST',
+      body: form,
+    });
+    const data = await res.json();
+    if (data.ok) {
+      showResult(true, `已保存到 subtitle/${data.filename}`, data.url, data.title, data.count);
+    } else {
+      showResult(false, data.error || '未知错误');
+    }
+  } catch (e) {
+    showResult(false, '请求失败: ' + e.message + '（请先运行 python server.py 启动服务）');
+  }
+  uploadBtn.disabled = false;
+  uploadBtn.textContent = '生成并保存到 subtitle/';
+});
+</script>
+</body>
+</html>

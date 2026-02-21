@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>热爱和喜欢的区别是什么？</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0a0c;--bg2:#111116;--border:rgba(255,255,255,.06);--gold:#c9a84c;--gold2:#e8c97a;--text:#d4cfc8;--text-dim:#6b6760;--text-mute:#38383a;--abg:rgba(201,168,76,.08)}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif SC','Songti SC',serif;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.35}
+.hd{position:fixed;top:0;left:0;right:0;z-index:100;background:linear-gradient(to bottom,rgba(10,10,12,.97) 55%,transparent);padding:22px 40px 44px}
+.back{display:inline-flex;align-items:center;gap:6px;font-family:'Crimson Pro',serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-mute);text-decoration:none;margin-bottom:10px;transition:color .2s}
+.back:hover{color:var(--gold)}
+h1{font-size:clamp(15px,2.2vw,21px);font-weight:300;letter-spacing:.08em;color:#f0ece4;line-height:1.4}
+.meta{margin-top:5px;font-family:'Crimson Pro',serif;font-size:12px;color:var(--text-mute);letter-spacing:.04em}
+.ctrls{position:fixed;top:22px;right:40px;z-index:101;display:flex;gap:8px}
+.btn{background:none;border:1px solid var(--border);color:var(--text-mute);padding:5px 13px;font-family:'Noto Serif SC',serif;font-size:11px;letter-spacing:.08em;cursor:pointer;transition:all .2s;border-radius:2px}
+.btn:hover{border-color:var(--gold);color:var(--gold)}
+.btn.on{border-color:var(--gold);color:var(--gold);background:var(--abg)}
+.srch{position:fixed;top:22px;right:200px;z-index:100}
+.srch input{background:rgba(20,20,26,.92);border:1px solid var(--border);color:var(--text);padding:6px 14px;font-family:'Noto Serif SC',serif;font-size:12px;width:180px;outline:none;border-radius:2px;transition:border-color .2s;backdrop-filter:blur(10px)}
+.srch input::placeholder{color:var(--text-mute)}
+.srch input:focus{border-color:rgba(201,168,76,.4)}
+.main{display:grid;grid-template-columns:1fr 290px;padding-top:100px;padding-bottom:68px;min-height:100vh}
+.sl{padding:28px 44px 28px 38px;overflow-y:auto;height:calc(100vh - 168px);position:sticky;top:100px;scrollbar-width:thin;scrollbar-color:#222228 transparent}
+.sl::-webkit-scrollbar{width:3px}
+.sl::-webkit-scrollbar-thumb{background:#222228;border-radius:2px}
+.si{display:flex;align-items:baseline;gap:16px;padding:8px 14px;border-left:2px solid transparent;cursor:pointer;transition:all .2s;border-radius:0 3px 3px 0;margin-bottom:1px}
+.si:hover{background:rgba(255,255,255,.025);border-left-color:var(--text-mute)}
+.si.act{background:var(--abg);border-left-color:var(--gold)}
+.si.sm{background:rgba(201,168,76,.05)}
+.st{font-family:'Crimson Pro',serif;font-size:11px;color:var(--text-mute);flex-shrink:0;width:48px;letter-spacing:.04em;transition:color .2s}
+.si.act .st{color:var(--gold);opacity:.65}
+.sx{font-size:14.5px;font-weight:300;line-height:1.75;letter-spacing:.05em;color:var(--text-dim);transition:color .2s;flex:1}
+.si.act .sx{color:#f0ece4;font-weight:400}
+.sx mark{background:rgba(201,168,76,.14);color:var(--gold2);padding:0 2px;border-radius:2px}
+.sp{border-left:1px solid var(--border);background:var(--bg2);position:sticky;top:100px;height:calc(100vh - 168px);overflow-y:auto;display:flex;flex-direction:column}
+.np{padding:32px 22px;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border-bottom:1px solid var(--border)}
+.np-lb{font-family:'Crimson Pro',serif;font-size:10px;font-style:italic;letter-spacing:.28em;text-transform:uppercase;color:var(--text-mute);margin-bottom:20px}
+.np-dc{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.np-dl{width:26px;height:1px;background:linear-gradient(to right,transparent,var(--gold));opacity:.35}
+.np-dl:last-child{background:linear-gradient(to left,transparent,var(--gold))}
+.np-dd{width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.45}
+.np-tx{font-size:clamp(15px,2.2vw,21px);font-weight:300;letter-spacing:.07em;line-height:1.85;color:#f0ece4;min-height:72px;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.np-ix{margin-top:18px;font-family:'Crimson Pro',serif;font-size:11px;color:var(--text-mute);letter-spacing:.1em}
+.stats{padding:18px 22px}
+.sr{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border);font-size:11px;letter-spacing:.04em}
+.sr-l{color:var(--text-mute);font-family:'Crimson Pro',serif}
+.sr-v{color:var(--text-dim)}
+.pw{position:fixed;bottom:0;left:0;right:0;z-index:100;padding:14px 40px 18px;background:linear-gradient(to top,rgba(10,10,12,.97) 55%,transparent)}
+.td{display:flex;justify-content:space-between;font-family:'Crimson Pro',serif;font-size:11px;color:var(--text-dim);letter-spacing:.08em;margin-bottom:6px}
+.pb{width:100%;height:2px;background:var(--text-mute);cursor:pointer;border-radius:1px}
+.pf{height:100%;background:linear-gradient(to right,var(--gold),var(--gold2));border-radius:1px;width:0%;pointer-events:none}
+.curtain{position:fixed;inset:0;background:#000;z-index:9998;animation:cr 1.2s ease forwards .1s}
+@keyframes cr{to{opacity:0;pointer-events:none}}
+@media(max-width:700px){.main{grid-template-columns:1fr}.sp{display:none}.hd{padding:14px 18px 44px}.sl{padding:16px}.pw{padding:10px 18px 14px}.ctrls{top:14px;right:18px}.srch{display:none}}
+</style>
+</head>
+<body>
+<div class="curtain"></div>
+<header class="hd">
+  <a class="back" href="../index.html">← 返回首页</a>
+  <h1>热爱和喜欢的区别是什么？</h1>
+  <div class="meta">216 句字幕 · 5分26秒</div>
+</header>
+<div class="ctrls">
+  <button class="btn on" id="btnA" onclick="tA()">自动跟随</button>
+  <button class="btn" id="btnC" onclick="tC()">紧凑</button>
+</div>
+<div class="srch"><input type="text" placeholder="搜索字幕…" id="q" oninput="doQ()"></div>
+<div class="main">
+  <div class="sl" id="sl"></div>
+  <aside class="sp">
+    <div class="np">
+      <div class="np-lb">Now Playing</div>
+      <div class="np-dc"><div class="np-dl"></div><div class="np-dd"></div><div class="np-dl"></div></div>
+      <div class="np-tx" id="npTx">——</div>
+      <div class="np-ix" id="npIx">— / 216</div>
+    </div>
+    <div class="stats">
+      <div class="sr"><span class="sr-l">总时长</span><span class="sr-v">5分26秒</span></div>
+      <div class="sr"><span class="sr-l">字幕总数</span><span class="sr-v">216</span></div>
+      <div class="sr"><span class="sr-l">当前进度</span><span class="sr-v" id="sPct">0%</span></div>
+      <div class="sr"><span class="sr-l">当前时间</span><span class="sr-v" id="sTm">00:00:00</span></div>
+      <div class="sr" id="sqR" style="display:none"><span class="sr-l">搜索结果</span><span class="sr-v" id="sqC">0</span></div>
+    </div>
+  </aside>
+</div>
+<div class="pw">
+  <div class="td"><span id="tL">00:00:00</span><span id="tR">00:05:26</span></div>
+  <div class="pb" id="pb" onclick="seek(event)"><div class="pf" id="pf"></div></div>
+</div>
+<script>
+const S=[{"s": 0.0, "e": 1.8, "t": "父母要怎麼樣去培養子女"}, {"s": 1.8, "e": 4.0, "t": "那我必須很現實的說一句話"}, {"s": 4.0, "e": 6.24, "t": "很多父母自己就沒有熱愛"}, {"s": 6.24, "e": 8.04, "t": "你不要說怎麼培養小孩熱愛"}, {"s": 8.04, "e": 9.84, "t": "你先試著培養自己有熱愛"}, {"s": 9.84, "e": 11.2, "t": "就是我發覺有好多"}, {"s": 11.2, "e": 13.12, "t": "我課堂上被提問的時候的父母"}, {"s": 13.12, "e": 14.28, "t": "他們都給我一種"}, {"s": 14.28, "e": 16.32, "t": "他已經放棄了自己的人生的感覺"}, {"s": 16.32, "e": 16.96, "t": "就他不斷地問"}, {"s": 16.96, "e": 18.12, "t": "我要怎麼樣讓小孩有熱愛"}, {"s": 18.12, "e": 19.28, "t": "要怎麼樣讓小孩如何如何"}, {"s": 19.28, "e": 21.24, "t": "我說那你為什麼不問自己如何如何"}, {"s": 21.24, "e": 23.04, "t": "你自己的人生也沒過完啊"}, {"s": 23.04, "e": 24.72, "t": "那你剩下的人生找到熱愛"}, {"s": 24.72, "e": 26.08, "t": "你不也很精彩嗎"}, {"s": 26.08, "e": 28.12, "t": "你為什麼老盯著他精不精彩"}, {"s": 28.12, "e": 28.92, "t": "你精彩了"}, {"s": 28.92, "e": 31.0, "t": "他就會自己去找他的熱愛"}, {"s": 31.0, "e": 33.2, "t": "就是像我媽就是一個很典型的例子"}, {"s": 33.2, "e": 34.6, "t": "我從小的時候"}, {"s": 34.6, "e": 35.64, "t": "我媽就在畫國畫"}, {"s": 35.64, "e": 36.24, "t": "山水畫"}, {"s": 36.24, "e": 37.0, "t": "她畫得很好"}, {"s": 37.0, "e": 38.56, "t": "是可以開畫展賣錢的"}, {"s": 38.56, "e": 41.04, "t": "我們家小時候有一段時間條件沒有很好"}, {"s": 41.04, "e": 42.48, "t": "然後我小時候的印象是"}, {"s": 42.48, "e": 43.52, "t": "我媽會去賣畫"}, {"s": 43.52, "e": 44.8, "t": "賣畫的那天就有牛肉"}, {"s": 44.8, "e": 47.4, "t": "然後以至於我弟小時候上幼兒園"}, {"s": 47.4, "e": 49.56, "t": "幼兒園老師來我們家做一個反饋"}, {"s": 49.56, "e": 50.08, "t": "很有趣"}, {"s": 50.08, "e": 52.36, "t": "他說幼兒園拿了紙筆去畫畫"}, {"s": 52.36, "e": 53.56, "t": "大家畫個什麼花啊"}, {"s": 53.56, "e": 54.52, "t": "畫個什麼樹啊的"}, {"s": 54.52, "e": 55.52, "t": "大家都在那邊畫"}, {"s": 55.52, "e": 57.8, "t": "只有我弟快速畫了五六張"}, {"s": 57.8, "e": 59.84, "t": "在滿教室賣畫"}, {"s": 59.84, "e": 61.24, "t": "賣畫"}, {"s": 61.24, "e": 62.72, "t": "就是其他小孩就畫畫"}, {"s": 62.72, "e": 64.48, "t": "就我弟畫完之後他在賣畫"}, {"s": 64.48, "e": 66.56, "t": "為什麼他看他媽在幹這件事情"}, {"s": 66.56, "e": 68.24, "t": "我媽是賣畫的"}, {"s": 68.24, "e": 70.56, "t": "然後他退休了那一年"}, {"s": 70.56, "e": 71.44, "t": "55歲退休"}, {"s": 71.44, "e": 73.6, "t": "那時候他說他畫了一輩子國畫"}, {"s": 73.6, "e": 74.32, "t": "他要改畫什麼"}, {"s": 74.32, "e": 75.24, "t": "他改畫油畫"}, {"s": 75.24, "e": 76.32, "t": "而且整個大跳街"}, {"s": 76.32, "e": 77.76, "t": "而且重點是你之前的國畫"}, {"s": 77.76, "e": 79.32, "t": "本來還是在想說你退休了"}, {"s": 79.32, "e": 80.2, "t": "可以多畫畫"}, {"s": 80.2, "e": 81.68, "t": "開個畫展去賣畫"}, {"s": 81.68, "e": 83.28, "t": "那你很有趣也很有成就感"}, {"s": 83.28, "e": 84.64, "t": "他要從零開始學"}, {"s": 84.64, "e": 86.4, "t": "因為你從油畫就要開始學素描"}, {"s": 86.4, "e": 87.28, "t": "快60的人"}, {"s": 87.32, "e": 88.96, "t": "上課那個繪畫老師"}, {"s": 88.96, "e": 90.24, "t": "比他年輕一半以上"}, {"s": 90.24, "e": 91.84, "t": "在那邊從畫蘋果開始"}, {"s": 91.84, "e": 92.88, "t": "做素描開始"}, {"s": 92.88, "e": 94.0, "t": "然後開始學畫油畫"}, {"s": 94.0, "e": 94.52, "t": "我坦白講"}, {"s": 94.52, "e": 95.36, "t": "我一開始我跟我弟"}, {"s": 95.36, "e": 97.0, "t": "都是抱著好笑的心態"}, {"s": 97.0, "e": 97.8, "t": "真的畫出來"}, {"s": 97.8, "e": 99.6, "t": "然後完全不同繪畫的邏輯"}, {"s": 99.6, "e": 100.6, "t": "完全不同的風格"}, {"s": 100.6, "e": 101.92, "t": "它是完全不同的基本功"}, {"s": 101.92, "e": 102.92, "t": "他畫得很開心"}, {"s": 102.92, "e": 104.92, "t": "然後他重新在這個過程當中"}, {"s": 104.92, "e": 105.84, "t": "他又覺得"}, {"s": 105.84, "e": 107.24, "t": "有新的挑戰新的刺激"}, {"s": 107.24, "e": 108.44, "t": "而且更重要的是"}, {"s": 108.44, "e": 109.84, "t": "我們那時候都以為55歲"}, {"s": 109.84, "e": 111.28, "t": "人生已經走完大半了"}, {"s": 111.28, "e": 112.48, "t": "你還換跑道"}, {"s": 112.48, "e": 113.84, "t": "他今年70幾歲"}, {"s": 113.84, "e": 115.72, "t": "他畫油畫20年歷史"}, {"s": 115.72, "e": 116.44, "t": "我想說哇塞"}, {"s": 116.44, "e": 116.96, "t": "是啊"}, {"s": 116.96, "e": 117.64, "t": "所以你父母"}, {"s": 117.64, "e": 119.52, "t": "你先別講你小孩熱愛什麼"}, {"s": 119.52, "e": 120.92, "t": "你的人生都沒過完呢"}, {"s": 120.92, "e": 122.6, "t": "人生才過得還不到一半呢"}, {"s": 122.6, "e": 123.08, "t": "去吧"}, {"s": 123.08, "e": 125.08, "t": "你還有30年拉小提琴經歷"}, {"s": 125.08, "e": 126.4, "t": "20年畫油畫的歷史"}, {"s": 126.4, "e": 127.68, "t": "你完全可以啊"}, {"s": 127.68, "e": 129.76, "t": "那你先別管小孩熱愛什麼"}, {"s": 129.76, "e": 130.92, "t": "因為坦白說"}, {"s": 130.92, "e": 133.2, "t": "我也覺得培養這個詞很有問題"}, {"s": 133.2, "e": 134.96, "t": "因為人其實好像很難"}, {"s": 134.96, "e": 135.8, "t": "固定什麼培養"}, {"s": 135.8, "e": 137.12, "t": "我小時候接觸的可多了"}, {"s": 137.12, "e": 138.08, "t": "你不要說別的嘛"}, {"s": 138.08, "e": 138.96, "t": "會計也接觸了"}, {"s": 138.96, "e": 139.92, "t": "法律也接觸了"}, {"s": 139.92, "e": 142.92, "t": "然後小時候我也捏過捏麵人"}, {"s": 142.92, "e": 144.56, "t": "也去參加過豬涮"}, {"s": 144.56, "e": 147.28, "t": "然後我媽也帶我去彈過鋼琴"}, {"s": 147.28, "e": 149.36, "t": "但凡她感興趣或我感興趣"}, {"s": 149.36, "e": 150.12, "t": "全接觸過"}, {"s": 150.12, "e": 151.08, "t": "就試一試"}, {"s": 151.08, "e": 152.48, "t": "沒有一個可以培養的出來"}, {"s": 152.48, "e": 154.76, "t": "可是就是你總會遇到某樣"}, {"s": 154.76, "e": 156.56, "t": "讓你突然覺得很感興趣的東西"}, {"s": 156.56, "e": 158.4, "t": "比起說我爸媽培養了我什麼"}, {"s": 158.4, "e": 159.72, "t": "我爸媽最大的價值是"}, {"s": 159.72, "e": 160.84, "t": "當我在打編論的時候"}, {"s": 160.84, "e": 161.8, "t": "一個去買了保險"}, {"s": 161.8, "e": 163.48, "t": "一個叫我說人生只要不扯後腿"}, {"s": 163.48, "e": 164.44, "t": "其實也就OK了"}, {"s": 164.44, "e": 166.4, "t": "而且當然我爸媽也是瞭解的"}, {"s": 166.4, "e": 168.52, "t": "熱愛跟喜歡的差別是什麼"}, {"s": 168.52, "e": 170.88, "t": "一般很多人以為熱愛跟喜歡"}, {"s": 170.88, "e": 172.24, "t": "它是程度差別嘛"}, {"s": 172.24, "e": 172.72, "t": "很喜歡"}, {"s": 172.72, "e": 174.68, "t": "喜歡到走火入魔就熱愛了嗎"}, {"s": 174.68, "e": 175.44, "t": "我說不是"}, {"s": 175.44, "e": 177.44, "t": "熱愛跟喜歡不是量的差別"}, {"s": 177.44, "e": 178.64, "t": "它是質的不一樣"}, {"s": 178.64, "e": 180.6, "t": "你作為一個消費者"}, {"s": 180.6, "e": 182.32, "t": "你再怎麼愛都是喜歡"}, {"s": 182.32, "e": 184.88, "t": "熱愛是你願意踏入生產者"}, {"s": 184.88, "e": 185.56, "t": "什麼意思"}, {"s": 185.56, "e": 187.4, "t": "比如說很多人說我的喜好"}, {"s": 187.4, "e": 188.36, "t": "有人說我喜歡看電影"}, {"s": 188.36, "e": 189.44, "t": "有人說我喜歡聽音樂"}, {"s": 189.44, "e": 190.76, "t": "可是如果你的看電影"}, {"s": 190.76, "e": 192.88, "t": "是作為消費者買票去看電影"}, {"s": 192.88, "e": 193.96, "t": "坦白說是誰不喜歡"}, {"s": 193.96, "e": 194.96, "t": "好電影誰不喜歡看"}, {"s": 194.96, "e": 196.12, "t": "好音樂誰不喜歡聽"}, {"s": 196.12, "e": 197.28, "t": "你說我喜歡美食"}, {"s": 197.28, "e": 198.56, "t": "誰不愛吃好吃的東西"}, {"s": 198.56, "e": 200.96, "t": "這種作為消費者獲得的樂趣"}, {"s": 200.96, "e": 202.56, "t": "老實說這個不太值錢"}, {"s": 202.92, "e": 203.92, "t": "對 誰都能看"}, {"s": 203.92, "e": 204.8, "t": "誰不喜歡嘛"}, {"s": 204.8, "e": 206.04, "t": "可是什麼叫熱愛"}, {"s": 206.04, "e": 207.4, "t": "其實我不只是吃"}, {"s": 207.4, "e": 208.6, "t": "我想琢磨著做"}, {"s": 208.6, "e": 210.32, "t": "做就要下廚房"}, {"s": 210.32, "e": 211.8, "t": "怕熱是不會下廚房的"}, {"s": 211.8, "e": 213.92, "t": "然後在做的過程當中"}, {"s": 213.92, "e": 216.0, "t": "就會有大量的挫折"}, {"s": 216.0, "e": 217.08, "t": "困惑"}, {"s": 217.08, "e": 217.96, "t": "痛苦"}, {"s": 217.96, "e": 219.8, "t": "可是在消費者的角度是不會有這個的"}, {"s": 219.8, "e": 221.72, "t": "消費者幹嘛消費痛苦挫折"}, {"s": 221.72, "e": 223.24, "t": "好看的看不好看的罵"}, {"s": 223.24, "e": 225.68, "t": "所以你若只品嚐一樣東西"}, {"s": 225.68, "e": 226.84, "t": "沒好處"}, {"s": 226.84, "e": 228.44, "t": "再怎麼愛都叫喜歡"}, {"s": 228.44, "e": 230.2, "t": "只有當你開始去生產"}, {"s": 230.2, "e": 231.76, "t": "因為我太喜歡這東西了"}, {"s": 231.76, "e": 232.36, "t": "不只是喜歡"}, {"s": 232.36, "e": 233.6, "t": "我要生產它"}, {"s": 233.6, "e": 236.04, "t": "因此進了廚房都不覺得熱"}, {"s": 236.04, "e": 238.2, "t": "切到了手都不會因此害怕"}, {"s": 238.2, "e": 240.76, "t": "因為我有更想要的東西做"}, {"s": 240.76, "e": 241.8, "t": "那就叫做熱愛"}, {"s": 241.8, "e": 243.4, "t": "基本上到了熱愛"}, {"s": 243.4, "e": 244.88, "t": "就開始進入值錢的階段了"}, {"s": 244.88, "e": 248.16, "t": "你想想看一個對音樂的熱愛的生產者"}, {"s": 248.16, "e": 250.56, "t": "跟一個喜歡音樂的消費者"}, {"s": 250.56, "e": 251.64, "t": "這兩個是完全不一樣的"}, {"s": 251.64, "e": 252.8, "t": "而如果你有熱愛"}, {"s": 252.8, "e": 255.4, "t": "意思就是別人覺得痛苦的生產環節"}, {"s": 255.4, "e": 256.44, "t": "你居然可以享受"}, {"s": 256.44, "e": 257.36, "t": "這個就值錢"}, {"s": 257.36, "e": 258.64, "t": "因為它是創造的過程"}, {"s": 258.64, "e": 259.52, "t": "創造的過程"}, {"s": 259.52, "e": 261.88, "t": "但凡我只要不是生產者"}, {"s": 261.88, "e": 263.64, "t": "比如說你說我今天"}, {"s": 263.64, "e": 264.72, "t": "我好喜歡音樂"}, {"s": 264.72, "e": 265.8, "t": "家裡買一堆唱片"}, {"s": 265.8, "e": 267.24, "t": "我要買好的黑膠"}, {"s": 267.24, "e": 268.12, "t": "他一定不給我這個錢"}, {"s": 268.12, "e": 269.16, "t": "幹消費者的事情"}, {"s": 269.16, "e": 270.32, "t": "他沒那麼多錢給你"}, {"s": 270.32, "e": 273.12, "t": "可是生產者這玩意兒不花這麼多錢"}, {"s": 273.12, "e": 275.76, "t": "只有能夠享受創造的樂趣"}, {"s": 275.76, "e": 277.44, "t": "我跟你講這個真的會改變一個人"}, {"s": 277.44, "e": 278.88, "t": "如果一個人他的樂趣"}, {"s": 278.88, "e": 280.84, "t": "主要是透過消費而得來"}, {"s": 280.84, "e": 284.4, "t": "那他就會對那些產品相當的苛刻"}, {"s": 284.4, "e": 285.76, "t": "一個人只要不生產"}, {"s": 285.76, "e": 287.0, "t": "那他就只剩下品味"}, {"s": 287.0, "e": 289.68, "t": "品味就是價值別人創作的能力"}, {"s": 289.68, "e": 290.84, "t": "他沒有見過這個過程"}, {"s": 290.84, "e": 292.08, "t": "他還只能評價那個節目"}, {"s": 292.08, "e": 293.56, "t": "對 因為你又不做音樂"}, {"s": 293.56, "e": 295.0, "t": "當然覺得這個唱得不行"}, {"s": 295.0, "e": 296.32, "t": "那個音樂沒創意"}, {"s": 296.32, "e": 297.84, "t": "你自己但凡不下廚"}, {"s": 297.84, "e": 299.16, "t": "你吃這個也覺得不夠好"}, {"s": 299.16, "e": 300.2, "t": "吃那個也覺得不夠好"}, {"s": 300.2, "e": 301.88, "t": "你自己但凡下廚"}, {"s": 301.88, "e": 304.0, "t": "就會理解到大家都是創作人"}, {"s": 304.0, "e": 305.72, "t": "你就會說這個專輯雖然不好"}, {"s": 305.72, "e": 306.64, "t": "可是看得出來"}, {"s": 306.64, "e": 309.24, "t": "在很多地方都想試圖改變"}, {"s": 309.24, "e": 311.36, "t": "這是只有創作的人能夠做到"}, {"s": 311.36, "e": 312.88, "t": "就是不創作的人"}, {"s": 312.88, "e": 314.6, "t": "人生就只有品味而已"}, {"s": 314.6, "e": 316.6, "t": "就是我自己年輕時打邊亂"}, {"s": 316.6, "e": 318.32, "t": "當然心高氣傲目高於頂"}, {"s": 318.32, "e": 319.68, "t": "我現在年紀大一點"}, {"s": 319.72, "e": 322.36, "t": "就是看新手小孩子打邊亂"}, {"s": 322.36, "e": 323.24, "t": "我就覺得這個不錯"}, {"s": 323.24, "e": 324.2, "t": "那個也不錯"}, {"s": 324.2, "e": 325.12, "t": "慈悲散佈起來"}, {"s": 325.12, "e": 325.48, "t": "為什麼"}, {"s": 325.48, "e": 326.56, "t": "因為我知道那個不容易"}],DUR=326.56;
+let cur=-1,aF=true,cpt=false,play=false,ct=0,lT=null;
+const sl=document.getElementById('sl');
+const fr=document.createDocumentFragment();
+S.forEach((s,i)=>{
+  const d=document.createElement('div');d.className='si';d.id='i'+i;d.onclick=()=>jump(i);
+  const ts=document.createElement('span');ts.className='st';ts.textContent=fmt(s.s);
+  const tx=document.createElement('span');tx.className='sx';tx.textContent=s.t;
+  d.appendChild(ts);d.appendChild(tx);fr.appendChild(d);
+});
+sl.appendChild(fr);
+function fmt(v){const h=Math.floor(v/3600),m=Math.floor((v%3600)/60),s=Math.floor(v%60);return h>0?[h,m,s].map(x=>String(x).padStart(2,'0')).join(':'):[m,s].map(x=>String(x).padStart(2,'0')).join(':');}
+function fmtF(v){const h=Math.floor(v/3600),m=Math.floor((v%3600)/60),s=Math.floor(v%60);return[h,m,s].map(x=>String(x).padStart(2,'0')).join(':');}
+function fi(t){let lo=0,hi=S.length-1,r=-1;while(lo<=hi){const mid=(lo+hi)>>1;if(S[mid].s<=t){r=mid;lo=mid+1;}else hi=mid-1;}return r;}
+function act(idx){
+  if(idx===cur)return;
+  if(cur>=0){const e=document.getElementById('i'+cur);if(e)e.classList.remove('act');}
+  cur=idx;
+  if(idx>=0){const e=document.getElementById('i'+idx);if(e){e.classList.add('act');if(aF)e.scrollIntoView({behavior:'smooth',block:'center'});}
+  document.getElementById('npTx').textContent=S[idx].t;document.getElementById('npIx').textContent=(idx+1)+' / '+S.length;}
+}
+function jump(i){ct=S[i].s;act(i);upd();}
+function upd(){const p=(ct/DUR)*100;document.getElementById('pf').style.width=p+'%';document.getElementById('tL').textContent=fmtF(ct);document.getElementById('sTm').textContent=fmtF(ct);document.getElementById('sPct').textContent=Math.round(p)+'%';}
+function seek(e){const r=document.getElementById('pb').getBoundingClientRect();ct=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width))*DUR;act(fi(ct));upd();play=true;lT=null;}
+function frame(ts){if(play){if(lT!==null){ct+=(ts-lT)/1000;if(ct>DUR){ct=DUR;play=false;}act(fi(ct));upd();}lT=ts;}else lT=null;requestAnimationFrame(frame);}
+requestAnimationFrame(frame);
+document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;if(e.code==='Space'){e.preventDefault();play=!play;if(play)lT=null;}if(e.code==='ArrowRight'){ct=Math.min(DUR,ct+10);act(fi(ct));upd();}if(e.code==='ArrowLeft'){ct=Math.max(0,ct-10);act(fi(ct));upd();}});
+function tA(){aF=!aF;document.getElementById('btnA').classList.toggle('on',aF);}
+function tC(){cpt=!cpt;document.getElementById('btnC').classList.toggle('on',cpt);document.querySelectorAll('.si').forEach(l=>{l.style.paddingTop=cpt?'4px':'';l.style.paddingBottom=cpt?'4px':'';l.style.marginBottom=cpt?'0':'';});document.querySelectorAll('.sx').forEach(t=>{t.style.fontSize=cpt?'12.5px':'';});}
+function doQ(){const q=document.getElementById('q').value.trim();let cnt=0;document.querySelectorAll('.si').forEach((line,i)=>{const tx=line.querySelector('.sx');if(q&&S[i].t.includes(q)){line.classList.add('sm');const ps=S[i].t.split(q);tx.innerHTML='';ps.forEach((p,pi)=>{tx.appendChild(document.createTextNode(p));if(pi<ps.length-1){const mk=document.createElement('mark');mk.textContent=q;tx.appendChild(mk);}});cnt++;}else{line.classList.remove('sm');tx.textContent=S[i].t;}});const row=document.getElementById('sqR');if(q){row.style.display='flex';document.getElementById('sqC').textContent=cnt+' 处';const f=document.querySelector('.sm');if(f)f.scrollIntoView({behavior:'smooth',block:'center'});}else row.style.display='none';}
+</script>
+</body>
+</html>

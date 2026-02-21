@@ -132,6 +132,12 @@ def parse_txt(text: str) -> list:
 def parse_file(path: Path) -> list:
     text = path.read_text(encoding="utf-8", errors="replace")
     ext  = path.suffix.lower()
+    return parse_content(text, ext)
+
+
+def parse_content(text: str, ext: str) -> list:
+    """从文本内容解析字幕，ext 如 .srt .vtt .ass .ssa .txt"""
+    ext = ext.lower() if ext.startswith(".") else "." + ext.lower()
     if ext == ".srt":               return parse_srt(text)
     if ext == ".vtt":               return parse_vtt(text)
     if ext in (".ass", ".ssa"):     return parse_ass(text)
@@ -150,6 +156,23 @@ def derive_output_name(stem: str) -> str:
         return f"sub-{hash_suffix}.html"
         
     return f"{ascii_part}-{hash_suffix}.html"
+
+
+def derive_output_name_upload(stem: str, output_dir: Path) -> str:
+    """上传时使用：仅取文件名英文部分，不加固有 hash，遇冲突追加数字"""
+    ascii_part = re.sub(r"[^\x00-\x7F]", "-", stem)
+    ascii_part = re.sub(r"[^a-zA-Z0-9]+", "-", ascii_part)
+    ascii_part = ascii_part.strip("-").lower()
+    if not ascii_part or len(ascii_part) < 2:
+        ascii_part = "subtitle-" + hashlib.md5(stem.encode("utf-8")).hexdigest()[:8]
+    base = ascii_part + ".html"
+    if not (output_dir / base).exists():
+        return base
+    for i in range(2, 999):
+        cand = f"{ascii_part}-{i}.html"
+        if not (output_dir / cand).exists():
+            return cand
+    return f"{ascii_part}-{int(datetime.now().timestamp())}.html"
 
 def derive_title(stem: str) -> str:
     return stem.replace("_", " ").strip()
@@ -296,7 +319,7 @@ function frame(ts){{if(play){{if(lT!==null){{ct+=(ts-lT)/1000;if(ct>DUR){{ct=DUR
 requestAnimationFrame(frame);
 document.addEventListener('keydown',e=>{{if(e.target.tagName==='INPUT')return;if(e.code==='Space'){{e.preventDefault();play=!play;if(play)lT=null;}}if(e.code==='ArrowRight'){{ct=Math.min(DUR,ct+10);act(fi(ct));upd();}}if(e.code==='ArrowLeft'){{ct=Math.max(0,ct-10);act(fi(ct));upd();}}}});
 function tA(){{aF=!aF;document.getElementById('btnA').classList.toggle('on',aF);}}
-function tC(){{cpt=!cpt;document.getElementById('btnC').classList.toggle('on',cpt);document.querySelectorAll('.si').forEach(l=>{{l.style.paddingTop=cpt?'4px':'';l.style.paddingBottom=cpt?'4px':'';l.style.marginBottom=cpt?'0':'';}});document.querySelectorAll('.sx').forEach(t=>{{t.style.fontSize=cpt?'12.5px':'';}); }}
+function tC(){{cpt=!cpt;document.getElementById('btnC').classList.toggle('on',cpt);document.querySelectorAll('.si').forEach(l=>{{l.style.paddingTop=cpt?'4px':'';l.style.paddingBottom=cpt?'4px':'';l.style.marginBottom=cpt?'0':'';}});document.querySelectorAll('.sx').forEach(t=>{{t.style.fontSize=cpt?'12.5px':'';}});}}
 function doQ(){{const q=document.getElementById('q').value.trim();let cnt=0;document.querySelectorAll('.si').forEach((line,i)=>{{const tx=line.querySelector('.sx');if(q&&S[i].t.includes(q)){{line.classList.add('sm');const ps=S[i].t.split(q);tx.innerHTML='';ps.forEach((p,pi)=>{{tx.appendChild(document.createTextNode(p));if(pi<ps.length-1){{const mk=document.createElement('mark');mk.textContent=q;tx.appendChild(mk);}}}});cnt++;}}else{{line.classList.remove('sm');tx.textContent=S[i].t;}}}});const row=document.getElementById('sqR');if(q){{row.style.display='flex';document.getElementById('sqC').textContent=cnt+' 处';const f=document.querySelector('.sm');if(f)f.scrollIntoView({{behavior:'smooth',block:'center'}});}}else row.style.display='none';}}
 </script>
 </body>
@@ -541,6 +564,35 @@ function filterCards() {{
 </body>
 </html>"""
 
+# ──  rebuild index from subtitle/ folder ──────────────────
+def rebuild_index_from_subtitle_dir() -> None:
+    """扫描 subtitle/ 下所有 HTML，重新生成 index.html"""
+    pages = []
+    for html_file in OUTPUT_DIR.glob("*.html"):
+        try:
+            content = html_file.read_text(encoding="utf-8", errors="replace")
+            title_m = re.search(r"<title>(.*?)</title>", content)
+            title   = title_m.group(1) if title_m else html_file.stem
+            count_m = re.search(r"(\d[\d,]+)\s*句字幕", content)
+            dur_m   = re.search(r"(\d+)分(\d+)秒", content)
+            count   = int((count_m.group(1) if count_m else "0").replace(",", ""))
+            dur     = (int(dur_m.group(1)) * 60 + int(dur_m.group(2))) if dur_m else 0
+            pages.append({
+                "title":    title,
+                "filename": html_file.name,
+                "count":    count,
+                "duration": float(dur),
+            })
+        except Exception:
+            pages.append({
+                "title":    html_file.stem,
+                "filename": html_file.name,
+                "count":    0,
+                "duration": 0.0,
+            })
+    INDEX_PATH.write_text(build_index(pages), encoding="utf-8")
+
+
 # ── 主逻辑 ────────────────────────────────────────────────
 def main():
     OUTPUT_DIR.mkdir(exist_ok=True)
@@ -583,39 +635,9 @@ def main():
 
         print(f"\n字幕页：{ok}/{len(subtitle_files)} 生成成功")
 
-    # 2. 扫描 subtitle/ 中已有的 HTML（包括本次没有重新生成的旧文件）
-    #    合并已生成的 pages 与旧有文件
-    existing = {p["filename"] for p in pages}
-    for html_file in OUTPUT_DIR.glob("*.html"):
-        if html_file.name in existing:
-            continue
-        # 从文件中提取 <title> 和 meta 信息
-        try:
-            content = html_file.read_text(encoding="utf-8", errors="replace")
-            title_m = re.search(r"<title>(.*?)</title>", content)
-            title   = title_m.group(1) if title_m else html_file.stem
-            # 提取句数和时长
-            count_m = re.search(r"(\d[\d,]+)\s*句字幕", content)
-            dur_m   = re.search(r"(\d+)分(\d+)秒", content)
-            count   = int((count_m.group(1) if count_m else "0").replace(",", ""))
-            dur     = (int(dur_m.group(1)) * 60 + int(dur_m.group(2))) if dur_m else 0
-            pages.append({
-                "title":    title,
-                "filename": html_file.name,
-                "count":    count,
-                "duration": float(dur),
-            })
-        except Exception:
-            pages.append({
-                "title":    html_file.stem,
-                "filename": html_file.name,
-                "count":    0,
-                "duration": 0.0,
-            })
-
-    # 3. 生成首页
-    print(f"\n生成首页 index.html（共 {len(pages)} 个页面）...")
-    INDEX_PATH.write_text(build_index(pages), encoding="utf-8")
+    # 2. 生成首页（扫描 subtitle/ 下所有 HTML）
+    print(f"\n生成首页 index.html...")
+    rebuild_index_from_subtitle_dir()
     print("✓ index.html 已生成")
 
 if __name__ == "__main__":
