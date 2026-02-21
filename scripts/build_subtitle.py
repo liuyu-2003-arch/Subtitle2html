@@ -18,6 +18,7 @@ from datetime import datetime
 SUBTITLES_DIR = Path("subtitles")
 OUTPUT_DIR    = Path("subtitle")
 INDEX_PATH    = Path("index.html")
+METADATA_PATH = Path("metadata.json")  # 可选：{ "filename.html": { "album": "专辑名", "tags": ["标签1", "标签2"] } }
 SUPPORTED_EXT = {".srt", ".vtt", ".ass", ".ssa", ".txt"}
 
 # ── 时间转换 ──────────────────────────────────────────────
@@ -177,6 +178,17 @@ def derive_output_name_upload(stem: str, output_dir: Path) -> str:
 def derive_title(stem: str) -> str:
     return stem.replace("_", " ").strip()
 
+
+def load_metadata() -> dict:
+    """加载 metadata.json，key 为 filename（如 xxx.html），value 为 {"album": str, "tags": [str]}"""
+    if not METADATA_PATH.exists():
+        return {}
+    try:
+        data = json.loads(METADATA_PATH.read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else {}
+    except Exception:
+        return {}
+
 # ── 转义 ──────────────────────────────────────────────────
 def esc(s: str) -> str:
     return (str(s)
@@ -329,29 +341,58 @@ function doQ(){{const q=document.getElementById('q').value.trim();let cnt=0;docu
 # ── 首页 HTML ─────────────────────────────────────────────
 def build_index(pages: list) -> str:
     """
-    pages: [{"title": str, "filename": str, "count": int, "duration": float}, ...]
+    pages: [{"title", "filename", "count", "duration", "album?", "tags?"}, ...]
     """
     now = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
     total_pages = len(pages)
+    all_albums = sorted({p.get("album", "") for p in pages if p.get("album")})
+    all_tags   = sorted({t for p in pages for t in (p.get("tags") or [])})
 
     cards_html = ""
     for p in sorted(pages, key=lambda x: x["title"]):
-        dur_str  = fmt_duration(p["duration"])
-        count    = f'{p["count"]:,}'
-        # 取标题前两个字作装饰字符（fallback 到序号）
-        deco = p["title"][:1] if p["title"] else "·"
+        dur_str   = fmt_duration(p["duration"])
+        count     = f'{p["count"]:,}'
+        deco      = p["title"][:1] if p["title"] else "·"
+        album     = p.get("album", "")
+        tags      = p.get("tags", []) or []
+        tags_json  = json.dumps(tags, ensure_ascii=False).replace('"', "&quot;")
+        album_esc  = esc(album)
+        album_html = f'<span class="card-album">{album_esc}</span>' if album else ""
+        tags_html  = "".join(f'<span class="card-tag">{esc(t)}</span>' for t in tags)
+        card_extra = f' data-album="{esc(album)}" data-tags="{tags_json}"'
         cards_html += f"""
-    <a class="card" href="subtitle/{esc(p['filename'])}">
+    <a class="card" href="subtitle/{esc(p['filename'])}"{card_extra}>
       <div class="card-deco">{esc(deco)}</div>
       <div class="card-body">
         <div class="card-title">{esc(p['title'])}</div>
         <div class="card-meta">
           <span>🕐 {esc(dur_str)}</span>
           <span>{esc(count)} 句</span>
+          {f'<span class="card-album-wrap">{album_html}</span>' if album else ''}
         </div>
+        {f'<div class="card-tags">{tags_html}</div>' if tags_html else ''}
       </div>
       <div class="card-arrow">→</div>
     </a>"""
+
+    filter_row_html = ""
+    if all_albums or all_tags:
+        album_opts = "".join(f'<option value="{esc(a)}">{esc(a)}</option>' for a in all_albums)
+        tag_pills = "".join(f'<span class="tag-pill" data-tag="{esc(t)}" onclick="toggleTag(this)">{esc(t)}</span>' for t in all_tags)
+        filter_row_html = f"""<div class="filter-row">
+  <div class="filter-album">
+    <label for="albumSelect">专辑</label>
+    <select id="albumSelect" onchange="filterCards()">
+      <option value="">全部</option>
+      {album_opts}
+    </select>
+  </div>
+  <div class="filter-tags" id="filterTags">
+    {tag_pills}
+  </div>
+</div>
+"""
+    grid_html = ("<div class='grid' id='grid'>" + cards_html + "</div>") if pages else "<div class='empty'>暂无字幕页面，上传字幕文件后自动生成</div>"
 
     return f"""<!DOCTYPE html>
 <html lang="zh">
@@ -421,6 +462,41 @@ body::before{{content:'';position:fixed;inset:0;background-image:url("data:image
 }}
 .search-wrap.open .search-input:focus{{border-color:var(--gold);}}
 .search-input::placeholder{{color:var(--text-mute);}}
+
+/* 专辑与标签筛选 */
+.filter-row{{
+  position:relative;z-index:1;
+  max-width:1100px;margin:0 auto;
+  padding:16px 60px 20px;
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+  border-bottom:1px solid var(--border);
+}}
+.filter-album{{display:flex;align-items:center;gap:8px;}}
+.filter-album label{{font-family:'Crimson Pro',serif;font-size:11px;color:var(--text-mute);letter-spacing:.05em;}}
+.filter-album select{{
+  background:var(--bg2);border:1px solid var(--border2);
+  color:var(--text);padding:6px 10px;
+  font-family:'Noto Serif SC',serif;font-size:12px;border-radius:4px;cursor:pointer;
+}}
+.filter-tags{{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}}
+.filter-tags .tag-pill{{
+  display:inline-block;padding:4px 10px;
+  font-family:'Crimson Pro',serif;font-size:11px;color:var(--text-mute);
+  border:1px solid var(--border2);border-radius:999px;
+  cursor:pointer;transition:all .2s;
+}}
+.filter-tags .tag-pill:hover,.filter-tags .tag-pill.on{{border-color:var(--gold);color:var(--gold);background:var(--hover);}}
+.card-album-wrap{{margin-left:8px;}}
+.card-album{{
+  font-family:'Crimson Pro',serif;font-size:10px;letter-spacing:.08em;
+  color:var(--gold);opacity:.9;
+}}
+.card-tags{{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}}
+.card-tag{{
+  display:inline-block;padding:2px 8px;
+  font-family:'Crimson Pro',serif;font-size:10px;color:var(--text-mute);
+  background:var(--bg3);border-radius:4px;
+}}
 
 /* Grid - 一行展示一个网页 */
 .grid{{
@@ -505,7 +581,7 @@ footer .footer-sep{{opacity:.5;user-select:none;}}
 @keyframes cr{{to{{opacity:0;pointer-events:none}}}}
 
 @media(max-width:768px){{
-  .hero,.grid{{padding-left:20px;padding-right:20px;}}
+  .hero,.filter-row,.grid{{padding-left:20px;padding-right:20px;}}
   .hero{{padding-top:36px;padding-bottom:28px;}}
   .hero-left{{flex-direction:column;align-items:flex-start;}}
   .hero-title{{white-space:normal;}}
@@ -534,7 +610,8 @@ footer .footer-sep{{opacity:.5;user-select:none;}}
   </div>
 </div>
 
-{"<div class='grid' id='grid'>" + cards_html + "</div>" if pages else "<div class='empty'>暂无字幕页面，上传字幕文件后自动生成</div>"}
+{filter_row_html}
+{grid_html}
 
 <footer>
   <span>所有字幕页面，由 GitHub Actions 自动生成</span>
@@ -549,12 +626,25 @@ footer .footer-sep{{opacity:.5;user-select:none;}}
 <script>
 function filterCards() {{
   const q = document.getElementById('searchBox').value.trim().toLowerCase();
-  document.querySelectorAll('.card').forEach(card => {{
+  const albumVal = document.getElementById('albumSelect') ? document.getElementById('albumSelect').value : '';
+  const selectedTags = [];
+  document.querySelectorAll('.tag-pill.on').forEach(function(p) {{ selectedTags.push(p.getAttribute('data-tag')); }});
+  document.querySelectorAll('.card').forEach(function(card) {{
     const title = card.querySelector('.card-title').textContent.toLowerCase();
-    card.classList.toggle('hidden', q !== '' && !title.includes(q));
+    const album = card.getAttribute('data-album') || '';
+    let tags = [];
+    try {{ tags = JSON.parse(card.getAttribute('data-tags') || '[]'); }} catch(e) {{}}
+    const matchSearch = q === '' || title.includes(q);
+    const matchAlbum = albumVal === '' || album === albumVal;
+    const matchTags = selectedTags.length === 0 || selectedTags.some(function(t) {{ return tags.indexOf(t) !== -1; }});
+    card.classList.toggle('hidden', !(matchSearch && matchAlbum && matchTags));
   }});
   const visible = document.querySelectorAll('.card:not(.hidden)').length;
-  document.getElementById('totalPages').textContent = (q ? visible : {total_pages}) + ' 篇内容';
+  document.getElementById('totalPages').textContent = visible + ' 篇内容';
+}}
+function toggleTag(el) {{
+  el.classList.toggle('on');
+  filterCards();
 }}
 document.getElementById('searchBtn').onclick = function() {{
   var wrap = document.getElementById('searchWrap');
@@ -567,7 +657,8 @@ document.getElementById('searchBtn').onclick = function() {{
 
 # ──  rebuild index from subtitle/ folder ──────────────────
 def rebuild_index_from_subtitle_dir() -> None:
-    """扫描 subtitle/ 下所有 HTML，重新生成 index.html"""
+    """扫描 subtitle/ 下所有 HTML，合并 metadata.json 的专辑/标签，重新生成 index.html"""
+    metadata = load_metadata()
     pages = []
     for html_file in OUTPUT_DIR.glob("*.html"):
         try:
@@ -578,18 +669,28 @@ def rebuild_index_from_subtitle_dir() -> None:
             dur_m   = re.search(r"(\d+)分(\d+)秒", content)
             count   = int((count_m.group(1) if count_m else "0").replace(",", ""))
             dur     = (int(dur_m.group(1)) * 60 + int(dur_m.group(2))) if dur_m else 0
+            meta   = metadata.get(html_file.name, {})
+            album  = meta.get("album", "")
+            tags   = meta.get("tags", [])
+            if not isinstance(tags, list):
+                tags = []
             pages.append({
                 "title":    title,
                 "filename": html_file.name,
                 "count":    count,
                 "duration": float(dur),
+                "album":    album,
+                "tags":     tags,
             })
         except Exception:
+            meta = metadata.get(html_file.name, {})
             pages.append({
                 "title":    html_file.stem,
                 "filename": html_file.name,
                 "count":    0,
                 "duration": 0.0,
+                "album":    meta.get("album", ""),
+                "tags":     meta.get("tags", []) or [],
             })
     INDEX_PATH.write_text(build_index(pages), encoding="utf-8")
 

@@ -22,6 +22,21 @@
 
 打开 `subtitle-generator.html`，上传字幕、生成 HTML 并下载，再将下载的文件放入 `subtitle/` 文件夹。
 
+## 专辑与标签
+
+在项目根目录创建或编辑 `metadata.json`，按**输出文件名**配置专辑和标签，首页会显示并可筛选：
+
+```json
+{
+  "文件名.html": {
+    "album": "专辑名",
+    "tags": ["标签1", "标签2"]
+  }
+}
+```
+
+重新运行 `python scripts/build_subtitle.py` 或由 GitHub Actions 生成后，首页会出现「专辑」下拉和标签筛选项，卡片上也会显示专辑与标签。
+
 ## 在线部署
 
 将项目推送到 GitHub 并启用 GitHub Pages，即可通过在线地址访问所有字幕页面。

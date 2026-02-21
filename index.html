@@ -67,6 +67,41 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .search-wrap.open .search-input:focus{border-color:var(--gold);}
 .search-input::placeholder{color:var(--text-mute);}
 
+/* 专辑与标签筛选 */
+.filter-row{
+  position:relative;z-index:1;
+  max-width:1100px;margin:0 auto;
+  padding:16px 60px 20px;
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+  border-bottom:1px solid var(--border);
+}
+.filter-album{display:flex;align-items:center;gap:8px;}
+.filter-album label{font-family:'Crimson Pro',serif;font-size:11px;color:var(--text-mute);letter-spacing:.05em;}
+.filter-album select{
+  background:var(--bg2);border:1px solid var(--border2);
+  color:var(--text);padding:6px 10px;
+  font-family:'Noto Serif SC',serif;font-size:12px;border-radius:4px;cursor:pointer;
+}
+.filter-tags{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.filter-tags .tag-pill{
+  display:inline-block;padding:4px 10px;
+  font-family:'Crimson Pro',serif;font-size:11px;color:var(--text-mute);
+  border:1px solid var(--border2);border-radius:999px;
+  cursor:pointer;transition:all .2s;
+}
+.filter-tags .tag-pill:hover,.filter-tags .tag-pill.on{border-color:var(--gold);color:var(--gold);background:var(--hover);}
+.card-album-wrap{margin-left:8px;}
+.card-album{
+  font-family:'Crimson Pro',serif;font-size:10px;letter-spacing:.08em;
+  color:var(--gold);opacity:.9;
+}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+.card-tag{
+  display:inline-block;padding:2px 8px;
+  font-family:'Crimson Pro',serif;font-size:10px;color:var(--text-mute);
+  background:var(--bg3);border-radius:4px;
+}
+
 /* Grid - 一行展示一个网页 */
 .grid{
   position:relative;z-index:1;
@@ -150,7 +185,7 @@ footer .footer-sep{opacity:.5;user-select:none;}
 @keyframes cr{to{opacity:0;pointer-events:none}}
 
 @media(max-width:768px){
-  .hero,.grid{padding-left:20px;padding-right:20px;}
+  .hero,.filter-row,.grid{padding-left:20px;padding-right:20px;}
   .hero{padding-top:36px;padding-bottom:28px;}
   .hero-left{flex-direction:column;align-items:flex-start;}
   .hero-title{white-space:normal;}
@@ -179,136 +214,173 @@ footer .footer-sep{opacity:.5;user-select:none;}
   </div>
 </div>
 
+<div class="filter-row">
+  <div class="filter-album">
+    <label for="albumSelect">专辑</label>
+    <select id="albumSelect" onchange="filterCards()">
+      <option value="">全部</option>
+      <option value="政治哲学">政治哲学</option><option value="科普">科普</option>
+    </select>
+  </div>
+  <div class="filter-tags" id="filterTags">
+    <span class="tag-pill" data-tag="人物" onclick="toggleTag(this)">人物</span><span class="tag-pill" data-tag="历史" onclick="toggleTag(this)">历史</span><span class="tag-pill" data-tag="哲学" onclick="toggleTag(this)">哲学</span><span class="tag-pill" data-tag="政治" onclick="toggleTag(this)">政治</span><span class="tag-pill" data-tag="权力" onclick="toggleTag(this)">权力</span><span class="tag-pill" data-tag="正义" onclick="toggleTag(this)">正义</span><span class="tag-pill" data-tag="科学" onclick="toggleTag(this)">科学</span><span class="tag-pill" data-tag="科技" onclick="toggleTag(this)">科技</span><span class="tag-pill" data-tag="英文" onclick="toggleTag(this)">英文</span>
+  </div>
+</div>
+
 <div class='grid' id='grid'>
-    <a class="card" href="subtitle/how-one-rock-almost-poisoned-the-entire-planet-en-59d346.html">
+    <a class="card" href="subtitle/how-one-rock-almost-poisoned-the-entire-planet-en-59d346.html" data-album="科普" data-tags="[&quot;科学&quot;, &quot;历史&quot;, &quot;英文&quot;]">
       <div class="card-deco">H</div>
       <div class="card-body">
         <div class="card-title">How One Rock (Almost) Poisoned The Entire Planet.en</div>
         <div class="card-meta">
           <span>🕐 54分39秒</span>
           <span>1,260 句</span>
+          <span class="card-album-wrap"><span class="card-album">科普</span></span>
         </div>
+        <div class="card-tags"><span class="card-tag">科学</span><span class="card-tag">历史</span><span class="card-tag">英文</span></div>
       </div>
       <div class="card-arrow">→</div>
     </a>
-    <a class="card" href="subtitle/the-man-who-accidentally-killed-the-most-people-in-history-en-dffb3c.html">
+    <a class="card" href="subtitle/the-man-who-accidentally-killed-the-most-people-in-history-en-dffb3c.html" data-album="科普" data-tags="[&quot;历史&quot;, &quot;人物&quot;, &quot;英文&quot;]">
       <div class="card-deco">T</div>
       <div class="card-body">
         <div class="card-title">The Man Who Accidentally Killed The Most People In History.en</div>
         <div class="card-meta">
           <span>🕐 24分56秒</span>
           <span>405 句</span>
+          <span class="card-album-wrap"><span class="card-album">科普</span></span>
         </div>
+        <div class="card-tags"><span class="card-tag">历史</span><span class="card-tag">人物</span><span class="card-tag">英文</span></div>
       </div>
       <div class="card-arrow">→</div>
     </a>
-    <a class="card" href="subtitle/the-world-s-most-important-machine-en-4e6980.html">
+    <a class="card" href="subtitle/the-world-s-most-important-machine-en-4e6980.html" data-album="科普" data-tags="[&quot;科技&quot;, &quot;英文&quot;]">
       <div class="card-deco">T</div>
       <div class="card-body">
         <div class="card-title">The World's Most Important Machine.en</div>
         <div class="card-meta">
           <span>🕐 54分51秒</span>
           <span>1,422 句</span>
+          <span class="card-album-wrap"><span class="card-album">科普</span></span>
         </div>
+        <div class="card-tags"><span class="card-tag">科技</span><span class="card-tag">英文</span></div>
       </div>
       <div class="card-arrow">→</div>
     </a>
-    <a class="card" href="subtitle/35-f7174f.html">
+    <a class="card" href="subtitle/35-f7174f.html" data-album="政治哲学" data-tags="[&quot;哲学&quot;, &quot;政治&quot;, &quot;权力&quot;]">
       <div class="card-deco">政</div>
       <div class="card-body">
         <div class="card-title">政治哲学：35分钟看懂权力的本质</div>
         <div class="card-meta">
           <span>🕐 34分58秒</span>
           <span>1,020 句</span>
+          <span class="card-album-wrap"><span class="card-album">政治哲学</span></span>
         </div>
+        <div class="card-tags"><span class="card-tag">哲学</span><span class="card-tag">政治</span><span class="card-tag">权力</span></div>
       </div>
       <div class="card-arrow">→</div>
     </a>
-    <a class="card" href="subtitle/40-zh-hans-0304c0.html">
+    <a class="card" href="subtitle/40-zh-hans-0304c0.html" data-album="政治哲学" data-tags="[&quot;哲学&quot;, &quot;政治&quot;, &quot;权力&quot;]">
       <div class="card-deco">政</div>
       <div class="card-body">
         <div class="card-title">政治哲学：40分钟看懂如何驯服权力？.zh-Hans</div>
         <div class="card-meta">
           <span>🕐 41分38秒</span>
           <span>1,114 句</span>
+          <span class="card-album-wrap"><span class="card-album">政治哲学</span></span>
         </div>
+        <div class="card-tags"><span class="card-tag">哲学</span><span class="card-tag">政治</span><span class="card-tag">权力</span></div>
       </div>
       <div class="card-arrow">→</div>
     </a>
-    <a class="card" href="subtitle/40-zh-hant-9a5614.html">
+    <a class="card" href="subtitle/40-zh-hant-9a5614.html" data-album="政治哲学" data-tags="[&quot;哲学&quot;, &quot;政治&quot;, &quot;权力&quot;]">
       <div class="card-deco">政</div>
       <div class="card-body">
         <div class="card-title">政治哲学：40分钟看懂如何驯服权力？.zh-Hant</div>
         <div class="card-meta">
           <span>🕐 41分38秒</span>
           <span>1,114 句</span>
+          <span class="card-album-wrap"><span class="card-album">政治哲学</span></span>
         </div>
+        <div class="card-tags"><span class="card-tag">哲学</span><span class="card-tag">政治</span><span class="card-tag">权力</span></div>
       </div>
       <div class="card-arrow">→</div>
     </a>
-    <a class="card" href="subtitle/sub-874c85.html">
+    <a class="card" href="subtitle/sub-874c85.html" data-album="" data-tags="[]">
       <div class="card-deco">热</div>
       <div class="card-body">
         <div class="card-title">热爱和喜欢的区别是什么？</div>
         <div class="card-meta">
           <span>🕐 5分26秒</span>
           <span>216 句</span>
+          
         </div>
+        
       </div>
       <div class="card-arrow">→</div>
     </a>
-    <a class="card" href="subtitle/zh-ff0890.html">
+    <a class="card" href="subtitle/zh-ff0890.html" data-album="政治哲学" data-tags="[&quot;哲学&quot;, &quot;正义&quot;]">
       <div class="card-deco">番</div>
       <div class="card-body">
         <div class="card-title">番外：我们为什么关心正义的问题？.zh</div>
         <div class="card-meta">
           <span>🕐 1小时34分49秒</span>
           <span>2,781 句</span>
+          <span class="card-album-wrap"><span class="card-album">政治哲学</span></span>
         </div>
+        <div class="card-tags"><span class="card-tag">哲学</span><span class="card-tag">正义</span></div>
       </div>
       <div class="card-arrow">→</div>
     </a>
-    <a class="card" href="subtitle/zh-8b4a3f.html">
+    <a class="card" href="subtitle/zh-8b4a3f.html" data-album="" data-tags="[]">
       <div class="card-deco">瘋</div>
       <div class="card-body">
         <div class="card-title">瘋狂的舉國體制——斯巴達人：武裝僧侶，彩虹戰士；顏值燈塔，文明窪地.zh</div>
         <div class="card-meta">
           <span>🕐 17分42秒</span>
           <span>391 句</span>
+          
         </div>
+        
       </div>
       <div class="card-arrow">→</div>
     </a>
-    <a class="card" href="subtitle/zh-hant-557ba0.html">
+    <a class="card" href="subtitle/zh-hant-557ba0.html" data-album="" data-tags="[]">
       <div class="card-deco">瘋</div>
       <div class="card-body">
         <div class="card-title">瘋狂的舉國體制——斯巴達人：武裝僧侶，彩虹戰士；顏值燈塔，文明窪地.zh-Hant</div>
         <div class="card-meta">
           <span>🕐 17分42秒</span>
           <span>391 句</span>
+          
         </div>
+        
       </div>
       <div class="card-arrow">→</div>
     </a>
-    <a class="card" href="subtitle/zh-hans-e9cd32.html">
+    <a class="card" href="subtitle/zh-hans-e9cd32.html" data-album="" data-tags="[]">
       <div class="card-deco">美</div>
       <div class="card-body">
         <div class="card-title">美索不達米亞文明史：蘇美爾，阿卡德，亞述，巴比倫，一集全看懂！.zh-Hans</div>
         <div class="card-meta">
           <span>🕐 16分3秒</span>
           <span>326 句</span>
+          
         </div>
+        
       </div>
       <div class="card-arrow">→</div>
     </a>
-    <a class="card" href="subtitle/zh-hant-e41fc9.html">
+    <a class="card" href="subtitle/zh-hant-e41fc9.html" data-album="" data-tags="[]">
       <div class="card-deco">美</div>
       <div class="card-body">
         <div class="card-title">美索不達米亞文明史：蘇美爾，阿卡德，亞述，巴比倫，一集全看懂！.zh-Hant</div>
         <div class="card-meta">
           <span>🕐 16分3秒</span>
           <span>326 句</span>
+          
         </div>
+        
       </div>
       <div class="card-arrow">→</div>
     </a></div>
@@ -318,7 +390,7 @@ footer .footer-sep{opacity:.5;user-select:none;}
   <span class="footer-sep">·</span>
   <span id="totalPages">12 篇内容</span>
   <span class="footer-sep">·</span>
-  <span>2026-02-21 08:02 UTC 最后更新</span>
+  <span>2026-02-21 08:06 UTC 最后更新</span>
   <span class="footer-sep">·</span>
   <span>Subtitle2html</span>
 </footer>
@@ -326,12 +398,25 @@ footer .footer-sep{opacity:.5;user-select:none;}
 <script>
 function filterCards() {
   const q = document.getElementById('searchBox').value.trim().toLowerCase();
-  document.querySelectorAll('.card').forEach(card => {
+  const albumVal = document.getElementById('albumSelect') ? document.getElementById('albumSelect').value : '';
+  const selectedTags = [];
+  document.querySelectorAll('.tag-pill.on').forEach(function(p) { selectedTags.push(p.getAttribute('data-tag')); });
+  document.querySelectorAll('.card').forEach(function(card) {
     const title = card.querySelector('.card-title').textContent.toLowerCase();
-    card.classList.toggle('hidden', q !== '' && !title.includes(q));
+    const album = card.getAttribute('data-album') || '';
+    let tags = [];
+    try { tags = JSON.parse(card.getAttribute('data-tags') || '[]'); } catch(e) {}
+    const matchSearch = q === '' || title.includes(q);
+    const matchAlbum = albumVal === '' || album === albumVal;
+    const matchTags = selectedTags.length === 0 || selectedTags.some(function(t) { return tags.indexOf(t) !== -1; });
+    card.classList.toggle('hidden', !(matchSearch && matchAlbum && matchTags));
   });
   const visible = document.querySelectorAll('.card:not(.hidden)').length;
-  document.getElementById('totalPages').textContent = (q ? visible : 12) + ' 篇内容';
+  document.getElementById('totalPages').textContent = visible + ' 篇内容';
+}
+function toggleTag(el) {
+  el.classList.toggle('on');
+  filterCards();
 }
 document.getElementById('searchBtn').onclick = function() {
   var wrap = document.getElementById('searchWrap');
