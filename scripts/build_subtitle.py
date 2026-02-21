@@ -11,8 +11,10 @@ scripts/build_subtitle.py
 import re
 import json
 import hashlib
+import time
 from pathlib import Path
 from datetime import datetime
+from googletrans import Translator
 
 # ── 路径配置 ──────────────────────────────────────────────
 SUBTITLES_DIR = Path("subtitles")
@@ -20,6 +22,7 @@ OUTPUT_DIR    = Path("subtitle")
 INDEX_PATH    = Path("index.html")
 METADATA_PATH = Path("metadata.json")  # 可选：{ "filename.html": { "album": "专辑名", "tags": ["标签1", "标签2"] } }
 SUPPORTED_EXT = {".srt", ".vtt", ".ass", ".ssa", ".txt"}
+TRANSLATE_ENABLED = True  # 总开关
 
 # ── 时间转换 ──────────────────────────────────────────────
 def time_to_sec(t: str) -> float:
@@ -189,6 +192,68 @@ def load_metadata() -> dict:
     except Exception:
         return {}
 
+# ── 翻译 ──────────────────────────────────────────────────
+def add_translation(subs: list, title: str) -> tuple[list, str]:
+    """
+    如果字幕是英文，则添加中文翻译
+    """
+    if not subs or not TRANSLATE_ENABLED:
+        return subs, title
+
+    sample_text = " ".join(s["t"] for s in subs[:10])
+    if not sample_text.strip():
+        return subs, title
+
+    try:
+        translator = Translator()
+        # 对于只有一句话的字幕，detect 可能会出错，所以多拼接几句
+        lang = translator.detect(sample_text).lang
+    except Exception as e:
+        print(f"  - 语言检测失败: {e}，跳过翻译")
+        return subs, title
+
+    if not lang.lower().startswith("en"):
+        print(f"  - 检测到语言: {lang}，跳过翻译")
+        return subs, title
+
+    print("  - 检测到英文内容，开始翻译...")
+    try:
+        # 翻译标题
+        translated_title = translator.translate(title, src='en', dest='zh-cn').text
+        
+        # 分批翻译字幕
+        batch_size = 40  # 减小批次大小
+        all_texts = [s["t"] for s in subs]
+        translated_texts = []
+        
+        for i in range(0, len(all_texts), batch_size):
+            batch = all_texts[i:i+batch_size]
+            retries = 3
+            for attempt in range(retries):
+                try:
+                    translated_batch = translator.translate(batch, src='en', dest='zh-cn')
+                    translated_texts.extend([t.text for t in translated_batch])
+                    print(f"    - 翻译批次 {i//batch_size + 1}/{(len(all_texts) + batch_size - 1)//batch_size} 完成")
+                    time.sleep(1)  # 增加延迟
+                    break
+                except Exception as e:
+                    if attempt < retries - 1:
+                        print(f"    - 翻译批次失败，重试... ({e})")
+                        time.sleep(3)
+                    else:
+                        raise e
+
+        for i, sub in enumerate(subs):
+            sub["t_zh"] = translated_texts[i]
+        
+        # 返回双语标题
+        bilingual_title = f"{title} / {translated_title}"
+        return subs, bilingual_title
+
+    except Exception as e:
+        print(f"  - 翻译失败: {e}，将不带翻译继续")
+        return subs, title
+
 # ── 转义 ──────────────────────────────────────────────────
 def esc(s: str) -> str:
     return (str(s)
@@ -206,6 +271,7 @@ def build_html(subs: list, title: str) -> str:
     secs    = int(total % 60)
     count   = len(subs)
     subs_js = json.dumps(subs, ensure_ascii=False)
+    has_translation = "t_zh" in subs[0]
 
     return f"""<!DOCTYPE html>
 <html lang="zh">
@@ -230,7 +296,7 @@ h1{{font-size:clamp(15px,2.2vw,21px);font-weight:300;letter-spacing:.08em;color:
 .btn{{background:none;border:1px solid var(--border);color:var(--text-mute);padding:5px 13px;font-family:'Noto Serif SC',serif;font-size:11px;letter-spacing:.08em;cursor:pointer;transition:all .2s;border-radius:2px}}
 .btn:hover{{border-color:var(--gold);color:var(--gold)}}
 .btn.on{{border-color:var(--gold);color:var(--gold);background:var(--abg)}}
-.srch{{position:fixed;top:22px;right:200px;z-index:100}}
+.srch{{position:fixed;top:22px;right:280px;z-index:100}}
 .srch input{{background:var(--bg2);border:1px solid var(--border);color:var(--text);padding:6px 14px;font-family:'Noto Serif SC',serif;font-size:12px;width:180px;outline:none;border-radius:2px;transition:border-color .2s}}
 .srch input::placeholder{{color:var(--text-mute)}}
 .srch input:focus{{border-color:var(--gold)}}
@@ -244,8 +310,11 @@ h1{{font-size:clamp(15px,2.2vw,21px);font-weight:300;letter-spacing:.08em;color:
 .si.sm{{background:rgba(166,124,82,.08)}}
 .st{{font-family:'Crimson Pro',serif;font-size:11px;color:var(--text-mute);flex-shrink:0;width:48px;letter-spacing:.04em;transition:color .2s}}
 .si.act .st{{color:var(--gold);opacity:.8}}
-.sx{{font-size:14.5px;font-weight:300;line-height:1.75;letter-spacing:.05em;color:var(--text-dim);transition:color .2s;flex:1}}
+.sx-container{{flex:1}}
+.sx{{font-size:14.5px;font-weight:300;line-height:1.75;letter-spacing:.05em;color:var(--text-dim);transition:color .2s}}
 .si.act .sx{{color:var(--text);font-weight:400}}
+.sx-zh{{font-size:13px;font-weight:400;line-height:1.6;letter-spacing:.04em;color:var(--gold2);margin-top:4px;display:none;}}
+body.show-zh .sx-zh{{display:block;}}
 .sx mark{{background:rgba(166,124,82,.2);color:var(--gold2);padding:0 2px;border-radius:2px}}
 .sp{{border-left:1px solid var(--border);background:var(--bg2);position:sticky;top:100px;height:calc(100vh - 168px);overflow-y:auto;display:flex;flex-direction:column}}
 .np{{padding:32px 22px;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border-bottom:1px solid var(--border)}}
@@ -255,6 +324,8 @@ h1{{font-size:clamp(15px,2.2vw,21px);font-weight:300;letter-spacing:.08em;color:
 .np-dl:last-child{{background:linear-gradient(to left,transparent,var(--gold))}}
 .np-dd{{width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.5}}
 .np-tx{{font-size:clamp(15px,2.2vw,21px);font-weight:300;letter-spacing:.07em;line-height:1.85;color:var(--text);min-height:72px;display:flex;align-items:center;justify-content:center;transition:all .3s}}
+.np-tx-zh{{font-size:14px;color:var(--gold2);margin-top:4px;display:none;}}
+body.show-zh .np-tx-zh{{display:block;}}
 .np-ix{{margin-top:18px;font-family:'Crimson Pro',serif;font-size:11px;color:var(--text-mute);letter-spacing:.1em}}
 .stats{{padding:18px 22px}}
 .sr{{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border);font-size:11px;letter-spacing:.04em}}
@@ -279,6 +350,7 @@ h1{{font-size:clamp(15px,2.2vw,21px);font-weight:300;letter-spacing:.08em;color:
 <div class="ctrls">
   <button class="btn on" id="btnA" onclick="tA()">自动跟随</button>
   <button class="btn" id="btnC" onclick="tC()">紧凑</button>
+  {f'<button class="btn" id="btnT" onclick="tT()">翻译</button>' if has_translation else ''}
 </div>
 <div class="srch"><input type="text" placeholder="搜索字幕…" id="q" oninput="doQ()"></div>
 <div class="main">
@@ -288,6 +360,7 @@ h1{{font-size:clamp(15px,2.2vw,21px);font-weight:300;letter-spacing:.08em;color:
       <div class="np-lb">Now Playing</div>
       <div class="np-dc"><div class="np-dl"></div><div class="np-dd"></div><div class="np-dl"></div></div>
       <div class="np-tx" id="npTx">——</div>
+      <div class="np-tx-zh" id="npTxZh"></div>
       <div class="np-ix" id="npIx">— / {count}</div>
     </div>
     <div class="stats">
@@ -311,8 +384,14 @@ const fr=document.createDocumentFragment();
 S.forEach((s,i)=>{{
   const d=document.createElement('div');d.className='si';d.id='i'+i;d.onclick=()=>jump(i);
   const ts=document.createElement('span');ts.className='st';ts.textContent=fmt(s.s);
+  const txc=document.createElement('div');txc.className='sx-container';
   const tx=document.createElement('span');tx.className='sx';tx.textContent=s.t;
-  d.appendChild(ts);d.appendChild(tx);fr.appendChild(d);
+  txc.appendChild(tx);
+  if(s.t_zh){{
+    const tx_zh=document.createElement('div');tx_zh.className='sx-zh';tx_zh.textContent=s.t_zh;
+    txc.appendChild(tx_zh);
+  }}
+  d.appendChild(ts);d.appendChild(txc);fr.appendChild(d);
 }});
 sl.appendChild(fr);
 function fmt(v){{const h=Math.floor(v/3600),m=Math.floor((v%3600)/60),s=Math.floor(v%60);return h>0?[h,m,s].map(x=>String(x).padStart(2,'0')).join(':'):[m,s].map(x=>String(x).padStart(2,'0')).join(':');}}
@@ -322,8 +401,20 @@ function act(idx){{
   if(idx===cur)return;
   if(cur>=0){{const e=document.getElementById('i'+cur);if(e)e.classList.remove('act');}}
   cur=idx;
-  if(idx>=0){{const e=document.getElementById('i'+idx);if(e){{e.classList.add('act');if(aF)e.scrollIntoView({{behavior:'smooth',block:'center'}});}}
-  document.getElementById('npTx').textContent=S[idx].t;document.getElementById('npIx').textContent=(idx+1)+' / '+S.length;}}
+  if(idx>=0){{
+    const e=document.getElementById('i'+idx);
+    if(e){{e.classList.add('act');if(aF)e.scrollIntoView({{behavior:'smooth',block:'center'}});}}
+    document.getElementById('npTx').textContent=S[idx].t;
+    const npTxZh = document.getElementById('npTxZh');
+    if (S[idx].t_zh) {{
+        npTxZh.textContent = S[idx].t_zh;
+        npTxZh.style.display = document.body.classList.contains('show-zh') ? 'block' : 'none';
+    }} else {{
+        npTxZh.textContent = '';
+        npTxZh.style.display = 'none';
+    }}
+    document.getElementById('npIx').textContent=(idx+1)+' / '+S.length;
+  }}
 }}
 function jump(i){{ct=S[i].s;act(i);upd();}}
 function upd(){{const p=(ct/DUR)*100;document.getElementById('pf').style.width=p+'%';document.getElementById('tL').textContent=fmtF(ct);document.getElementById('sTm').textContent=fmtF(ct);document.getElementById('sPct').textContent=Math.round(p)+'%';}}
@@ -333,7 +424,8 @@ requestAnimationFrame(frame);
 document.addEventListener('keydown',e=>{{if(e.target.tagName==='INPUT')return;if(e.code==='Space'){{e.preventDefault();play=!play;if(play)lT=null;}}if(e.code==='ArrowRight'){{ct=Math.min(DUR,ct+10);act(fi(ct));upd();}}if(e.code==='ArrowLeft'){{ct=Math.max(0,ct-10);act(fi(ct));upd();}}}});
 function tA(){{aF=!aF;document.getElementById('btnA').classList.toggle('on',aF);}}
 function tC(){{cpt=!cpt;document.getElementById('btnC').classList.toggle('on',cpt);document.querySelectorAll('.si').forEach(l=>{{l.style.paddingTop=cpt?'4px':'';l.style.paddingBottom=cpt?'4px':'';l.style.marginBottom=cpt?'0':'';}});document.querySelectorAll('.sx').forEach(t=>{{t.style.fontSize=cpt?'12.5px':'';}});}}
-function doQ(){{const q=document.getElementById('q').value.trim();let cnt=0;document.querySelectorAll('.si').forEach((line,i)=>{{const tx=line.querySelector('.sx');if(q&&S[i].t.includes(q)){{line.classList.add('sm');const ps=S[i].t.split(q);tx.innerHTML='';ps.forEach((p,pi)=>{{tx.appendChild(document.createTextNode(p));if(pi<ps.length-1){{const mk=document.createElement('mark');mk.textContent=q;tx.appendChild(mk);}}}});cnt++;}}else{{line.classList.remove('sm');tx.textContent=S[i].t;}}}});const row=document.getElementById('sqR');if(q){{row.style.display='flex';document.getElementById('sqC').textContent=cnt+' 处';const f=document.querySelector('.sm');if(f)f.scrollIntoView({{behavior:'smooth',block:'center'}});}}else row.style.display='none';}}
+function tT(){{document.body.classList.toggle('show-zh');document.getElementById('btnT').classList.toggle('on'); act(cur);}}
+function doQ(){{const q=document.getElementById('q').value.trim().toLowerCase();let cnt=0;document.querySelectorAll('.si').forEach((line,i)=>{{const sx=line.querySelector('.sx');const sz=line.querySelector('.sx-zh');const match = q === '' || S[i].t.toLowerCase().includes(q) || (S[i].t_zh && S[i].t_zh.toLowerCase().includes(q));if(match){{line.classList.remove('hidden');cnt++;}}else{{line.classList.add('hidden');}} }});const row=document.getElementById('sqR');if(q){{row.style.display='flex';document.getElementById('sqC').textContent=cnt+' 处';}}else{{row.style.display='none';document.querySelectorAll('.si.hidden').forEach(l=>l.classList.remove('hidden'));}}}}
 </script>
 </body>
 </html>"""
@@ -810,6 +902,8 @@ def main():
                 if not subs:
                     print(f"  ⚠ 未解析到字幕，跳过")
                     continue
+
+                subs, title = add_translation(subs, title)
                 html = build_html(subs, title)
                 
                 # Check if file exists and content is same to preserve mtime

@@ -23,6 +23,7 @@ from scripts.build_subtitle import (
     derive_output_name_upload,
     derive_title,
     rebuild_index_from_subtitle_dir,
+    add_translation,
     OUTPUT_DIR,
     SUPPORTED_EXT,
 )
@@ -77,6 +78,8 @@ def upload_subtitle():
     out_path = OUTPUT_DIR / out_name
 
     try:
+        # 尝试添加翻译
+        subs, title = add_translation(subs, title)
         html = build_html(subs, title)
         out_path.write_text(html, encoding="utf-8")
     except Exception as e:
