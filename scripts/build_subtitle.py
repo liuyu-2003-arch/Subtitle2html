@@ -10,6 +10,7 @@ scripts/build_subtitle.py
 
 import re
 import json
+import hashlib
 from pathlib import Path
 from datetime import datetime
 
@@ -141,7 +142,14 @@ def derive_output_name(stem: str) -> str:
     ascii_part = re.sub(r"[^\x00-\x7F]", "-", stem)
     ascii_part = re.sub(r"[^a-zA-Z0-9]+", "-", ascii_part)
     ascii_part = ascii_part.strip("-").lower()
-    return (ascii_part or "subtitle") + ".html"
+    
+    # Generate a short hash of the full stem to ensure uniqueness
+    hash_suffix = hashlib.md5(stem.encode("utf-8")).hexdigest()[:6]
+    
+    if not ascii_part:
+        return f"sub-{hash_suffix}.html"
+        
+    return f"{ascii_part}-{hash_suffix}.html"
 
 def derive_title(stem: str) -> str:
     return stem.replace("_", " ").strip()
@@ -288,7 +296,7 @@ function frame(ts){{if(play){{if(lT!==null){{ct+=(ts-lT)/1000;if(ct>DUR){{ct=DUR
 requestAnimationFrame(frame);
 document.addEventListener('keydown',e=>{{if(e.target.tagName==='INPUT')return;if(e.code==='Space'){{e.preventDefault();play=!play;if(play)lT=null;}}if(e.code==='ArrowRight'){{ct=Math.min(DUR,ct+10);act(fi(ct));upd();}}if(e.code==='ArrowLeft'){{ct=Math.max(0,ct-10);act(fi(ct));upd();}}}});
 function tA(){{aF=!aF;document.getElementById('btnA').classList.toggle('on',aF);}}
-function tC(){{cpt=!cpt;document.getElementById('btnC').classList.toggle('on',cpt);document.querySelectorAll('.si').forEach(l=>{{l.style.paddingTop=cpt?'4px':'';l.style.paddingBottom=cpt?'4px':'';l.style.marginBottom=cpt?'0':'';}});document.querySelectorAll('.sx').forEach(t=>{{t.style.fontSize=cpt?'12.5px':'';}}); }}
+function tC(){{cpt=!cpt;document.getElementById('btnC').classList.toggle('on',cpt);document.querySelectorAll('.si').forEach(l=>{{l.style.paddingTop=cpt?'4px':'';l.style.paddingBottom=cpt?'4px':'';l.style.marginBottom=cpt?'0':'';}});document.querySelectorAll('.sx').forEach(t=>{{t.style.fontSize=cpt?'12.5px':'';}); }}
 function doQ(){{const q=document.getElementById('q').value.trim();let cnt=0;document.querySelectorAll('.si').forEach((line,i)=>{{const tx=line.querySelector('.sx');if(q&&S[i].t.includes(q)){{line.classList.add('sm');const ps=S[i].t.split(q);tx.innerHTML='';ps.forEach((p,pi)=>{{tx.appendChild(document.createTextNode(p));if(pi<ps.length-1){{const mk=document.createElement('mark');mk.textContent=q;tx.appendChild(mk);}}}});cnt++;}}else{{line.classList.remove('sm');tx.textContent=S[i].t;}}}});const row=document.getElementById('sqR');if(q){{row.style.display='flex';document.getElementById('sqC').textContent=cnt+' 处';const f=document.querySelector('.sm');if(f)f.scrollIntoView({{behavior:'smooth',block:'center'}});}}else row.style.display='none';}}
 </script>
 </body>
