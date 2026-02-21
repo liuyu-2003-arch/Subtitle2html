@@ -584,7 +584,8 @@ h1{font-size:clamp(15px,2.2vw,21px);font-weight:300;letter-spacing:.08em;color:#
 .sr{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border);font-size:11px;letter-spacing:.04em}
 .sr-l{color:var(--text-mute);font-family:'Crimson Pro',serif}
 .sr-v{color:var(--text-dim)}
-.pw{position:fixed;bottom:0;left:0;right:0;z-index:100;padding:14px 40px 18px;background:linear-gradient(to top,rgba(10,10,12,.97) 55%,transparent)}
+.pw{position:fixed;bottom:0;left:0;right:0;z-index:100;padding:14px 20px 18px;background:linear-gradient(to top,rgba(10,10,12,.97) 55%,transparent);display:flex;align-items:center;gap:10px}
+.pp-btn{background:none;border:1px solid var(--border);color:var(--text-dim);width:32px;height:32px;border-radius:50%;font-size:14px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;padding-left:3px;flex-shrink:0}.pp-btn:hover{border-color:var(--gold);color:var(--gold)}.pp-btn.playing{padding-left:0;font-size:12px}
 .td{display:flex;justify-content:space-between;font-family:'Crimson Pro',serif;font-size:11px;color:var(--text-dim);letter-spacing:.08em;margin-bottom:6px}
 .pb{width:100%;height:2px;background:var(--text-mute);cursor:pointer;border-radius:1px}
 .pf{height:100%;background:linear-gradient(to right,var(--gold),var(--gold2));border-radius:1px;width:0%;pointer-events:none}
@@ -624,8 +625,11 @@ h1{font-size:clamp(15px,2.2vw,21px);font-weight:300;letter-spacing:.08em;color:#
   </aside>
 </div>
 <div class="pw">
-  <div class="td"><span id="tL">00:00:00</span><span id="tR">${fmtFull(totalDuration)}</span></div>
-  <div class="pb" id="pb" onclick="seek(event)"><div class="pf" id="pf"></div></div>
+  <button class="pp-btn" id="playBtn" onclick="togglePlay()">▶</button>
+  <div style="flex:1">
+    <div class="td"><span id="tL">00:00:00</span><span id="tR">${fmtFull(totalDuration)}</span></div>
+    <div class="pb" id="pb" onclick="seek(event)"><div class="pf" id="pf"></div></div>
+  </div>
 </div>
 <script>
 const S=${subsJson},DUR=${totalDuration};
@@ -651,10 +655,12 @@ function act(idx){
 }
 function jump(i){ct=S[i].s;act(i);upd();}
 function upd(){const p=(ct/DUR)*100;document.getElementById('pf').style.width=p+'%';document.getElementById('tL').textContent=fmtF(ct);document.getElementById('sTm').textContent=fmtF(ct);document.getElementById('sPct').textContent=Math.round(p)+'%';}
-function seek(e){const r=document.getElementById('pb').getBoundingClientRect();ct=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width))*DUR;act(fi(ct));upd();play=true;lT=null;}
-function frame(ts){if(play){if(lT!==null){ct+=(ts-lT)/1000;if(ct>DUR){ct=DUR;play=false;}act(fi(ct));upd();}lT=ts;}else lT=null;requestAnimationFrame(frame);}
+function seek(e){const r=document.getElementById('pb').getBoundingClientRect();ct=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width))*DUR;act(fi(ct));upd();if(!play)togglePlay();}
+function frame(ts){if(play){if(lT!==null){ct+=(ts-lT)/1000;if(ct>DUR){ct=DUR;play=false;updatePlayBtn()}act(fi(ct));upd();}lT=ts;}else lT=null;requestAnimationFrame(frame);}
 requestAnimationFrame(frame);
-document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;if(e.code==='Space'){e.preventDefault();play=!play;if(play)lT=null;}if(e.code==='ArrowRight'){ct=Math.min(DUR,ct+10);act(fi(ct));upd();}if(e.code==='ArrowLeft'){ct=Math.max(0,ct-10);act(fi(ct));upd();}});
+function togglePlay(){play=!play;if(play)lT=null;updatePlayBtn();}
+function updatePlayBtn(){const b=document.getElementById('playBtn');if(play){b.innerHTML='❚❚';b.classList.add('playing');}else{b.innerHTML='▶';b.classList.remove('playing');}}
+document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;if(e.code==='Space'){e.preventDefault();togglePlay();}if(e.code==='ArrowRight'){ct=Math.min(DUR,ct+10);act(fi(ct));upd();}if(e.code==='ArrowLeft'){ct=Math.max(0,ct-10);act(fi(ct));upd();}});
 function tA(){aF=!aF;document.getElementById('btnA').classList.toggle('on',aF);}
 function tC(){cpt=!cpt;document.getElementById('btnC').classList.toggle('on',cpt);document.querySelectorAll('.si').forEach(l=>{l.style.paddingTop=cpt?'4px':'';l.style.paddingBottom=cpt?'4px':'';l.style.marginBottom=cpt?'0':'';});document.querySelectorAll('.sx').forEach(t=>{t.style.fontSize=cpt?'12.5px':'';});}
 function doQ(){const q=document.getElementById('q').value.trim();let cnt=0;document.querySelectorAll('.si').forEach((line,i)=>{const tx=line.querySelector('.sx');if(q&&S[i].t.includes(q)){line.classList.add('sm');const ps=S[i].t.split(q);tx.innerHTML='';ps.forEach((p,pi)=>{tx.appendChild(document.createTextNode(p));if(pi<ps.length-1){const mk=document.createElement('mark');mk.textContent=q;tx.appendChild(mk);}});cnt++;}else{line.classList.remove('sm');tx.textContent=S[i].t;}});const row=document.getElementById('sqR');if(q){row.style.display='flex';document.getElementById('sqC').textContent=cnt+' 处';const f=document.querySelector('.sm');if(f)f.scrollIntoView({behavior:'smooth',block:'center'});}else row.style.display='none';}
