@@ -399,19 +399,6 @@ body::before{{content:'';position:fixed;inset:0;background-image:url("data:image
 .deco-line{{width:48px;height:1px;background:linear-gradient(to right,var(--gold),transparent);opacity:.4;}}
 .deco-dot{{width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.5;}}
 
-/* Stats bar */
-.statsbar{{
-  position:relative;z-index:1;
-  max-width:1100px;margin:0 auto;
-  padding:20px 60px;
-  display:flex;gap:40px;align-items:center;
-  border-bottom:1px solid var(--border);
-}}
-.stat{{display:flex;flex-direction:column;gap:3px;}}
-.stat-val{{font-family:'Crimson Pro',serif;font-size:22px;font-weight:300;color:#f0ece4;letter-spacing:.04em;}}
-.stat-label{{font-family:'Crimson Pro',serif;font-size:11px;color:var(--text-mute);letter-spacing:.1em;}}
-.stat-sep{{width:1px;height:32px;background:var(--border);}}
-
 /* Search */
 .search-wrap{{
   position:relative;z-index:1;
@@ -429,13 +416,13 @@ body::before{{content:'';position:fixed;inset:0;background-image:url("data:image
 .search-input::placeholder{{color:var(--text-mute);}}
 .search-input:focus{{border-color:rgba(201,168,76,.4);}}
 
-/* Grid */
+/* Grid - 一行展示一个网页 */
 .grid{{
   position:relative;z-index:1;
   max-width:1100px;margin:0 auto;
   padding:0 60px 80px;
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  grid-template-columns:1fr;
   gap:12px;
 }}
 
@@ -496,24 +483,26 @@ body::before{{content:'';position:fixed;inset:0;background-image:url("data:image
   color:var(--text-mute);font-style:italic;
 }}
 
-/* Footer */
+/* Footer - 底部展示统计与说明 */
 footer{{
   position:relative;z-index:1;
-  text-align:center;padding:32px;
+  text-align:center;padding:40px 32px;
   font-family:'Crimson Pro',serif;font-size:11px;
   color:var(--text-mute);letter-spacing:.1em;
   border-top:1px solid var(--border);
+  display:flex;flex-direction:column;gap:8px;align-items:center;
 }}
+footer .footer-desc{{color:var(--text-dim);}}
+footer .footer-meta{{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;}}
 
 /* Curtain */
 .curtain{{position:fixed;inset:0;background:#000;z-index:9998;animation:cr 1s ease forwards .05s}}
 @keyframes cr{{to{{opacity:0;pointer-events:none}}}}
 
 @media(max-width:768px){{
-  .hero,.statsbar,.search-wrap,.grid{{padding-left:20px;padding-right:20px;}}
+  .hero,.search-wrap,.grid{{padding-left:20px;padding-right:20px;}}
   .hero{{padding-top:48px;padding-bottom:36px;}}
   .grid{{grid-template-columns:1fr;}}
-  .statsbar{{gap:20px;flex-wrap:wrap;}}
 }}
 </style>
 </head>
@@ -523,22 +512,9 @@ footer{{
 <div class="hero">
   <div class="hero-label">字幕收藏</div>
   <div class="hero-title">字幕阅读<br>归档</div>
-  <div class="hero-sub">所有字幕页面，由 GitHub Actions 自动生成</div>
   <div class="hero-deco">
     <div class="deco-line"></div>
     <div class="deco-dot"></div>
-  </div>
-</div>
-
-<div class="statsbar">
-  <div class="stat">
-    <div class="stat-val" id="totalPages">{total_pages}</div>
-    <div class="stat-label">篇内容</div>
-  </div>
-  <div class="stat-sep"></div>
-  <div class="stat">
-    <div class="stat-val">{now}</div>
-    <div class="stat-label">最后更新</div>
   </div>
 </div>
 
@@ -548,7 +524,14 @@ footer{{
 
 {"<div class='grid' id='grid'>" + cards_html + "</div>" if pages else "<div class='empty'>暂无字幕页面，上传字幕文件后自动生成</div>"}
 
-<footer>自动生成于 {now} · Subtitle2html</footer>
+<footer>
+  <div class="footer-desc">所有字幕页面，由 GitHub Actions 自动生成</div>
+  <div class="footer-meta">
+    <span id="totalPages">{total_pages} 篇内容</span>
+    <span>{now} 最后更新</span>
+  </div>
+  <div>Subtitle2html</div>
+</footer>
 
 <script>
 function filterCards() {{
@@ -558,7 +541,7 @@ function filterCards() {{
     card.classList.toggle('hidden', q !== '' && !title.includes(q));
   }});
   const visible = document.querySelectorAll('.card:not(.hidden)').length;
-  document.getElementById('totalPages').textContent = q ? visible : {total_pages};
+  document.getElementById('totalPages').textContent = (q ? visible : {total_pages}) + ' 篇内容';
 }}
 </script>
 </body>
