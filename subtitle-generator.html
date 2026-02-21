@@ -200,7 +200,8 @@ body::before {
 .progress-bar { height: 3px; background: var(--bg3); border-radius: 2px; overflow: hidden; }
 .progress-fill { height: 100%; background: linear-gradient(to right, var(--accent), var(--accent2)); border-radius: 2px; width: 0%; transition: width 0.3s; }
 
-/* Download */
+/* Action buttons */
+.action-btns { display: flex; gap: 10px; flex-direction: column; }
 .dl-btn {
   width: 100%;
   padding: 13px;
@@ -216,6 +217,13 @@ body::before {
 }
 .dl-btn:hover { background: rgba(74,222,128,0.15); }
 .dl-btn.visible { display: block; }
+.preview-btn {
+  background: rgba(91,143,255,0.1);
+  border-color: rgba(91,143,255,0.3);
+  color: var(--accent2);
+}
+.preview-btn:hover { background: rgba(91,143,255,0.15); }
+.preview-btn.visible { display: block; }
 
 /* Tips */
 .tips { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
@@ -293,14 +301,19 @@ body::before {
       <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
     </div>
 
-    <button class="dl-btn" id="dlBtn" onclick="downloadFile()">
-      ⬇ 下载 HTML 文件
-    </button>
+    <div class="action-btns">
+      <button class="dl-btn preview-btn" id="previewBtn" onclick="previewPage()">
+        👁 预览网页
+      </button>
+      <button class="dl-btn" id="dlBtn" onclick="downloadFile()">
+        ⬇ 下载 HTML 文件
+      </button>
+    </div>
 
     <div class="tips">
       <div class="tips-title">使用说明</div>
       <div class="tip-row"><span class="tip-key">1.</span><span>拖入或点击上传字幕文件</span></div>
-      <div class="tip-row"><span class="tip-key">2.</span><span>点击生成，下载 HTML（标题自动取文件名）</span></div>
+      <div class="tip-row"><span class="tip-key">2.</span><span>点击生成，可预览或下载 HTML（标题自动取文件名）</span></div>
       <div class="tip-row"><span class="tip-key">3.</span><span>放入 <code style="color:var(--accent);font-size:10px">subtitle/</code> 文件夹推送 GitHub Pages 即可访问</span></div>
       <div class="tip-row" style="margin-top:6px;padding-top:8px;border-top:1px solid var(--border)">
         <span class="tip-key">↔</span>
@@ -472,6 +485,7 @@ function generate() {
   const btn = document.getElementById('genBtn');
   btn.disabled = true;
   document.getElementById('dlBtn').classList.remove('visible');
+  document.getElementById('previewBtn').classList.remove('visible');
   clearLog();
 
   const dispTitle  = pageTitle;
@@ -488,6 +502,7 @@ function generate() {
       log(`  标题: ${dispTitle}`, 'dim');
       log(`  文件: ${outputFilename}`, 'dim');
       log(`  大小: ${(generatedHTML.length / 1024).toFixed(1)} KB`, 'dim');
+      document.getElementById('previewBtn').classList.add('visible');
       document.getElementById('dlBtn').classList.add('visible');
     } catch (err) {
       log(`✗ 生成失败: ${err.message}`, 'err');
@@ -646,6 +661,16 @@ function doQ(){const q=document.getElementById('q').value.trim();let cnt=0;docum
 <\/script>
 </body>
 </html>`;
+}
+
+// ── PREVIEW ──
+function previewPage() {
+  if (!generatedHTML) return;
+  const blob = new Blob([generatedHTML], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  window.open(url, '_blank', 'noopener');
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  log('✓ 已在新标签页打开预览', 'ok');
 }
 
 // ── DOWNLOAD ──
